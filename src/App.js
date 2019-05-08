@@ -19,13 +19,13 @@ class App extends Component {
     
 
     <header>
-      // header goes here
-            // <img src="images/logo.png" alt="Logo" title="To Sweden" /> 
+      {/* header goes here*/}
+    {/*<img src="images/logo.png" alt="Logo" title="To Sweden" />*/} 
     </header>
 
 
     <nav>
-          // menu block goes here
+          {/*menu block goes here*/ }
           <ul>
             <li>Search Trips</li>
             <li>About the Event</li>
@@ -78,10 +78,10 @@ class App extends Component {
                     <option value="Falun">Falun</option>
             </select>
           </fieldset>
-
-           //put these into 2 flexboxes ?
-           //In order to position them next to each other
-           //And border = 0 for the fieldset ?
+          
+          {/*put these into 2 flexboxes*/}
+          {/*In order to position them next to each other*/}
+          {/*And border = 0 for the fieldset*/}
         
           <fieldset>
             <legend>Departure date</legend>
