@@ -75,10 +75,6 @@ class Aside extends Component {
             </form>
         </aside>
         )
-
-
-
-
     }
 }
 
