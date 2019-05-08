@@ -1,0 +1,26 @@
+.Flex-container {
+  display: flex;
+}
+
+.Nav-container {
+  flex-direction: row;
+}
+
+.Header-text {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #006699;
+}
+
+.Info-text {
+  font-family: 'Lato', sans-serif;
+  color: #ffcc00;
+}
+
+.Footer-container {
+  display: flex;
+}
+
+.Aside-container {
+  display: flex;
+}
