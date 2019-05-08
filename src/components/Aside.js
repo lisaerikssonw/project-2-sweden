@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Aside extends Component {
     render() {
         return (
-            <aside>
+        <aside>
             <form>
                 <fieldset>
                     <img src="images/icons/search.svg"
