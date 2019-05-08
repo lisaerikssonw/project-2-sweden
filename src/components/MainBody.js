@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 
 class MainBody extends Component {
     render() {
-        
-
         if(this.props.page==="home"){
             return (
             <div>

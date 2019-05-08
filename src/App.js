@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
+import Header from './components/Header';
 require('dotenv').config();
 
 class App extends Component {
@@ -19,23 +20,17 @@ class App extends Component {
         <div className="App">
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
-
-
-            <header>
-              {/*header goes here */}
-              {/* <img src="images/logo.png" alt="Logo" title="To Sweden" /> */}
-            </header>
-
-
+            <Header/>
             <nav>
-              {/* menu block goes here*/}
-              <ul>
-                <li>Search Trips</li>
-                <li>About the Event</li>
-                <li><href onClick={()=> this.setState({page:"falun"})}>About Falun</href></li>
-                <li>View Recommendations</li>
-              </ul>
-            </nav>
+            {/* menu block goes here*/}
+            <ul>
+              <li><a href onClick={()=> this.setState({page:"home"})}>Home</a></li>
+              <li>Search Trips</li>
+              <li>About the Event</li>
+              <li><a href onClick={()=> this.setState({page:"falun"})}>About Falun</a></li>
+              <li>View Recommendations</li>
+            </ul>
+          </nav>
 
             <hr/>
             <MainBody page={this.state.page}/>
