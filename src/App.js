@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Aside from './components/Aside';
-import Article from './components/Article';
+import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 require('dotenv').config();
 
@@ -33,15 +32,13 @@ class App extends Component {
               <ul>
                 <li>Search Trips</li>
                 <li>About the Event</li>
-                <li>About our Destinations</li>
+                <li><href onClick={()=> this.setState({page:"falun"})}>About Falun</href></li>
                 <li>View Recommendations</li>
               </ul>
             </nav>
 
             <hr/>
-            <Aside/>
-            <hr/>
-            <Article/>
+            <MainBody page={this.state.page}/>
             <hr />
             <Footer/>
           </main>
