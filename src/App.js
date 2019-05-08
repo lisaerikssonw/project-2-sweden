@@ -19,13 +19,22 @@ class App extends Component {
     
 
     <header>
+<<<<<<< HEAD
       {/* header goes here*/}
     {/*<img src="images/logo.png" alt="Logo" title="To Sweden" />*/} 
+=======
+    {/*header goes here */} 
+            {/* <img src="images/logo.png" alt="Logo" title="To Sweden" /> */}
+>>>>>>> 245539ab1ba669b4e7ee8e5df5b1cdc935e0f409
     </header>
 
 
     <nav>
+<<<<<<< HEAD
           {/*menu block goes here*/ }
+=======
+          {/* menu block goes here*/}
+>>>>>>> 245539ab1ba669b4e7ee8e5df5b1cdc935e0f409
           <ul>
             <li>Search Trips</li>
             <li>About the Event</li>
@@ -78,10 +87,17 @@ class App extends Component {
                     <option value="Falun">Falun</option>
             </select>
           </fieldset>
+<<<<<<< HEAD
           
           {/*put these into 2 flexboxes*/}
           {/*In order to position them next to each other*/}
           {/*And border = 0 for the fieldset*/}
+=======
+
+           {/*put these into 2 flexboxes ?
+           In order to position them next to each other
+           And border = 0 for the fieldset ?*/}
+>>>>>>> 245539ab1ba669b4e7ee8e5df5b1cdc935e0f409
         
           <fieldset>
             <legend>Departure date</legend>
@@ -98,8 +114,8 @@ class App extends Component {
             alt="Going home date"
             title="Choose date" />
             <p>
-            // popup window of the schedule?
-            //perhaps some javascript?
+            {/* popup window of the schedule?
+            //perhaps some javascript?*/}
               <small><a href="#schedule">View the Olympic Schedule</a></small>
             </p>
           </fieldset>
