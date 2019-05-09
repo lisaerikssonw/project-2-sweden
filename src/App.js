@@ -6,8 +6,44 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      places: []
+      places: [],
+      origin: '',
+      destination: '',
+      departureDate: '',
+      returnDate: ''
     }
+    this.handleDestination = this.handleDestination.bind(this)
+    this.handleOrigin = this.handleOrigin.bind(this)
+    this.handleDeparture = this.handleDeparture.bind(this)
+    this.handleReturn = this.handleReturn.bind(this)
+  }
+
+  handleDestination(event) {
+      this.setState({
+        destination: event.target.value
+      })
+  }
+
+  handleOrigin(event) {
+    this.setState({
+      origin: event.target.value
+    })
+  }
+
+  handleDeparture(event) {
+    this.setState({
+      departureDate: event.target.value
+    })
+  }
+
+  handleReturn(event) {
+    this.setState({
+      returnDate: event.target.value
+    })
+  }
+
+  submitSearch() {
+    console.log(this.state.origin + this.state.destination + this.state.departureDate + this.state.returnDate)
   }
 
   render() {
@@ -19,7 +55,7 @@ class App extends Component {
     
 
     <header>
-    {/*header goes here */} 
+    {/* header goes here */} 
             {/* <img src="images/logo.png" alt="Logo" title="To Sweden" /> */}
     </header>
 
@@ -41,7 +77,7 @@ class App extends Component {
             <img src="images/icons/search.svg"
             alt="Magnifying glass"
             title="Search" />
-            <input list="cities" type="search" name="search" value="From" />
+            <input onChange= {this.handleOrigin} list="cities" type="search" name="search" value="From" />
             <datalist id="cities">
               <option value="🇳🇱 Amsterdam" />
               <option value="🇨🇳 Beijing" />
@@ -72,7 +108,7 @@ class App extends Component {
               <option value="🇨🇭 Zürich"/>
             </datalist>
 
-            <select>
+            <select onChange={this.handleDestination}>
                     <option value="Stockholm">Stockholm</option>
                     <option value="Are">Åre</option>
                     <option value="Falun">Falun</option>
@@ -85,14 +121,14 @@ class App extends Component {
         
           <fieldset>
             <legend>Departure date</legend>
-            <input type="date" />
+            <input onChange={this.handleDeparture} type="date" />
             <img src="images/icons/calendar.svg"
             alt="Departure date"
             title="Choose date" />
           </fieldset>
 
           <fieldset>
-            <legend>Going home date</legend>
+            <legend onChange={this.handleReturn}>Going home date</legend>
             <input type="date" />
             <img src="images/icons/calendar.svg"
             alt="Going home date"
@@ -103,7 +139,7 @@ class App extends Component {
               <small><a href="#schedule">View the Olympic Schedule</a></small>
             </p>
           </fieldset>
-          <button>Search</button>
+          <button onClick={this.submitSearch}>Search</button>
         </form>
     </aside>
 
