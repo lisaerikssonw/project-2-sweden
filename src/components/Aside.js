@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 
 class Aside extends Component {
+
     render() {
         return (
         <aside>
-            <form>
+            <form onSubmit={this.props.submitSearch}>
                 <fieldset>
                     <img src="images/icons/search.svg"
                         alt="Magnifying glass"
                         title="Search" />
-                    <input list="cities" type="search" name="search" value="From" />
+                    <input list="cities" type="search" name="search" defaultValue="From" onChange={this.props.handleOrigin}/>
                     <datalist id="cities">
                         <option value="🇳🇱 Amsterdam" />
                         <option value="🇨🇳 Beijing" />
@@ -40,7 +41,7 @@ class Aside extends Component {
                         <option value="🇨🇭 Zürich" />
                     </datalist>
 
-                    <select>
+                    <select onChange={this.props.handleDestination}>
                         <option value="Stockholm">Stockholm</option>
                         <option value="Are">Åre</option>
                         <option value="Falun">Falun</option>
@@ -53,7 +54,7 @@ class Aside extends Component {
 
                 <fieldset>
                     <legend>Departure date</legend>
-                    <input type="date" />
+                    <input type="date" onChange={this.props.handleDeparture}/>
                     <img src="images/icons/calendar.svg"
                         alt="Departure date"
                         title="Choose date" />
@@ -61,7 +62,7 @@ class Aside extends Component {
 
                 <fieldset>
                     <legend>Going home date</legend>
-                    <input type="date" />
+                    <input type="date" onChange={this.props.handleReturn}/>
                     <img src="images/icons/calendar.svg"
                         alt="Going home date"
                         title="Choose date" />

@@ -12,21 +12,22 @@ class App extends Component {
       page: "home",
       places: [],
       origin: '',
-      destination: '',
+      destination: 'Stockholm',
       departureDate: '',
       returnDate: ''
-      
+
     }
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
     this.handleDeparture = this.handleDeparture.bind(this)
     this.handleReturn = this.handleReturn.bind(this)
+    this.submitSearch = this.submitSearch.bind(this)
   }
 
   handleDestination(event) {
-      this.setState({
-        destination: event.target.value
-      })
+    this.setState({
+      destination: event.target.value
+    })
   }
 
   handleOrigin(event) {
@@ -47,8 +48,8 @@ class App extends Component {
     })
   }
 
-  submitSearch() {
-    console.log(this.state.origin + this.state.destination + this.state.departureDate + this.state.returnDate)
+  submitSearch(event) {
+    event.preventDefault()
   }
 
   render() {
@@ -57,22 +58,28 @@ class App extends Component {
         <div className="App">
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
-            <Header/>
+            <Header />
             <nav>
-            {/* menu block goes here*/}
-            <ul>
-              <li><a href onClick={()=> this.setState({page:"home"})}>Home</a></li>
-              <li>Search Trips</li>
-              <li>About the Event</li>
-              <li><a href onClick={()=> this.setState({page:"falun"})}>About Falun</a></li>
-              <li>View Recommendations</li>
-            </ul>
-          </nav>
+              {/* menu block goes here*/}
+              <ul>
+                <li><a href onClick={() => this.setState({ page: "home" })}>Home</a></li>
+                <li>Search Trips</li>
+                <li>About the Event</li>
+                <li><a href onClick={() => this.setState({ page: "falun" })}>About Falun</a></li>
+                <li>View Recommendations</li>
+              </ul>
+            </nav>
 
-            <hr/>
-            <MainBody page={this.state.page}/>
             <hr />
-            <Footer/>
+            <MainBody 
+            page={this.state.page} 
+            submitSearch={this.submitSearch}
+            handleOrigin={this.handleOrigin}
+            handleDestination={this.handleDestination}
+            handleDeparture={this.handleDeparture}
+            handleReturn={this.handleReturn} />
+            <hr />
+            <Footer />
           </main>
         </div>
       </div>
