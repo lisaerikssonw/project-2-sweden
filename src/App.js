@@ -3,7 +3,7 @@ import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import './components/App.css';
-
+import backgroundImage from "./images/olympic-rings.svg";
 require('dotenv').config();
 
 class App extends Component {
@@ -57,13 +57,13 @@ class App extends Component {
   render() {
     return (
       <div id="root">
-        <div className="App">
+        <div className="App" style={{backgroundImage: `url(${backgroundImage})` }}>
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
             <Header />
             <nav>
             {/* menu block goes here*/}
-            
+
               <div className="nav-container">
                 <button className="button" onClick={()=> this.setState({page:"home"})}>Home</button>
                 <button className="button">Search Trips</button>
@@ -75,15 +75,15 @@ class App extends Component {
                     <a href="#"onClick={()=> this.setState({page:"are"})}>Åre</a>
                   </div>
                 </button>
-                  
+
                   <button className="button">View Recommendations</button>
               </div>
-            
+
           </nav>
 
             <hr />
-            <MainBody 
-            page={this.state.page} 
+            <MainBody
+            page={this.state.page}
             submitSearch={this.submitSearch}
             handleOrigin={this.handleOrigin}
             handleDestination={this.handleDestination}
