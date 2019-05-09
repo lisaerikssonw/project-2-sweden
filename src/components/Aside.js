@@ -7,11 +7,11 @@ class Aside extends Component {
         <aside>
             <form onSubmit={this.props.submitSearch}>
             <div>
-                <fieldset>
+                <fieldset className="from-to">
                     <img src="images/icons/search.svg"
                         alt="Magnifying glass"
                         title="Search" />
-                    <input list="cities" type="search" name="search" defaultValue="From" onChange={this.props.handleOrigin}/>
+                    <input list="cities" type="search" name="search" placeholder="From" onChange={this.props.handleOrigin}/>
                     <datalist id="cities">
                         <option value="🇳🇱 Amsterdam" />
                         <option value="🇨🇳 Beijing" />
@@ -53,8 +53,8 @@ class Aside extends Component {
                 {/*put these into 2 flexboxes ?
            In order to pgosition them next to each other
            And border = 0 for the fieldset ?*/}
-           <div>
-                <fieldset>
+           <div className="departure-home-container">
+                <fieldset className="departure-home">
                     <legend>Departure date</legend>
                     <input type="date" onChange={this.props.handleDeparture}/>
                     <img src="images/icons/calendar.svg"
@@ -62,7 +62,7 @@ class Aside extends Component {
                         title="Choose date" />
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="departure-home">
                     <legend>Going home date</legend>
                     <input type="date" onChange={this.props.handleReturn}/>
                     <img src="images/icons/calendar.svg"
@@ -76,7 +76,7 @@ class Aside extends Component {
                 </fieldset>
                 </div>
                 <div>
-                <button>Search</button>
+                <button className="search-button">Search</button>
                 </div>
             </form>
             </aside>
