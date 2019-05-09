@@ -146,3 +146,28 @@ button:hover{
 
 }
 
+.footer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background:#ffcc00;
+}
+
+.footer-heading {
+  background: #006699;
+  color: #ffcc00;
+}
+
+.footer h1 {
+  font-family: 'Raleway', sans-serif;
+  padding: 5px;
+  margin: 2px;
+  font-size: 23px;
+}
+
+.footer p {
+  font-family: 'Lato', sans-serif;
+}
