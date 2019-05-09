@@ -24,3 +24,10 @@
 .Aside-container {
   display: flex;
 }
+
+.list{
+display: flex;
+flex-direction: row;
+
+
+}

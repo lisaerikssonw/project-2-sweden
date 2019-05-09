@@ -8,6 +8,7 @@ class Article extends Component {
 
               <table>
                 <caption>Search results</caption>
+                <tbody>
                 <tr>
                   <th>Means of Travel</th>
                   <th>Time</th>
@@ -43,6 +44,7 @@ class Article extends Component {
                   <td>10 h</td>
                   <td>700-1000 kr</td>
                 </tr>
+                </tbody>
               </table>
             </article>
         )

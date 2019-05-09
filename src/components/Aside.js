@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 class Aside extends Component {
     render() {
         return (
-        <aside>
-            <form>
-                <fieldset>
+            <aside>
+                <form>
+                    <fieldset>
                     <img src="images/icons/search.svg"
                         alt="Magnifying glass"
                         title="Search" />
-                    <input list="cities" type="search" name="search" value="From" />
+                    <input list="cities" type="search" name="search" defaultValue="From" />
                     <datalist id="cities">
                         <option value="🇳🇱 Amsterdam" />
                         <option value="🇨🇳 Beijing" />
