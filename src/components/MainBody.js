@@ -7,7 +7,11 @@ class MainBody extends Component {
         if(this.props.page==="home"){
             return (
             <div>
-                <Aside/>
+                <Aside submitSearch={this.props.submitSearch}
+                handleOrigin={this.props.handleOrigin}
+                handleDestination={this.props.handleDestination}
+                handleDeparture={this.props.handleDeparture}
+                handleReturn={this.props.handleReturn}/>
                 <Article/>
             </div>
             )
