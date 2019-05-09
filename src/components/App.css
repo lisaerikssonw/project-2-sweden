@@ -23,11 +23,74 @@
 
 .Aside-container {
   display: flex;
+  flex-direction: column; 
 }
 
-.list{
-display: flex;
-flex-direction: row;
 
+
+
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:#006699;
+  color: #ffcc00;
+  z-index: 1;
+}
+
+button {
+
+  width: 15em;
+  border: none;
+  height: 3em;
+  background: #006699;
+  color: #ffcc00;
+}
+
+.nav-container {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #006699;
+
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color:#ffcc00;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-left: 2px inset;
+  
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ffcc00;
+  color:#006699;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  border-bottom: 2px inset #ffcc00;
+  margin: 0px;
+  padding: 0px;
+  
+  
+}
+
+button:hover{
+background:#ffcc00;
+color: #006699;
+border: 1px inset #006699;
+margin: 0px;
+padding: 0px;
 
 }
+
