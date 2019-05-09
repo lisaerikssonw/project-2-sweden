@@ -65,10 +65,10 @@ class App extends Component {
             {/* menu block goes here*/}
             <hr/>
               <div className="nav-container">
-                <button onClick={()=> this.setState({page:"home"})}>Home</button>
-                <button>Search Trips</button>
-                <button>About the Event</button>
-                <button className="dropdown">About our Destinations
+                <button className="button" onClick={()=> this.setState({page:"home"})}>Home</button>
+                <button className="button">Search Trips</button>
+                <button className="button">About the Event</button>
+                <button className="dropdown">About our<br/> Destinations
                   <div className="dropdown-content">
                     <a href="#" onClick={()=> this.setState({page:"falun"})}>Falun</a>
                     <a href="#" onClick={()=> this.setState({page:"stockholm"})}>Stockholm</a>
