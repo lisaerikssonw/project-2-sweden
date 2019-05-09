@@ -26,6 +26,18 @@
   flex-direction: column; 
 }
 
+.falun-container {
+  display: flex;
+}
+
+.info-text {
+  font-family: 'Lato', sans-serif;
+}
+
+.info-img {
+  float: right;
+}
+
 .departure-home-container{
   display: flex;
   flex-direction: row;
@@ -62,10 +74,10 @@ font-family:'lato' , sans-serif;
 
 }
 
-p{
+/* p{
 
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 main{
 
