@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-
+import './App.css';
 class Aside extends Component {
 
     render() {
         return (
         <aside>
             <form onSubmit={this.props.submitSearch}>
+            <div>
                 <fieldset>
                     <img src="images/icons/search.svg"
                         alt="Magnifying glass"
@@ -47,11 +48,12 @@ class Aside extends Component {
                         <option value="Falun">Falun</option>
                     </select>
                 </fieldset>
-
+                </div>
+                
                 {/*put these into 2 flexboxes ?
            In order to pgosition them next to each other
            And border = 0 for the fieldset ?*/}
-
+           <div>
                 <fieldset>
                     <legend>Departure date</legend>
                     <input type="date" onChange={this.props.handleDeparture}/>
@@ -72,9 +74,12 @@ class Aside extends Component {
                         <small><a href="#schedule">View the Olympic Schedule</a></small>
                     </p>
                 </fieldset>
+                </div>
+                <div>
                 <button>Search</button>
+                </div>
             </form>
-        </aside>
+            </aside>
         )
     }
 }
