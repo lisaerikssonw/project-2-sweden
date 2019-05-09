@@ -12,8 +12,46 @@ class App extends Component {
     super(props)
     this.state = {
       page: "home",
-      places: []
+      places: [],
+      origin: '',
+      destination: 'Stockholm',
+      departureDate: '',
+      returnDate: ''
+
     }
+    this.handleDestination = this.handleDestination.bind(this)
+    this.handleOrigin = this.handleOrigin.bind(this)
+    this.handleDeparture = this.handleDeparture.bind(this)
+    this.handleReturn = this.handleReturn.bind(this)
+    this.submitSearch = this.submitSearch.bind(this)
+  }
+
+  handleDestination(event) {
+    this.setState({
+      destination: event.target.value
+    })
+  }
+
+  handleOrigin(event) {
+    this.setState({
+      origin: event.target.value
+    })
+  }
+
+  handleDeparture(event) {
+    this.setState({
+      departureDate: event.target.value
+    })
+  }
+
+  handleReturn(event) {
+    this.setState({
+      returnDate: event.target.value
+    })
+  }
+
+  submitSearch(event) {
+    event.preventDefault()
   }
 
   render() {
@@ -22,7 +60,7 @@ class App extends Component {
         <div className="App">
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
-            <Header/>
+            <Header />
             <nav>
             {/* menu block goes here*/}
             <hr/>
@@ -43,10 +81,16 @@ class App extends Component {
             
           </nav>
 
-            <hr/>
-            <MainBody page={this.state.page}/>
             <hr />
-            <Footer/>
+            <MainBody 
+            page={this.state.page} 
+            submitSearch={this.submitSearch}
+            handleOrigin={this.handleOrigin}
+            handleDestination={this.handleDestination}
+            handleDeparture={this.handleDeparture}
+            handleReturn={this.handleReturn} />
+            <hr />
+            <Footer />
           </main>
         </div>
       </div>
