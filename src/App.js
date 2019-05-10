@@ -63,7 +63,7 @@ class App extends Component {
             <Header />
             <nav>
             {/* menu block goes here*/}
-            <hr/>
+            
               <div className="nav-container">
                 <button className="button" onClick={()=> this.setState({page:"home"})}>Home</button>
                 <button className="button">Search Trips</button>

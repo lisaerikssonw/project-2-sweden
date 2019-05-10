@@ -63,7 +63,7 @@ class Aside extends Component {
                 </fieldset>
 
                 <fieldset className="departure-home">
-                    <legend>Going home date</legend>
+                    <legend>Return date</legend>
                     <input type="date" onChange={this.props.handleReturn}/>
                     <img src="images/icons/calendar.svg"
                         alt="Going home date"
