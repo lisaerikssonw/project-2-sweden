@@ -2,7 +2,7 @@ import './App.css'
 import Article from './Article';
 import Aside from './Aside';
 import FalunText from '../dataTexts/falun-info-text.json';
-import FalunImage from '../images/falun.png'
+//import FalunImage from '../images/falun.png'
 import React, { Component } from 'react';
 
 const falunJson = JSON.stringify(FalunText);
