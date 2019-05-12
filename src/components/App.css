@@ -60,18 +60,12 @@ input {
 }
 
 p{
-
   font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
   max-width: 1200px;
   margin: 0 auto;
-  /* background-repeat: no-repeat;
-  background-image: url("/images/olympic-rings.svg") 50% 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height:100vh; */
 }
 
 caption {
@@ -182,11 +176,6 @@ button:hover{
 
 .footer p {
   font-family: 'Lato', sans-serif;
-}
-
-main {
-  max-width: 1200px;
-  margin: auto 0;
 }
 
 .App {
