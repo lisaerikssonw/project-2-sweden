@@ -3,7 +3,7 @@ import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import './components/App.css';
-import backgroundImage from "./images/olympic-rings.svg";
+import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 
 class App extends Component {
@@ -93,7 +93,7 @@ class App extends Component {
             <Footer />
           </main>
         </div>
-      </div>
+        </div>
     );
   }
 }
