@@ -18,7 +18,8 @@ class MainBody extends Component {
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
                 handleReturn={this.props.handleReturn}/>
-                <Article/>
+                <Article
+                routes={this.props.routes}/>
             </div>
             )
         }else if(this.props.page==="falun"){

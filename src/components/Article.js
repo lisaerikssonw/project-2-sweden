@@ -48,10 +48,6 @@ class Article extends Component {
               </table>
             </article>
         )
-
-
-
-
     }
 }
 
