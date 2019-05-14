@@ -68,7 +68,7 @@ class App extends Component {
                 <button className="button" onClick={()=> this.setState({page:"home"})}><img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />Home</button>
                 <button className="button">Search Trips</button>
                 <button className="button">About the Event</button>
-                <button className="dropdown">About our <br />Destinations
+                <button className="dropdown">About our<br />Destinations
                   <div className="dropdown-content">
                     <a href="#" onClick={()=> this.setState({page:"falun"})}>Falun</a>
                     <a href="#" onClick={()=> this.setState({page:"stockholm"})}>Stockholm</a>
