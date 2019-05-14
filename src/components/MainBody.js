@@ -50,7 +50,7 @@ class MainBody extends Component {
             )
 
         }
-        
+
     }
 
 }
