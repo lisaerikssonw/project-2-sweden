@@ -5,9 +5,11 @@ import Header from './components/Header';
 import './components/App.css';
 import backgroundImage from "./images/olympic-rings.png";
 import { thisTypeAnnotation } from '@babel/types';
+import MediaQuery from 'react-responsive';
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
+const MIN_DEVICE_WIDTH = "481px"; /* used for media queries */
 
 class App extends Component {
 
@@ -94,8 +96,16 @@ class App extends Component {
               {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button" onClick={()=> this.setState({page:"home"})}><img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />Home</button>
+                <button className="button" onClick={()=> this.setState({page:"home"})}>
+
+                <MediaQuery query='(min-device-width: ${MIN_DEVICE_WIDTH})'>
+                  <img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />
+                </MediaQuery>
+
+                Home</button>
                 <button className="button">Search Trips</button>
+
+
                 <button className="button">About the Event</button>
                 <button className="dropdown">About our<br />Destinations
                   <div className="dropdown-content">
