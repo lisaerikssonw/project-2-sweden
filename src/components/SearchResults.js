@@ -3,6 +3,10 @@ import Routes from './Routes'
 
 class SearchResults extends Component {
     render() {
+
+      const routeList = this.props.routes.map(route => {return(
+        <Routes {...route} key={route.id}/>
+      )})
         return (
         <article>
               <h1>Results</h1>
@@ -19,7 +23,7 @@ class SearchResults extends Component {
                   <th>Distance</th>
                   <th>Number of Transitions</th>
                 </tr>
-                <Routes key={this.props.routes.id} routes={this.props.routes}/>
+                {routeList}
                 {/*<tr>
                   <td>
                     <img src="images/icons/train.png"

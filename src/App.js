@@ -56,10 +56,11 @@ class App extends Component {
     })
   }
 
-  submitSearch(event) {
+  async submitSearch(event) {
     event.preventDefault()
 
-    this.sendRequest()
+     this.sendRequest()
+  
   }
 
   sendRequest() {
