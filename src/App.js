@@ -20,7 +20,6 @@ class App extends Component {
       departureDate: '',
       returnDate: '',
       routes: [],
-      places: []
 
     }
     this.handleDestination = this.handleDestination.bind(this)
@@ -62,67 +61,69 @@ class App extends Component {
   }
 
   sendRequest() {
-    fetch(`${url}key=${apiKey}&oName=NewYork&dName=Falun&noRideshare&noMinorStart&noMinorEnd`)
+    fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
+    &noRideshare&noMinorStart&noMinorEnd&noCar`)
       .then(response => response.json())
       .then(data => {
-        
         this.setState({
-          routes: data.routes.map(o => o = {
-            name: o.name, 
-            depPlace: data.places[0].shortName,
-            arrPlace: data.places[1].shortName,
-            distance: o.distance,
-            totalDuration: o.totalDuration,
-            indicativePrices: o.indicativePrices,
-            segments: o.segments
-          }),
-          places: data.places,
+          routes: data.routes.map((route, index) => route = {
+            id: index,
+            name: route.name,
+            departurePlace: data.places[0].shortName,
+            arrivalPlace: data.places[1].shortName,
+            distance: route.distance,
+            totalDuration: route.totalDuration,
+            price: route.indicativePrices[0].price,
+            currency: route.indicativePrices[0].currency,
+            segments: route.segments,
+            vehicles: data.vehicles,
+            places: data.places
+          })
         })
-        this.state.routes.forEach(e => console.log(e))
       })
   }
 
   render() {
     return (
       <div id="root">
-        <div className="App" style={{backgroundImage: `url(${backgroundImage})` }}>
+        <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
             <Header />
             <nav>
-            {/* menu block goes here*/}
+              {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button" onClick={()=> this.setState({page:"home"})}>Home</button>
+                <button className="button" onClick={() => this.setState({ page: "home" })}>Home</button>
                 <button className="button">Search Trips</button>
                 <button className="button">About the Event</button>
-                <button className="dropdown">About our<br/> Destinations
+                <button className="dropdown">About our<br /> Destinations
                   <div className="dropdown-content">
-                    <a href="#" onClick={()=> this.setState({page:"falun"})}>Falun</a>
-                    <a href="#" onClick={()=> this.setState({page:"stockholm"})}>Stockholm</a>
-                    <a href="#"onClick={()=> this.setState({page:"are"})}>Åre</a>
+                    <a href="#" onClick={() => this.setState({ page: "falun" })}>Falun</a>
+                    <a href="#" onClick={() => this.setState({ page: "stockholm" })}>Stockholm</a>
+                    <a href="#" onClick={() => this.setState({ page: "are" })}>Åre</a>
                   </div>
                 </button>
 
-                  <button className="button">View Recommendations</button>
+                <button className="button">View Recommendations</button>
               </div>
 
-          </nav>
+            </nav>
 
             <hr />
             <MainBody
-            page={this.state.page}
-            submitSearch={this.submitSearch}
-            handleOrigin={this.handleOrigin}
-            handleDestination={this.handleDestination}
-            handleDeparture={this.handleDeparture}
-            handleReturn={this.handleReturn} 
-            routes={this.state.routes}/>
+              page={this.state.page}
+              submitSearch={this.submitSearch}
+              handleOrigin={this.handleOrigin}
+              handleDestination={this.handleDestination}
+              handleDeparture={this.handleDeparture}
+              handleReturn={this.handleReturn}
+              routes={this.state.routes} />
             <hr />
             <Footer />
           </main>
         </div>
-        </div>
+      </div>
     );
   }
 }
