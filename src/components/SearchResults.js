@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Routes from './Routes'
 
 class SearchResults extends Component {
     render() {
@@ -10,11 +11,16 @@ class SearchResults extends Component {
                 <caption>Search results</caption>
                 <tbody>
                 <tr>
+                  <th>From</th>
+                  <th>To</th>
                   <th>Means of Travel</th>
                   <th>Time</th>
                   <th>Price</th>
+                  <th>Distance</th>
+                  <th>Number of Transitions</th>
                 </tr>
-                <tr>
+                <Routes key={this.props.routes.id} routes={this.props.routes}/>
+                {/*<tr>
                   <td>
                     <img src="images/icons/train.png"
                       alt="Train"
@@ -43,7 +49,7 @@ class SearchResults extends Component {
                   </td>
                   <td>10 h</td>
                   <td>700-1000 kr</td>
-                </tr>
+                </tr>*/}
                 </tbody>
               </table>
             </article>

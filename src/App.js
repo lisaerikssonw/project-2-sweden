@@ -20,7 +20,8 @@ class App extends Component {
       departureDate: '',
       returnDate: '',
       routes: [],
-      places: []
+      places: [],
+      vehicles: []
 
     }
     this.handleDestination = this.handleDestination.bind(this)
@@ -62,23 +63,26 @@ class App extends Component {
   }
 
   sendRequest() {
-    fetch(`${url}key=${apiKey}&oName=NewYork&dName=Falun&noRideshare&noMinorStart&noMinorEnd`)
+    fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
+    &noRideshare&noMinorStart&noMinorEnd&noCar`)
       .then(response => response.json())
       .then(data => {
         
         this.setState({
-          routes: data.routes.map(o => o = {
+          routes: data.routes.map((o, i) => o = {
+            id: i,
             name: o.name, 
             depPlace: data.places[0].shortName,
             arrPlace: data.places[1].shortName,
             distance: o.distance,
             totalDuration: o.totalDuration,
-            indicativePrices: o.indicativePrices,
-            segments: o.segments
+            price: o.indicativePrices[0].price,
+            currency: o.indicativePrices[0].currency,
+            segments: o.segments,
+            vehicles: data.vehicles
           }),
-          places: data.places,
+          places: data.places
         })
-        this.state.routes.forEach(e => console.log(e))
       })
   }
 

@@ -44,7 +44,7 @@ class SearchForm extends Component {
 
                     <select onChange={this.props.handleDestination}>
                         <option value="Stockholm">Stockholm</option>
-                        <option value="Are">Åre</option>
+                        <option value="Aare">Åre</option>
                         <option value="Falun">Falun</option>
                     </select>
                 </fieldset>
