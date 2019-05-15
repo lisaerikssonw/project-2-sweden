@@ -1,8 +1,8 @@
 import './App.css'
-import Article from './Article';
-import Aside from './Aside';
+import SearchResults from './SearchResults';
+import SearchForm from './SearchForm';
 import FalunText from '../dataTexts/falun-info-text.json';
-import FalunImage from '../images/falun.png'
+//import FalunImage from '../images/falun.png'
 import React, { Component } from 'react';
 
 const falunJson = JSON.stringify(FalunText);
@@ -13,12 +13,13 @@ class MainBody extends Component {
         if(this.props.page==="home"){
             return (
             <div>
-                <Aside submitSearch={this.props.submitSearch}
+                <SearchForm submitSearch={this.props.submitSearch}
                 handleOrigin={this.props.handleOrigin}
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
                 handleReturn={this.props.handleReturn}/>
-                <Article/>
+                <SearchResults
+                routes={this.props.routes}/>
             </div>
             )
         }else if(this.props.page==="falun"){
@@ -49,7 +50,7 @@ class MainBody extends Component {
             )
 
         }
-        
+
     }
 
 }

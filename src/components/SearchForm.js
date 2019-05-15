@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-class Aside extends Component {
+class SearchForm extends Component {
 
     render() {
         return (
@@ -84,4 +84,4 @@ class Aside extends Component {
     }
 }
 
-export default Aside;
+export default SearchForm;

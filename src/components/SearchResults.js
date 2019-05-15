@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Article extends Component {
+class SearchResults extends Component {
     render() {
         return (
         <article>
@@ -48,11 +48,7 @@ class Article extends Component {
               </table>
             </article>
         )
-
-
-
-
     }
 }
 
-export default Article;
+export default SearchResults;

@@ -4,7 +4,10 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import './components/App.css';
 import backgroundImage from "./images/olympic-rings.png";
+import { thisTypeAnnotation } from '@babel/types';
 require('dotenv').config();
+const url = "http://free.rome2rio.com/api/1.4/json/Search?"
+const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
 
 class App extends Component {
 
@@ -12,11 +15,12 @@ class App extends Component {
     super(props)
     this.state = {
       page: "home",
-      places: [],
       origin: '',
       destination: 'Stockholm',
       departureDate: '',
-      returnDate: ''
+      returnDate: '',
+      routes: [],
+      places: []
 
     }
     this.handleDestination = this.handleDestination.bind(this)
@@ -24,6 +28,7 @@ class App extends Component {
     this.handleDeparture = this.handleDeparture.bind(this)
     this.handleReturn = this.handleReturn.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
+    this.sendRequest = this.sendRequest.bind(this)
   }
 
   handleDestination(event) {
@@ -52,6 +57,29 @@ class App extends Component {
 
   submitSearch(event) {
     event.preventDefault()
+
+    this.sendRequest()
+  }
+
+  sendRequest() {
+    fetch(`${url}key=${apiKey}&oName=NewYork&dName=Falun&noRideshare&noMinorStart&noMinorEnd`)
+      .then(response => response.json())
+      .then(data => {
+        
+        this.setState({
+          routes: data.routes.map(o => o = {
+            name: o.name, 
+            depPlace: data.places[0].shortName,
+            arrPlace: data.places[1].shortName,
+            distance: o.distance,
+            totalDuration: o.totalDuration,
+            indicativePrices: o.indicativePrices,
+            segments: o.segments
+          }),
+          places: data.places,
+        })
+        this.state.routes.forEach(e => console.log(e))
+      })
   }
 
   render() {
@@ -88,7 +116,8 @@ class App extends Component {
             handleOrigin={this.handleOrigin}
             handleDestination={this.handleDestination}
             handleDeparture={this.handleDeparture}
-            handleReturn={this.handleReturn} />
+            handleReturn={this.handleReturn} 
+            routes={this.state.routes}/>
             <hr />
             <Footer />
           </main>
