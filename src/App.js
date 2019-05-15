@@ -28,6 +28,8 @@ class App extends Component {
     this.handleReturn = this.handleReturn.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
     this.sendRequest = this.sendRequest.bind(this)
+    this.minutesToHours =this.minutesToHours.bind(this)
+    this.kiloMetersToEUMiles=this.kiloMetersToEUMiles.bind(this)
   }
 
   handleDestination(event) {
@@ -61,6 +63,30 @@ class App extends Component {
   
   }
 
+  minutesToHours(timeInMinutes){
+
+    if(timeInMinutes<60){
+
+      return timeInMinutes + " Min";
+    }else {
+      var sum = timeInMinutes/60;
+      return sum.toFixed(1) + "h";
+
+    }
+  }
+
+  kiloMetersToEUMiles(object){
+
+    if(object.distance<10){
+
+      return object.distance + " KM";
+    }else {
+      var sum = object.distance/10;
+      return sum.toFixed(1) + " Miles";
+
+    }
+  }
+
   sendRequest() {
     fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
     &noRideshare&noMinorStart&noMinorEnd&noCar`)
@@ -79,10 +105,16 @@ class App extends Component {
             currency: o.indicativePrices[0].currency,
             segments: o.segments,
             vehicles: data.vehicles,
-            places: data.places
+            places: data.places,
+            durationHours: this.minutesToHours(o.totalDuration),
+            miles: this.kiloMetersToEUMiles(o),
+            transitDurationInHours: o.name
+            
           })
         })
+        
       })
+      
   }
 
   render() {

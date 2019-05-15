@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Segment from './Segment'
+import './App.css'
 
 class Routes extends Component {
     constructor(props) {
@@ -20,41 +21,39 @@ class Routes extends Component {
 
     render(){
 
-        {/*const segmentList = this.props.segments.map((segment, i) => {return(
-            <Segment {...segment} /> + ","
-        )})*/}
 
         if (this.state.expandMode === false) {
             return (
-                <tr onClick={this.editExpandMode}>
+            
+                <tr className="routes" onClick={this.editExpandMode}>
                     <td>{this.props.depPlace}</td>
                     <td>{this.props.arrPlace}</td>
                     <td>{
                         this.props.segments.map(v => {
-                            return this.props.vehicles[this.props.segments[this.props.segments.indexOf(v)].vehicle].name + " "
+                            return this.props.vehicles[this.props.segments[this.props.segments.indexOf(v)].vehicle].name + ", "
                         }
                         )}
                     </td>
-                    <td>{this.props.totalDuration}</td>
+                    <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
-                    <td>{this.props.distance}</td>
+                    <td>{this.props.miles}</td>
                     <td>{this.props.segments.length}</td>
                 </tr>
             )
         } else {
             return (
-                [       <tr onClick={this.editExpandMode}>
+                [  <tr className="routes" onClick={this.editExpandMode}>
                         <td>{this.props.depPlace}</td>
                         <td>{this.props.arrPlace}</td>
                         <td>{
                             this.props.segments.map(v => {
-                                return this.props.vehicles[this.props.segments[this.props.segments.indexOf(v)].vehicle].name + " "
+                                return this.props.vehicles[this.props.segments[this.props.segments.indexOf(v)].vehicle].name + ", "
                             }
                             )}
                         </td>
-                        <td>{this.props.totalDuration}</td>
+                        <td>{this.props.durationHours}</td>
                         <td>{this.props.price}</td>
-                        <td>{this.props.distance}</td>
+                        <td>{this.props.miles}</td>
                         <td>{this.props.segments.length}</td>
                     </tr>,
 
@@ -62,6 +61,7 @@ class Routes extends Component {
                     segments={this.props.segments}
                     places={this.props.places}
                     vehicles={this.props.vehicles} />
+                    
 
                 ]
             )

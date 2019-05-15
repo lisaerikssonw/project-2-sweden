@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Routes from './Routes'
+import './App.css';
 
 class SearchResults extends Component {
     render() {
 
       const routeList = this.props.routes.map(route => {return(
+        
         <Routes {...route} key={route.id}
         routes={this.props.routes}/>
       )})
