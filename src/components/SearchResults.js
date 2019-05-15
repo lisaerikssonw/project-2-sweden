@@ -5,7 +5,8 @@ class SearchResults extends Component {
     render() {
 
       const routeList = this.props.routes.map(route => {return(
-        <Routes {...route} key={route.id}/>
+        <Routes {...route} key={route.id}
+        routes={this.props.routes}/>
       )})
         return (
         <article>

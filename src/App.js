@@ -20,8 +20,6 @@ class App extends Component {
       departureDate: '',
       returnDate: '',
       routes: [],
-      places: [],
-      vehicles: []
 
     }
     this.handleDestination = this.handleDestination.bind(this)
@@ -56,10 +54,10 @@ class App extends Component {
     })
   }
 
-  async submitSearch(event) {
+  submitSearch(event) {
     event.preventDefault()
 
-     this.sendRequest()
+      this.sendRequest()
   
   }
 
@@ -80,9 +78,9 @@ class App extends Component {
             price: o.indicativePrices[0].price,
             currency: o.indicativePrices[0].currency,
             segments: o.segments,
-            vehicles: data.vehicles
-          }),
-          places: data.places
+            vehicles: data.vehicles,
+            places: data.places
+          })
         })
       })
   }
