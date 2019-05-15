@@ -95,11 +95,6 @@ input.cities {
   font-family: Arial, Helvetica, sans-serif;
 } */
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 caption {
   margin-top: 40px;
   text-align: left;
@@ -218,4 +213,6 @@ button:hover{
   height:100vh;
   background-repeat: no-repeat;
   background-position: center center;
+  max-width: 1200px;
+  margin: 0 auto;
 }

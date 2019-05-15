@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-class Aside extends Component {
+class SearchForm extends Component {
 
     render() {
         return (
@@ -44,7 +44,7 @@ class Aside extends Component {
 
                     <select onChange={this.props.handleDestination}>
                         <option value="Stockholm">Stockholm</option>
-                        <option value="Are">Åre</option>
+                        <option value="Aare">Åre</option>
                         <option value="Falun">Falun</option>
                     </select>
                 </fieldset>
@@ -84,4 +84,4 @@ class Aside extends Component {
     }
 }
 
-export default Aside;
+export default SearchForm;
