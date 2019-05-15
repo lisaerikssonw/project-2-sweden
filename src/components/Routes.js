@@ -8,7 +8,7 @@ class Routes extends Component {
         this.state = {
             expandMode: false
         }
-
+        
         this.editExpandMode = this.editExpandMode.bind(this)
     }
 
@@ -18,20 +18,19 @@ class Routes extends Component {
         })
     }
 
-    render(){
-
-        {/*const segmentList = this.props.segments.map((segment, i) => {return(
-            <Segment {...segment} /> + ","
-        )})*/}
+    render() {
 
         if (this.state.expandMode === false) {
             return (
                 <tr onClick={this.editExpandMode}>
-                    <td>{this.props.depPlace}</td>
-                    <td>{this.props.arrPlace}</td>
+                    <td>{this.props.departurePlace}</td>
+                    <td>{this.props.arrivalPlace}</td>
                     <td>{
-                        this.props.segments.map(v => {
-                            return this.props.vehicles[this.props.segments[this.props.segments.indexOf(v)].vehicle].name + " "
+                        this.props.segments.map(segment => {
+                            const vehicleList = this.props.vehicles
+                            const segmentList = this.props.segments
+
+                            return vehicleList[segmentList[segmentList.indexOf(segment)].vehicle].name + " "
                         }
                         )}
                     </td>
@@ -43,22 +42,25 @@ class Routes extends Component {
             )
         } else {
             return (
-                [       <tr onClick={this.editExpandMode}>
-                        <td>{this.props.depPlace}</td>
-                        <td>{this.props.arrPlace}</td>
-                        <td>{
-                            this.props.segments.map(v => {
-                                return this.props.vehicles[this.props.segments[this.props.segments.indexOf(v)].vehicle].name + " "
-                            }
-                            )}
-                        </td>
-                        <td>{this.props.totalDuration}</td>
-                        <td>{this.props.price}</td>
-                        <td>{this.props.distance}</td>
-                        <td>{this.props.segments.length}</td>
-                    </tr>,
+                [<tr onClick={this.editExpandMode}>
+                    <td>{this.props.departurePlace}</td>
+                    <td>{this.props.arrivalPlace}</td>
+                    <td>{
+                        this.props.segments.map(segment => {
+                            const vehicleList = this.props.vehicles
+                            const segmentList = this.props.segments
 
-                    <Segment 
+                            return vehicleList[segmentList[segmentList.indexOf(segment)].vehicle].name + " "
+                        }
+                        )}
+                    </td>
+                    <td>{this.props.totalDuration}</td>
+                    <td>{this.props.price}</td>
+                    <td>{this.props.distance}</td>
+                    <td>{this.props.segments.length}</td>
+                </tr>,
+
+                <Segment
                     segments={this.props.segments}
                     places={this.props.places}
                     vehicles={this.props.vehicles} />
