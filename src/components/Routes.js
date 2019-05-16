@@ -24,7 +24,12 @@ class Routes extends Component {
         if (this.state.expandMode === false) {
             return (
                 <tr className="routes" onClick={this.editExpandMode}>
-                    <td>{this.props.departurePlace}</td>
+                    <td>
+                        <img src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
+                        alt="Black triangle"
+                        title="Expand" />
+                        {this.props.departurePlace}
+                    </td>
                     <td>{this.props.arrivalPlace}</td>
                     <td className="hidden">{
                         this.props.segments.map(segment => {
@@ -45,7 +50,12 @@ class Routes extends Component {
         } else {
             return (
                 [<tr className="routes" onClick={this.editExpandMode}>
-                    <td>{this.props.departurePlace}</td>
+                    <td>
+                    <img src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
+                        alt="Triangle pointing right"
+                        title="Collapse" />
+                        {this.props.departurePlace}
+                    </td>
                     <td>{this.props.arrivalPlace}</td>
                     <td className="hidden">{
                         this.props.segments.map(segment => {

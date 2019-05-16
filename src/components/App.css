@@ -44,7 +44,6 @@ body {
 
 .icon {
   display: none;
-  position: absolute;
   left: 24.5%;
   top: 1.5%;
 }
@@ -90,12 +89,6 @@ input.cities {
   cursor: text;
 }
 
-
-/* p{
-
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
 caption {
   margin-top: 40px;
   text-align: left;
@@ -108,7 +101,7 @@ th {
 
 td {
     padding-right: 2em;
-    padding-top: 4%;
+    padding-top: 2%;
   }
 
 
@@ -228,6 +221,10 @@ border: 1px solid
 
 table{
   border-collapse:collapse;
+}
+
+table:hover {
+  cursor: help;
 }
 
 .segment{
