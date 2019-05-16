@@ -26,6 +26,7 @@ class App extends Component {
       filterChecked: props.filterChecked || false,
       black: true,
       filterURL: ""
+
     }
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
@@ -103,23 +104,25 @@ class App extends Component {
   }
 
   sendRequest() {
-    fetch(`${url}key=${apiKey}&oName=Berlin&dName=Falun&noRideshare&noMinorStart&noMinorEnd${this.state.filterURL}`)
+    fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
+    &noRideshare&noMinorStart&noMinorEnd&noCar`)
       .then(response => response.json())
       .then(data => {
-
         this.setState({
-          routes: data.routes.map(o => o = {
-            name: o.name,
-            depPlace: data.places[0].shortName,
-            arrPlace: data.places[1].shortName,
-            distance: o.distance,
-            totalDuration: o.totalDuration,
-            indicativePrices: o.indicativePrices,
-            segments: o.segments
-          }),
-          places: data.places,
+          routes: data.routes.map((route, index) => route = {
+            id: index,
+            name: route.name,
+            departurePlace: data.places[0].shortName,
+            arrivalPlace: data.places[1].shortName,
+            distance: route.distance,
+            totalDuration: route.totalDuration,
+            price: route.indicativePrices[0].price,
+            currency: route.indicativePrices[0].currency,
+            segments: route.segments,
+            vehicles: data.vehicles,
+            places: data.places
+          })
         })
-        this.state.routes.forEach(e => console.log(e))
       })
   }
 
@@ -195,6 +198,7 @@ class App extends Component {
               </label>
             </div>
 
+              routes={this.state.routes} />
             <hr />
             <Footer />
           </main>

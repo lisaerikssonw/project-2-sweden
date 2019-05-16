@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import Routes from './Routes'
 
 class SearchResults extends Component {
     render() {
+
+      const routeList = this.props.routes.map(route => {return(
+        <Routes {...route} key={route.id}
+        routes={this.props.routes}/>
+      )})
         return (
         <article>
               <h1>Results</h1>
@@ -10,11 +16,16 @@ class SearchResults extends Component {
                 <caption>Search results</caption>
                 <tbody>
                 <tr>
+                  <th>From</th>
+                  <th>To</th>
                   <th>Means of Travel</th>
                   <th>Time</th>
                   <th>Price</th>
+                  <th>Distance</th>
+                  <th>Number of Transitions</th>
                 </tr>
-                <tr>
+                {routeList}
+                {/*<tr>
                   <td>
                     <img src="images/icons/train.png"
                       alt="Train"
@@ -43,7 +54,7 @@ class SearchResults extends Component {
                   </td>
                   <td>10 h</td>
                   <td>700-1000 kr</td>
-                </tr>
+                </tr>*/}
                 </tbody>
               </table>
             </article>
