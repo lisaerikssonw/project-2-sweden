@@ -114,8 +114,7 @@ class App extends Component {
               {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button hidden" onClick={()=> this.setState({page:"home"})}><img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />Home</button>
-                <button className="button">Search Trips</button>
+                <button className="button" onClick={()=> this.setState({page:"home"})}><img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />Search Trips</button>
                 <button className="button">About the Event</button>
                 <button className="dropdown">About our<br />Destinations
                   <div className="dropdown-content">
