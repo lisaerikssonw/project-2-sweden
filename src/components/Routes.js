@@ -55,7 +55,7 @@ class Routes extends Component {
                         }
                         )}
                     </td>
-                    <td>{this.props.durationHours}</td>
+                    <td>{this.props.durationHourscan}</td>
                     <td>{this.props.price}</td>
                     <td>{this.props.distance}</td>
                     <td>{this.props.segments.length}</td>

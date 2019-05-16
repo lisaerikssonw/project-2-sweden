@@ -67,7 +67,7 @@ class App extends Component {
 
       return timeInMinutes + " Min";
     }else {
-      var sum = timeInMinutes/60;
+      let sum = timeInMinutes/60;
       return sum.toFixed(1) + "h";
 
     }
