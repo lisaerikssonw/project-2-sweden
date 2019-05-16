@@ -96,19 +96,27 @@ input.cities {
 } */
 
 caption {
-  margin-top: 40px;
+  margin-top: 4%;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 2%;
 }
+
 th {
      text-align: left;
-     padding-right: 30px;
+     padding-right: 4em;
     }
 
 td {
-    padding-right: 30px;
-    padding-top: 10px;
+  border: solid 1px black;
+    padding-right: 2em;
+    padding-top: 1em;
   }
+
+
+table {
+
+    border-collapse: collapse;
+}
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {

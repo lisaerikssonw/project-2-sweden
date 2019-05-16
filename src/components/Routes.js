@@ -8,7 +8,7 @@ class Routes extends Component {
         this.state = {
             expandMode: false
         }
-        
+
         this.editExpandMode = this.editExpandMode.bind(this)
     }
 

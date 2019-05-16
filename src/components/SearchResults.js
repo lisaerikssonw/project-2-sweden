@@ -22,7 +22,7 @@ class SearchResults extends Component {
                   <th>Time</th>
                   <th>Price</th>
                   <th>Distance</th>
-                  <th>Number of Transitions</th>
+                  <th>No. Transits</th>
                 </tr>
                 {routeList}
                 {/*<tr>
