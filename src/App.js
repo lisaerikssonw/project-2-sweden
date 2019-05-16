@@ -9,7 +9,6 @@ import MediaQuery from 'react-responsive';
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
-const MIN_DEVICE_WIDTH = "481px"; /* used for media queries */
 
 class App extends Component {
 
@@ -98,24 +97,26 @@ class App extends Component {
               <div className="nav-container">
                 <button className="button" onClick={()=> this.setState({page:"home"})}>
 
-                <MediaQuery query='(min-device-width: ${MIN_DEVICE_WIDTH})'>
-                  <img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />
+                <MediaQuery query="(min-device-width: 481px)">
+                    <img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
+                    alt="Olympic rings"
+                    title="Home" />
                 </MediaQuery>
 
                 Home</button>
                 <button className="button">Search Trips</button>
 
-
                 <button className="button">About the Event</button>
-                <button className="dropdown">About our<br />Destinations
-                  <div className="dropdown-content">
-                    <a href="#" onClick={() => this.setState({ page: "falun" })}>Falun</a>
-                    <a href="#" onClick={() => this.setState({ page: "stockholm" })}>Stockholm</a>
-                    <a href="#" onClick={() => this.setState({ page: "are" })}>Åre</a>
-                  </div>
-                </button>
-
-                <button className="button">View Recommendations</button>
+                <MediaQuery query="(min-device-width: 481px)">
+                    <button className="dropdown">About our<br />Destinations
+                      <div className="dropdown-content">
+                        <a href="#" onClick={() => this.setState({ page: "falun" })}>Falun</a>
+                        <a href="#" onClick={() => this.setState({ page: "stockholm" })}>Stockholm</a>
+                        <a href="#" onClick={() => this.setState({ page: "are" })}>Åre</a>
+                      </div>
+                    </button>
+                    <button className="button">View Recommendations</button>
+                </MediaQuery>
               </div>
 
             </nav>
