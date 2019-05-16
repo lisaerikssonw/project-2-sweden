@@ -42,12 +42,6 @@ body {
   float: right;
 }
 
-.icon {
-  position: absolute;
-  left: 27.5%;
-  top: 1.5%;
-}
-
 .departure-home-container{
   display: flex;
   flex-direction: row;
