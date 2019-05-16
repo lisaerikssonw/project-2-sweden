@@ -127,7 +127,7 @@ button {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown-content div {
   color:#ffcc00;
   padding: 12px 16px;
   text-decoration: none;
@@ -137,7 +137,7 @@ button {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {
+.dropdown-content div:hover {
   background-color: #ffcc00;
   color:#006699;
   border: none;
@@ -198,4 +198,23 @@ button:hover{
   background-position: center center;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.routes {
+
+background:#E0E0E0;
+border: 1px solid 
+
+}
+
+table{
+  border-collapse:collapse;
+}
+
+.segment{
+
+  background: #F8F8F8;
+  border: 1px solid black;
+  margin-left: 5%;
+
 }
