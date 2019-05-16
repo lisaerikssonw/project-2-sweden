@@ -30,8 +30,9 @@ class Routes extends Component {
                         this.props.segments.map(segment => {
                             const vehicleList = this.props.vehicles
                             const segmentList = this.props.segments
+                            const position = segmentList.indexOf(segment);
 
-                            return vehicleList[segmentList[segmentList.indexOf(segment)].vehicle].name + " "
+                            return vehicleList[segmentList[position].vehicle].name + " "
                         }
                         )}
                     </td>

@@ -103,10 +103,6 @@ class App extends Component {
 
 
   render() {
-    const classNames = {
-      'button': true,
-      'hidden': true
-    };
 
     return (
       <div id="root">
@@ -118,7 +114,7 @@ class App extends Component {
               {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button" onClick={()=> this.setState({page:"home"})}><img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />Home</button>
+                <button className="button hidden" onClick={()=> this.setState({page:"home"})}><img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"} alt="Olympic rings" title="Home" />Home</button>
                 <button className="button">Search Trips</button>
                 <button className="button">About the Event</button>
                 <button className="dropdown">About our<br />Destinations
@@ -129,7 +125,7 @@ class App extends Component {
                   </div>
                 </button>
 
-                <button className="button">View Recommendations</button>
+                <button className="button hidden">View Recommendations</button>
               </div>
 
             </nav>
