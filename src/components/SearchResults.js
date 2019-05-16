@@ -7,7 +7,7 @@ class SearchResults extends Component {
 
       const routeList = this.props.routes.map(route => {return(
         
-        <Routes {...route} key={route.id}
+        <Routes minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
         routes={this.props.routes}/>
       )})
         return (

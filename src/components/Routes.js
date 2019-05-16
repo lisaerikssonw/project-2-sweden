@@ -9,7 +9,7 @@ class Routes extends Component {
         this.state = {
             expandMode: false
         }
-        
+
         this.editExpandMode = this.editExpandMode.bind(this)
     }
 
@@ -23,7 +23,7 @@ class Routes extends Component {
 
         if (this.state.expandMode === false) {
             return (
-                <tr onClick={this.editExpandMode}>
+                <tr className="routes" onClick={this.editExpandMode}>
                     <td>{this.props.departurePlace}</td>
                     <td>{this.props.arrivalPlace}</td>
                     <td>{
@@ -37,13 +37,13 @@ class Routes extends Component {
                     </td>
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
-                    <td>{this.props.miles}</td>
+                    <td>{this.props.distance}</td>
                     <td>{this.props.segments.length}</td>
                 </tr>
             )
         } else {
             return (
-                [<tr onClick={this.editExpandMode}>
+                [<tr className="routes" onClick={this.editExpandMode}>
                     <td>{this.props.departurePlace}</td>
                     <td>{this.props.arrivalPlace}</td>
                     <td>{
@@ -55,17 +55,24 @@ class Routes extends Component {
                         }
                         )}
                     </td>
-                    <td>{this.props.totalDuration}</td>
+                    <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
                     <td>{this.props.distance}</td>
                     <td>{this.props.segments.length}</td>
+                </tr>,
+                <tr className="segment">
+                    <th>Departure Place</th>
+                    <th>Arrival Place</th>
+                    <th>Means of Travel</th>
+                    <th>Transit Time</th>
                 </tr>,
 
                 <Segment
                     segments={this.props.segments}
                     places={this.props.places}
-                    vehicles={this.props.vehicles} />
-                    
+                    vehicles={this.props.vehicles}
+                    minutesToHours ={this.props.minutesToHours} />
+
 
                 ]
             )
