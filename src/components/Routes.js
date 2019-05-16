@@ -25,7 +25,8 @@ class Routes extends Component {
             return (
                 <tr className="routes" onClick={this.editExpandMode}>
                     <td>
-                        <img src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
+                        <img className="black-triangle"
+                        src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
                         alt="Black triangle"
                         title="Expand" />
                         {this.props.departurePlace}
@@ -51,7 +52,8 @@ class Routes extends Component {
             return (
                 [<tr className="routes" onClick={this.editExpandMode}>
                     <td>
-                    <img src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
+                    <img className="black-triangle"
+                        src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
                         alt="Triangle pointing right"
                         title="Collapse" />
                         {this.props.departurePlace}
@@ -61,8 +63,9 @@ class Routes extends Component {
                         this.props.segments.map(segment => {
                             const vehicleList = this.props.vehicles
                             const segmentList = this.props.segments
+                            const position = segmentList.indexOf(segment);
 
-                            return vehicleList[segmentList[segmentList.indexOf(segment)].vehicle].name + " "
+                            return vehicleList[segmentList[position].vehicle].name + " "
                         }
                         )}
                     </td>

@@ -48,6 +48,10 @@ body {
   top: 1.5%;
 }
 
+.black-triangle {
+  vertical-align: middle;
+}
+
 .departure-home-container{
   display: flex;
   flex-direction: row;
