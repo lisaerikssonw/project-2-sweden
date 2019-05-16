@@ -3,6 +3,7 @@ import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import './components/App.css';
+import './components/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
@@ -94,7 +95,7 @@ class App extends Component {
             vehicles: data.vehicles,
             places: data.places,
             durationHours: this.minutesToHours(route.totalDuration)
-          }) 
+          })
         })
       })
       .catch(error => console.log(error))
@@ -102,6 +103,11 @@ class App extends Component {
 
 
   render() {
+    const classNames = {
+      'button': true,
+      'hidden': true
+    };
+
     return (
       <div id="root">
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -138,7 +144,7 @@ class App extends Component {
               handleReturn={this.handleReturn}
               routes={this.state.routes}
               minutesToHours = {this.minutesToHours} />
-              
+
             <hr />
             <Footer />
           </main>

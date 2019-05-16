@@ -43,8 +43,9 @@ body {
 }
 
 .icon {
+  display: none;
   position: absolute;
-  left: 27.5%;
+  left: 24.5%;
   top: 1.5%;
 }
 
@@ -102,13 +103,14 @@ caption {
 }
 th {
      text-align: left;
-     padding-right: 30px;
+     padding-right: 2em;
     }
 
 td {
-    padding-right: 30px;
-    padding-top: 10px;
+    padding-right: 2em;
+    padding-top: 4%;
   }
+
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -220,7 +222,7 @@ button:hover{
 .routes {
 
 background:#E0E0E0;
-border: 1px solid 
+border: 1px solid
 
 }
 

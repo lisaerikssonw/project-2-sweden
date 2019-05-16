@@ -26,7 +26,7 @@ class Routes extends Component {
                 <tr className="routes" onClick={this.editExpandMode}>
                     <td>{this.props.departurePlace}</td>
                     <td>{this.props.arrivalPlace}</td>
-                    <td>{
+                    <td className="hidden">{
                         this.props.segments.map(segment => {
                             const vehicleList = this.props.vehicles
                             const segmentList = this.props.segments
@@ -37,8 +37,8 @@ class Routes extends Component {
                     </td>
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
-                    <td>{this.props.distance}</td>
-                    <td>{this.props.segments.length}</td>
+                    <td className="hidden">{this.props.distance}</td>
+                    <td className="hidden">{this.props.segments.length}</td>
                 </tr>
             )
         } else {
@@ -46,7 +46,7 @@ class Routes extends Component {
                 [<tr className="routes" onClick={this.editExpandMode}>
                     <td>{this.props.departurePlace}</td>
                     <td>{this.props.arrivalPlace}</td>
-                    <td>{
+                    <td className="hidden">{
                         this.props.segments.map(segment => {
                             const vehicleList = this.props.vehicles
                             const segmentList = this.props.segments
@@ -57,14 +57,14 @@ class Routes extends Component {
                     </td>
                     <td>{this.props.durationHourscan}</td>
                     <td>{this.props.price}</td>
-                    <td>{this.props.distance}</td>
-                    <td>{this.props.segments.length}</td>
+                    <td className="hidden">{this.props.distance}</td>
+                    <td className="hidden">{this.props.segments.length}</td>
                 </tr>,
                 <tr className="segment">
                     <th>Departure Place</th>
                     <th>Arrival Place</th>
-                    <th>Means of Travel</th>
-                    <th>Transit Time</th>
+                    <th className="hidden">Means of Travel</th>
+                    <th className="hidden">Transit Time</th>
                 </tr>,
 
                 <Segment
