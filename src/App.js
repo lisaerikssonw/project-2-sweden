@@ -95,15 +95,7 @@ class App extends Component {
               {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button" onClick={()=> this.setState({page:"home"})}>
-
-                <MediaQuery query="(min-device-width: 481px)">
-                    <img className="icon" src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
-                    alt="Olympic rings"
-                    title="Home" />
-                </MediaQuery>
-
-                Home</button>
+                <button className="button" onClick={()=> this.setState({page:"home"})}>Home</button>
                 <button className="button">Search Trips</button>
 
                 <button className="button">About the Event</button>
