@@ -79,23 +79,25 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          routes: data.routes.map((route, index) => route = {
+          routes: data.routes.map((route, index) =>
+
+          route = {
             id: index,
             name: route.name,
             departurePlace: data.places[0].shortName,
             arrivalPlace: data.places[1].shortName,
             distance: route.distance + " Km",
             totalDuration: route.totalDuration,
-            price: route.indicativePrices[0].price + " " +  data.currencyCode,
-            currency: route.indicativePrices[0].currency,
+            price: route.indicativePrices ? route.indicativePrices[0].price : "FREE",
+            currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
             places: data.places,
             durationHours: this.minutesToHours(route.totalDuration)
-          })
+          }) 
+        })
       })
-      console.log(this.state.routes)
-    })
+      .catch(error => console.log(error))
   }
 
 
