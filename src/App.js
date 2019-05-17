@@ -88,7 +88,7 @@ class App extends Component {
             arrivalPlace: data.places[1].shortName,
             distance: route.distance + " Km",
             totalDuration: route.totalDuration,
-            price: route.indicativePrices ? route.indicativePrices[0].price : "FREE",
+            price: route.indicativePrices ? route.indicativePrices[0].price + " " + data.currencyCode : "FREE",
             currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
