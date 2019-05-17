@@ -43,9 +43,11 @@ body {
 }
 
 .icon {
-  display: none;
-  left: 24.5%;
+  position: absolute;
+  left: 10.5%;
   top: 1.5%;
+  vertical-align: middle;
+  padding: 0px;
 }
 
 .black-triangle {

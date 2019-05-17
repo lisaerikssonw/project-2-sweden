@@ -5,3 +5,8 @@
   }
 
 }
+@media only screen and (max-width: 999px) {
+  .icon {
+    display: none;
+  }
+}
