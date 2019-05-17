@@ -237,3 +237,7 @@ table:hover {
   margin-left: 5%;
 
 }
+
+::placeholder {
+  color: #EE0000;
+}

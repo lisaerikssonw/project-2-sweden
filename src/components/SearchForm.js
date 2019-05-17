@@ -11,7 +11,12 @@ class SearchForm extends Component {
                     <img src="images/icons/search.svg"
                         alt="Magnifying glass"
                         title="Search" />
-                    <input className="cities" list="cities" type="search" name="search" placeholder="From" onChange={this.props.handleOrigin}/>
+                    <input className="cities"
+                        list="cities"
+                        type="search"
+                        name="search"
+                        placeholder="From"
+                        onChange={this.props.handleOrigin}/>
                     <datalist id="cities">
                         <option value="🇳🇱 Amsterdam" />
                         <option value="🇨🇳 Beijing" />
