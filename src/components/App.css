@@ -50,6 +50,7 @@ body {
 
 .black-triangle {
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .departure-home-container{
@@ -94,9 +95,9 @@ input.cities {
 }
 
 caption {
-  margin-top: 40px;
+  margin-top: 2em;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 1em;
 }
 th {
      text-align: left;
@@ -105,7 +106,7 @@ th {
 
 td {
     padding-right: 2em;
-    padding-top: 2%;
+    padding-top: 1em;
   }
 
 
@@ -137,8 +138,6 @@ button {
   justify-content: center;
   background: #006699;
 
-
-
 }
 
 /* Links inside the dropdown */
@@ -157,8 +156,6 @@ button {
   color:#006699;
   border: none;
 }
-
-
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
