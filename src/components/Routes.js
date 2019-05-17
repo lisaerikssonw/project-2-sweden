@@ -19,6 +19,21 @@ class Routes extends Component {
         })
     }
 
+    getVehicleList() {
+              return (
+              <td className="hidden">{
+                  this.props.segments.map(segment => {
+                      const vehicleList = this.props.vehicles
+                      const segmentList = this.props.segments
+                      const position = segmentList.indexOf(segment);
+
+                      return vehicleList[segmentList[position].vehicle].name + " "
+                  }
+                  )}
+              </td>
+    )
+  }
+
     render() {
 
         if (this.state.expandMode === false) {
@@ -32,15 +47,8 @@ class Routes extends Component {
                         {this.props.departurePlace}
                     </td>
                     <td>{this.props.arrivalPlace}</td>
-                    <td className="hidden">{
-                        this.props.segments.map(segment => {
-                            const vehicleList = this.props.vehicles
-                            const segmentList = this.props.segments
-                            const position = segmentList.indexOf(segment);
-
-                            return vehicleList[segmentList[position].vehicle].name + " "
-                        }
-                        )}
+                    <td className="hidden">
+                        {this.getVehicleList}
                     </td>
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
@@ -59,15 +67,8 @@ class Routes extends Component {
                         {this.props.departurePlace}
                     </td>
                     <td>{this.props.arrivalPlace}</td>
-                    <td className="hidden">{
-                        this.props.segments.map(segment => {
-                            const vehicleList = this.props.vehicles
-                            const segmentList = this.props.segments
-                            const position = segmentList.indexOf(segment);
-
-                            return vehicleList[segmentList[position].vehicle].name + " "
-                        }
-                        )}
+                    <td className="hidden">
+                          {this.getVehicleList}
                     </td>
                     <td>{this.props.durationHourscan}</td>
                     <td>{this.props.price}</td>
