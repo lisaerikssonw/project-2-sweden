@@ -66,7 +66,7 @@ body {
 
 .search-button{
 
-  margin-top: 5px;
+  margin-top: 0.4em;
 }
 
 select{
@@ -184,7 +184,7 @@ button:hover{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 0.9em;
   background:#ffcc00;
 }
 
@@ -195,9 +195,9 @@ button:hover{
 
 .footer h1 {
   font-family: 'Raleway', sans-serif;
-  padding: 5px;
-  margin: 2px;
-  font-size: 23px;
+  padding: 0.4em;
+  margin: 0.1em;
+  font-size: 1.45em;
 }
 
 .footer p {
@@ -216,12 +216,12 @@ button:hover{
 .routes {
 
 background:#E0E0E0;
-border: 1px solid
+border: 1px solid #000000;
 
 }
 
 table{
-  border-collapse:collapse;
+  border-collapse: collapse;
 }
 
 table:hover {

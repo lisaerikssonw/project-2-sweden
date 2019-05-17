@@ -124,7 +124,7 @@ class App extends Component {
                   </div>
                 </button>
 
-                <button className="button hidden">View Recommendations</button>
+                <button className="button hidden">View Recommended</button>
               </div>
 
             </nav>
