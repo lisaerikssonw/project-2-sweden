@@ -92,33 +92,33 @@ class App extends Component {
 
   handleFilterRail() {
     //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
-    this.setState({ filterRail: "&noRail" })
+    this.setState({ filterRail: "noRail" })
 
-    if(this.state.filterRail.valueOf("&noRail")) {
+    if(this.state.filterRail.valueOf("noRail")) {
       this.setState({ filterRail: "" })
     }
   }
 
   handleFilterCar() {
-    this.setState({ filterCar: "&noCar" })
+    this.setState({ filterCar: "noCar" })
 
-    if(this.state.filterCar.valueOf("&noCar")) {
+    if(this.state.filterCar.valueOf("noCar")) {
       this.setState({ filterCar: "" })
     }
   }
 
   handleFilterFerry() {
-    this.setState({ filterFerry: "&noFerry" })
+    this.setState({ filterFerry: "noFerry" })
 
-    if(this.state.filterFerry.valueOf("&noFerry")) {
+    if(this.state.filterFerry.valueOf("noFerry")) {
       this.setState({ filterFerry: "" })
     }
   }
 
   handleFilterBus() {
-    this.setState({ filterBus: "&noBus" })
+    this.setState({ filterBus: "noBus" })
 
-    if(this.state.filterBus.valueOf("&noBus")) {
+    if(this.state.filterBus.valueOf("noBus")) {
       this.setState({ filterBus: "" })
     }
   }
@@ -142,8 +142,7 @@ class App extends Component {
 
   sendRequest() {
     fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
-    &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar&${this.state.filterAir}
-    ${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
+    &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar&${this.state.filterAir}&${this.state.filterRail}&${this.state.filterBus}&${this.state.filterFerry}&${this.state.filterCar}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
