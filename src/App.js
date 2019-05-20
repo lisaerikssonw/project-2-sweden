@@ -8,15 +8,13 @@ import { thisTypeAnnotation } from '@babel/types';
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
-const filter = ""
-const filterQueries = {
+const filterQueries = { //for future use of query string for filter in URL
   a: "noAir",
   b: "noRail",
   c: "noCar",
   d: "noFerry",
   e: "noBus"
 };
-
 
 class App extends Component {
 
@@ -30,18 +28,13 @@ class App extends Component {
       returnDate: '',
       routes: [],
       places: [],
-      //checked not in use
-      checked: false,
-      filterChecked: props.filterChecked || false,
-      //black not in use
-      black: true,
+      filterChecked: props.filterChecked || false, //boolean for filter buttons if checked or not
       filterURL: "",
       filterAir: "",
       filterRail: "",
       filterCar: "",
       filterFerry: "",
       filterBus: ""
-      //handledning - spara befintlig data i state
     }
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
@@ -49,8 +42,6 @@ class App extends Component {
     this.handleReturn = this.handleReturn.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
     this.sendRequest = this.sendRequest.bind(this)
-    //this.toggleFilter = this.toggleFilter.bind(this)
-    //this.buttonClass = this.buttonClass.bind(this)
     this.handleFilterChange = this.handleFilterChange.bind(this)
     this.handleFilterAir = this.handleFilterAir.bind(this)
     this.handleFilterBus = this.handleFilterBus.bind(this)
@@ -132,7 +123,7 @@ class App extends Component {
     }
   }
 
-  //function for filter buttons - genom query string
+  //function for filter buttons - through query string - not in use but will be
   handleFilterChange(id) {
     const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
     console.log(id)
@@ -147,28 +138,6 @@ class App extends Component {
     }
     console.log("Filter toggled")
     console.log(this.state.filterChecked)
-  }
-
-  //currently not in use - filter button experiment
-  buttonClass() {
-    const btn_class = this.state.black ? "black-button" : "white-button";
-  }
-
-  //currently not in use - filter button experiment
-  toggleFilter(event) {
-
-    this.setState({ black: !this.state.black })
-
-    if (this.state.checked === false) {
-      this.setState({
-        checked: true
-      })
-    } else if (this.state.checked === true) {
-      this.setState({
-        checked: false
-      })
-    }
-    console.log("Filter toggled")
   }
 
   sendRequest() {
@@ -224,6 +193,7 @@ class App extends Component {
             </nav>
 
             <hr />
+            {/* text for filter buttons */}
             <div className="filter-container">
               <strong>No plane</strong>
               <strong>No rail</strong>
@@ -267,10 +237,7 @@ class App extends Component {
               handleDestination={this.handleDestination}
               handleDeparture={this.handleDeparture}
               handleReturn={this.handleReturn}
-              routes={this.state.routes}
-              //toggleFilter not in use
-              toggleFilter={this.toggleFilter}
-              routes={this.state.routes} />
+              routes={this.state.routes}/>
             <hr />
             <Footer />
           </main>
@@ -279,8 +246,6 @@ class App extends Component {
     );
   }
 }
-//<button onClick={this.toggleFilter} className={btn_class}>No bike</button>
-//const btn_class = this.state.black ? "black-button" : "white-button";
 // debug environment variables
 const romeKey = process.env.REACT_APP_ROME_SECRET_KEY;
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;

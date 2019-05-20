@@ -17,10 +17,7 @@ class MainBody extends Component {
                 handleOrigin={this.props.handleOrigin}
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
-                handleReturn={this.props.handleReturn}
-                //toggleFilter and buttonClass not in use
-                toggleFilter={this.props.toggleFilter}
-                buttonClass={this.props.buttonClass}/>
+                handleReturn={this.props.handleReturn}/>
                 <SearchResults
                 routes={this.props.routes}/>
             </div>

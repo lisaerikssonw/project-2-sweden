@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Routes from './Routes'
 
-//handledning - arrow function const(props) returnera det som ligger i render routeList - ta bort this.
-
 class SearchResults extends Component {
     render() {
 

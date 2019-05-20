@@ -83,5 +83,4 @@ class SearchForm extends Component {
         )
     }
 }
-//<button onClick={this.props.toggleFilter} className={this.props.buttonClass}>No bike</button>
 export default SearchForm;
