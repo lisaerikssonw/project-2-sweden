@@ -193,15 +193,15 @@ class App extends Component {
 
             <hr />
             {/* text for filter buttons */}
-            <div className="filter-container">
+            {/* <div className="filter-container">
               <strong>No plane</strong>
               <strong>No rail</strong>
               <strong>No car</strong>
               <strong>No ferry</strong>
               <strong>No bus</strong>
-            </div>
+            </div> */}
             {/* switch filter buttons */}
-            <div className="filter-container">
+            {/* <div className="filter-container">
 
               <label className="switch">
                 <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterAir} />
@@ -227,11 +227,16 @@ class App extends Component {
                 <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterBus} />
                 <div className="slider"></div>
               </label>
-            </div>
+            </div> */}
 
             <MainBody
               page={this.state.page}
               submitSearch={this.submitSearch}
+              handleFilterAir={this.handleFilterAir}
+              handleFilterRail={this.handleFilterRail}
+              handleFilterCar={this.handleFiltercar}
+              handleFilterFerry={this.handleFilterFerry}
+              handleFilterBus={this.handleFilterBus}
               handleOrigin={this.handleOrigin}
               handleDestination={this.handleDestination}
               handleDeparture={this.handleDeparture}

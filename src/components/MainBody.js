@@ -17,7 +17,12 @@ class MainBody extends Component {
                 handleOrigin={this.props.handleOrigin}
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
-                handleReturn={this.props.handleReturn}/>
+                handleReturn={this.props.handleReturn}
+                handleFilterAir={this.props.handleFilterAir}
+                handleFilterRail={this.props.handleFilterRail}
+                handleFilterCar={this.props.handleFiltercar}
+                handleFilterFerry={this.props.handleFilterFerry}
+                handleFilterBus={this.props.handleFilterBus}/>
                 <SearchResults
                 routes={this.props.routes}/>
             </div>
