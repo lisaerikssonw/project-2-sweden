@@ -107,7 +107,7 @@ th {
     }
 
 td {
-    padding-right: 2em;
+    padding-right: 1.9em;
     padding-top: 1em;
   }
 
@@ -239,5 +239,6 @@ table:hover {
 }
 
 ::placeholder {
-  color: #EE0000;
+  /* color: #EE0000; red */
+  	color: #666666;
 }

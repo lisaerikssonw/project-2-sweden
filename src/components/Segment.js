@@ -9,7 +9,7 @@ class Segment extends Component {
                     <tr className="segment">
                         <td>{this.props.places[segment.depPlace].shortName}</td>
                         <td>{this.props.places[segment.arrPlace].shortName}</td>
-                        <td className="hidden">{this.props.vehicles[segment.vehicle].name}</td>
+                        <td>{this.props.vehicles[segment.vehicle].name}</td>
                         <td>{this.props.minutesToHours(segment.transitDuration)}</td>
                     </tr>
                 ]

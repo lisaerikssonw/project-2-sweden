@@ -21,7 +21,7 @@ class Routes extends Component {
 
     getVehicleList() {
               return (
-              <td className="hidden">{
+              <td>{
                   this.props.segments.map(segment => {
                       const vehicleList = this.props.vehicles
                       const segmentList = this.props.segments
@@ -47,9 +47,7 @@ class Routes extends Component {
                         {this.props.departurePlace}
                     </td>
                     <td>{this.props.arrivalPlace}</td>
-                    <td className="hidden">
-                        {this.getVehicleList}
-                    </td>
+                        {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
                     <td className="hidden">{this.props.distance}</td>
@@ -67,9 +65,7 @@ class Routes extends Component {
                         {this.props.departurePlace}
                     </td>
                     <td>{this.props.arrivalPlace}</td>
-                    <td className="hidden">
-                          {this.getVehicleList}
-                    </td>
+                          {this.getVehicleList()}
                     <td>{this.props.durationHourscan}</td>
                     <td>{this.props.price}</td>
                     <td className="hidden">{this.props.distance}</td>
@@ -78,8 +74,8 @@ class Routes extends Component {
                 <tr className="segment">
                     <th>Departure Place</th>
                     <th>Arrival Place</th>
-                    <th className="hidden">Means of Travel</th>
-                    <th className="hidden">Transit Time</th>
+                    <th>Means of Travel</th>
+                    <th>Transit Time</th>
                 </tr>,
 
                 <Segment

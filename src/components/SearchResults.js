@@ -20,7 +20,7 @@ class SearchResults extends Component {
                 <tr>
                   <th>From</th>
                   <th>To</th>
-                  <th className="hidden">Means of Travel</th>
+                  <th>Means of Travel</th>
                   <th>Time</th>
                   <th>Price</th>
                   <th className="hidden">Distance</th>
