@@ -3,9 +3,43 @@ import Routes from './Routes'
 import './App.css';
 
 class SearchResults extends Component {
-    render() {
+  constructor(props) {
+    super(props)
 
-      const routeList = this.props.routes.map(route => {return(
+    this.state = {
+      sortColumn: 'From', 
+      sortDirection: true
+    }
+  }
+
+  setSort() {
+    if(this.state.sortColumn==='price' && this.state.sortDirection===true) {
+      return((a, b) => a.price-b.price)
+    } else if(this.state.sortColumn==='price' && this.state.sortDirection===false) {
+      return((a, b) => b.price-a.price)
+    } else if(this.state.sortColumn==='transits' && this.state.sortDirection===true) {
+      return((a, b) => a.segments.length-b.segments.length)
+    } else if(this.state.sortColumn==='transits' && this.state.sortDirection===false) {
+      return((a, b) => b.segments.length-a.segments.length)
+    } else if(this.state.sortColumn==='distance' && this.state.sortDirection===true) {
+      return((a, b) => a.price-b.price)
+    }
+  } 
+
+
+  /* setSort(column) {
+
+    if(this.state.sortDirection===true) {
+      return(a, b => a.column-b.column)
+    }
+  } */
+  
+  render() {
+
+      const sortFunction = this.setSort(this.state.sortColumn)
+      const routeList = this.props.routes
+      .sort(sortFunction)
+      .map(route => {return(
         
         <Routes minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
         routes={this.props.routes}/>
@@ -21,10 +55,22 @@ class SearchResults extends Component {
                   <th>From</th>
                   <th>To</th>
                   <th>Means of Travel</th>
-                  <th>Time</th>
-                  <th>Price</th>
-                  <th>Distance</th>
-                  <th>Number of Transitions</th>
+                  <th onClick={() => this.setState({
+                    sortColumn: "durationHours", 
+                    sortDirection: !this.state.sortDirection
+                  })} >Time</th>
+                  <th onClick={() => this.setState({
+                    sortColumn: "price", 
+                    sortDirection: !this.state.sortDirection
+                  })} >Price</th>
+                  <th onClick={() => this.setState({
+                    sortColumn: "distance", 
+                    sortDirection: !this.state.sortDirection
+                  })} >Distance</th>
+                  <th onClick={() => this.setState({
+                    sortColumn: "transits", 
+                    sortDirection: !this.state.sortDirection
+                  })}>Number of Transitions</th>
                 </tr>
                 {routeList}
                 {/*<tr>

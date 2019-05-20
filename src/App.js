@@ -19,8 +19,9 @@ class App extends Component {
       departureDate: '',
       returnDate: '',
       routes: [],
-
+      //sortingOrder: ''
     }
+
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
     this.handleDeparture = this.handleDeparture.bind(this)
@@ -28,6 +29,7 @@ class App extends Component {
     this.submitSearch = this.submitSearch.bind(this)
     this.sendRequest = this.sendRequest.bind(this)
     this.minutesToHours =this.minutesToHours.bind(this)
+    //this.handleSort = this.handleSort.bind(this)
 
   }
 
@@ -72,6 +74,22 @@ class App extends Component {
 
     }
   }
+
+  /*handleSort(sortType) {
+    if(sortType==='price') {
+      if(!this.state.sortingOrder || this.state.sortingOrder==='descending') { 
+        this.setState({
+          sortType: 'ascending',
+          routes: this.state.routes.map((route1, route2) => route1-route2)
+        })
+        } else{
+        this.setState({
+          sortType: 'descending',
+          routes: this.state.routes.map((route1, route2) => route2-route1)
+        })
+      }
+    } 
+} */
 
   sendRequest() {
     fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
