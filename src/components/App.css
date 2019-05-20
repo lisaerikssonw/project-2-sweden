@@ -43,8 +43,8 @@ body {
 }
 
 .icon {
-  position: absolute;
-  left: 10.5%;
+  position: relative;
+  left: 0.3%;
   top: 1.5%;
   vertical-align: middle;
   padding: 0px;
