@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import RouteMap from './components/RouteMap'
 import './components/App.css';
 import './components/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
@@ -105,52 +106,58 @@ class App extends Component {
 
     return (
       <div id="root">
-        <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
-          <main>
-            <noscript>You need to enable JavaScript to run this app.</noscript>
-            <Header />
-            <nav>
-              {/* menu block goes here*/}
+      <RouteMap />
 
-              <div className="nav-container">
-              <img className="icon"
-                    src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
-                    alt="Olympic rings"
-                    title="Winter Olympics 2024" />
-                <button className="button"
-                    onClick={()=> this.setState({page:"home"})}>Search Trips
-                </button>
-                <button className="button">About the Event</button>
-                <button className="dropdown">About our<br />Destinations
-                  <div className="dropdown-content">
-                    <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
-                    <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
-                    <div onClick={() => this.setState({ page: "are" })}>Åre</div>
-                  </div>
-                </button>
-
-                <button className="button hidden">View Recommended</button>
-              </div>
-
-            </nav>
-
-            <hr />
-            <MainBody
-              page={this.state.page}
-              submitSearch={this.submitSearch}
-              handleOrigin={this.handleOrigin}
-              handleDestination={this.handleDestination}
-              handleDeparture={this.handleDeparture}
-              handleReturn={this.handleReturn}
-              routes={this.state.routes}
-              minutesToHours = {this.minutesToHours} />
-
-            <hr />
-            <Footer />
-          </main>
-        </div>
       </div>
     );
+
+
+        // <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        //   <main>
+        //     <noscript>You need to enable JavaScript to run this app.</noscript>
+        //     <Header />
+        //     <nav>
+        //       {/* menu block goes here*/}
+        //
+        //       <div className="nav-container">
+        //       <img className="icon"
+        //             src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
+        //             alt="Olympic rings"
+        //             title="Winter Olympics 2024" />
+        //         <button className="button"
+        //             onClick={()=> this.setState({page:"home"})}>Search Trips
+        //         </button>
+        //         <button className="button">About the Event</button>
+        //         <button className="dropdown">About our<br />Destinations
+        //           <div className="dropdown-content">
+        //             <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
+        //             <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
+        //             <div onClick={() => this.setState({ page: "are" })}>Åre</div>
+        //           </div>
+        //         </button>
+        //
+        //         <button className="button hidden">View Recommended</button>
+        //       </div>
+        //
+        //     </nav>
+        //
+        //     <hr />
+        //     <MainBody
+        //       page={this.state.page}
+        //       submitSearch={this.submitSearch}
+        //       handleOrigin={this.handleOrigin}
+        //       handleDestination={this.handleDestination}
+        //       handleDeparture={this.handleDeparture}
+        //       handleReturn={this.handleReturn}
+        //       routes={this.state.routes}
+        //       minutesToHours = {this.minutesToHours} />
+        //
+        //     <hr />
+        //     <Footer />
+        //   </main>
+        // </div>
+    //   </div>
+    // );
   }
 }
 
