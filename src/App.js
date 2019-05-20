@@ -9,6 +9,14 @@ require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
 const filter = ""
+const filterQueries = {
+  a: "noAir",
+  b: "noRail",
+  c: "noCar",
+  d: "noFerry",
+  e: "noBus"
+};
+
 
 class App extends Component {
 
@@ -22,11 +30,18 @@ class App extends Component {
       returnDate: '',
       routes: [],
       places: [],
+      //checked not in use
       checked: false,
       filterChecked: props.filterChecked || false,
+      //black not in use
       black: true,
-      filterURL: ""
-
+      filterURL: "",
+      filterAir: "",
+      filterRail: "",
+      filterCar: "",
+      filterFerry: "",
+      filterBus: ""
+      //handledning - spara befintlig data i state
     }
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
@@ -37,6 +52,11 @@ class App extends Component {
     //this.toggleFilter = this.toggleFilter.bind(this)
     //this.buttonClass = this.buttonClass.bind(this)
     this.handleFilterChange = this.handleFilterChange.bind(this)
+    this.handleFilterAir = this.handleFilterAir.bind(this)
+    this.handleFilterBus = this.handleFilterBus.bind(this)
+    this.handleFilterCar = this.handleFilterCar.bind(this)
+    this.handleFilterFerry = this.handleFilterFerry.bind(this)
+    this.handleFilterRail = this.handleFilterRail.bind(this)
   }
 
   handleDestination(event) {
@@ -69,13 +89,61 @@ class App extends Component {
     this.sendRequest()
   }
 
-  //function for filter buttons
-  handleFilterChange() {
+  handleFilterAir() {
+    //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
+    // & Symbol not included in String because it's already hardcoded into the URL
+    this.setState({ filterAir: "noAir" })
+
+    if(this.state.filterAir.valueOf("noAir")) {
+      this.setState({ filterAir: "" })
+    }
+  }
+
+  handleFilterRail() {
+    //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
+    this.setState({ filterRail: "&noRail" })
+
+    if(this.state.filterRail.valueOf("&noRail")) {
+      this.setState({ filterRail: "" })
+    }
+  }
+
+  handleFilterCar() {
+    this.setState({ filterCar: "&noCar" })
+
+    if(this.state.filterCar.valueOf("&noCar")) {
+      this.setState({ filterCar: "" })
+    }
+  }
+
+  handleFilterFerry() {
+    this.setState({ filterFerry: "&noFerry" })
+
+    if(this.state.filterFerry.valueOf("&noFerry")) {
+      this.setState({ filterFerry: "" })
+    }
+  }
+
+  handleFilterBus() {
+    this.setState({ filterBus: "&noBus" })
+
+    if(this.state.filterBus.valueOf("&noBus")) {
+      this.setState({ filterBus: "" })
+    }
+  }
+
+  //function for filter buttons - genom query string
+  handleFilterChange(id) {
+    const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
+    console.log(id)
+    
+    console.log(queryString)
+
     this.setState({ filterChecked: !this.state.filterChecked })
-    if(this.state.filterChecked == true) {
-      this.setState({filterURL: ""})
+    if (this.state.filterChecked == true) {
+      this.setState({ filterURL: "" })
     } else {
-      this.setState({filterURL: "&noRail"})
+      this.setState({ filterURL: "&noRail" })
     }
     console.log("Filter toggled")
     console.log(this.state.filterChecked)
@@ -105,7 +173,8 @@ class App extends Component {
 
   sendRequest() {
     fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
-    &noRideshare&noMinorStart&noMinorEnd&noCar`)
+    &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar&${this.state.filterAir}
+    ${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -127,6 +196,8 @@ class App extends Component {
   }
 
   render() {
+    const id = [1,2,3,4,5];
+
     return (
       <div id="root">
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -153,6 +224,41 @@ class App extends Component {
             </nav>
 
             <hr />
+            <div className="filter-container">
+              <strong>No plane</strong>
+              <strong>No rail</strong>
+              <strong>No car</strong>
+              <strong>No ferry</strong>
+              <strong>No bus</strong>
+            </div>
+            {/* switch filter buttons */}
+            <div className="filter-container">
+
+              <label className="switch">
+                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterAir} />
+                <div className="slider"></div>
+              </label>
+
+              <label className="switch">
+                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterRail} />
+                <div className="slider"></div>
+              </label>
+
+              <label className="switch">
+                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterCar} />
+                <div className="slider"></div>
+              </label>
+
+              <label className="switch">
+                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterFerry} />
+                <div className="slider"></div>
+              </label>
+
+              <label className="switch">
+                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterBus} />
+                <div className="slider"></div>
+              </label>
+            </div>
 
             <MainBody
               page={this.state.page}
@@ -163,41 +269,7 @@ class App extends Component {
               handleReturn={this.handleReturn}
               routes={this.state.routes}
               //toggleFilter not in use
-              toggleFilter={this.toggleFilter} />
-
-            {/* switch filter button */}
-            <div className="filter-container">
-               <strong>No plane</strong>
-              <label className="switch">lmao
-              <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterChange} />
-                <div className="slider"></div>
-              </label>
-
-              <strong>No rail</strong>
-              <label className="switch">lmao
-              <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterChange} />
-                <div className="slider"></div>
-              </label>
-
-              <strong>No car</strong>
-              <label className="switch">lmao
-              <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterChange} />
-                <div className="slider"></div>
-              </label>
-
-              <strong>No ferry</strong>
-              <label className="switch">lmao
-              <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterChange} />
-                <div className="slider"></div>
-              </label>
-
-              <strong>No bus</strong>
-              <label className="switch">lmao
-              <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterChange} />
-                <div className="slider"></div>
-              </label>
-            </div>
-
+              toggleFilter={this.toggleFilter}
               routes={this.state.routes} />
             <hr />
             <Footer />

@@ -18,6 +18,7 @@ class MainBody extends Component {
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
                 handleReturn={this.props.handleReturn}
+                //toggleFilter and buttonClass not in use
                 toggleFilter={this.props.toggleFilter}
                 buttonClass={this.props.buttonClass}/>
                 <SearchResults
