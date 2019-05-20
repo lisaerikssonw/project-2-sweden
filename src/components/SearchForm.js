@@ -11,7 +11,12 @@ class SearchForm extends Component {
                     <img src="images/icons/search.svg"
                         alt="Magnifying glass"
                         title="Search" />
-                    <input list="cities" type="search" name="search" placeholder="From" onChange={this.props.handleOrigin}/>
+                    <input className="cities"
+                        list="cities"
+                        type="search"
+                        name="search"
+                        placeholder="From"
+                        onChange={this.props.handleOrigin}/>
                     <datalist id="cities">
                         <option value="🇳🇱 Amsterdam" />
                         <option value="🇨🇳 Beijing" />
@@ -49,7 +54,7 @@ class SearchForm extends Component {
                     </select>
                 </fieldset>
                 </div>
-                
+
                 {/*put these into 2 flexboxes ?
            In order to pgosition them next to each other
            And border = 0 for the fieldset ?*/}
