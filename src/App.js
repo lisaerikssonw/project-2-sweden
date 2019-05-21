@@ -3,8 +3,8 @@ import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import './components/App.css';
+import './components/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
-import { thisTypeAnnotation } from '@babel/types';
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
@@ -48,6 +48,8 @@ class App extends Component {
     this.handleFilterCar = this.handleFilterCar.bind(this)
     this.handleFilterFerry = this.handleFilterFerry.bind(this)
     this.handleFilterRail = this.handleFilterRail.bind(this)
+    this.minutesToHours =this.minutesToHours.bind(this)
+
   }
 
   handleDestination(event) {
@@ -139,30 +141,47 @@ class App extends Component {
     console.log(this.state.filterChecked)
   }
 
+  minutesToHours(timeInMinutes){
+
+    if(timeInMinutes<60){
+
+      return timeInMinutes + " Min";
+    }else {
+      let sum = timeInMinutes/60;
+      return sum.toFixed(1) + "h";
+
+    }
+  }
+
   sendRequest() {
     fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
     &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar${this.state.filterAir}${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
-          routes: data.routes.map((route, index) => route = {
+          routes: data.routes.map((route, index) =>
+
+          route = {
             id: index,
             name: route.name,
             departurePlace: data.places[0].shortName,
             arrivalPlace: data.places[1].shortName,
-            distance: route.distance,
+            distance: route.distance + " Km",
             totalDuration: route.totalDuration,
-            price: route.indicativePrices[0].price,
-            currency: route.indicativePrices[0].currency,
+            price: route.indicativePrices ? route.indicativePrices[0].price : "FREE",
+            currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
-            places: data.places
+            places: data.places,
+            durationHours: this.minutesToHours(route.totalDuration)
           })
         })
       })
+      .catch(error => console.log(error))
   }
 
   render() {
+
     return (
       <div id="root">
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -173,17 +192,23 @@ class App extends Component {
               {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button" onClick={() => this.setState({ page: "home" })}>Home</button>
-                <button className="button">Search Trips</button>
+              <img className="icon"
+                    src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
+                    alt="Olympic rings"
+                    title="Winter Olympics 2024" />
+                <button className="button"
+                    onClick={()=> this.setState({page:"home"})}>Search Trips
+                </button>
                 <button className="button">About the Event</button>
-                <button className="dropdown">About our<br /> Destinations
+                <button className="dropdown">About our<br />Destinations
                   <div className="dropdown-content">
-                    <a href="#" onClick={() => this.setState({ page: "falun" })}>Falun</a>
-                    <a href="#" onClick={() => this.setState({ page: "stockholm" })}>Stockholm</a>
-                    <a href="#" onClick={() => this.setState({ page: "are" })}>Åre</a>
+                    <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
+                    <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
+                    <div onClick={() => this.setState({ page: "are" })}>Åre</div>
                   </div>
                 </button>
-                <button className="button">View Recommendations</button>
+
+                <button className="button hidden">View Recommended</button>
               </div>
 
             </nav>
@@ -238,7 +263,9 @@ class App extends Component {
               handleDestination={this.handleDestination}
               handleDeparture={this.handleDeparture}
               handleReturn={this.handleReturn}
-              routes={this.state.routes}/>
+              routes={this.state.routes}
+              minutesToHours = {this.minutesToHours} />
+
             <hr />
             <Footer />
           </main>

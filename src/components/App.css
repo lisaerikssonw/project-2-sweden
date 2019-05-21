@@ -42,6 +42,19 @@ body {
   float: right;
 }
 
+.icon {
+  position: relative;
+  left: 0.3%;
+  top: 1.5%;
+  vertical-align: middle;
+  padding: 0px;
+}
+
+.black-triangle {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
 .departure-home-container{
   display: flex;
   flex-direction: row;
@@ -55,7 +68,7 @@ body {
 
 .search-button{
 
-  margin-top: 5px;
+  margin-top: 0.4em;
 }
 
 select{
@@ -64,6 +77,10 @@ select{
   border:none;
   background: rgb(230,230,230);
 
+}
+
+select:hover {
+  cursor: pointer;
 }
 
 input {
@@ -75,26 +92,25 @@ input {
   cursor: pointer;
 }
 
-
-/* p{
-
-  font-family: Arial, Helvetica, sans-serif;
-} */
+input.cities {
+  cursor: text;
+}
 
 caption {
-  margin-top: 40px;
+  margin-top: 2em;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 1em;
 }
 th {
      text-align: left;
-     padding-right: 30px;
+     padding-right: 2em;
     }
 
 td {
-    padding-right: 30px;
-    padding-top: 10px;
+    padding-right: 1.9em;
+    padding-top: 1em;
   }
+
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -114,6 +130,7 @@ button {
   color: #ffcc00;
   font-size: 1.1em;
   font-family:'Raleway',sans-serif;
+
 }
 
 .nav-container {
@@ -123,11 +140,10 @@ button {
   justify-content: center;
   background: #006699;
 
-
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown-content div {
   color:#ffcc00;
   padding: 12px 16px;
   text-decoration: none;
@@ -137,13 +153,11 @@ button {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {
+.dropdown-content div:hover {
   background-color: #ffcc00;
   color:#006699;
   border: none;
 }
-
-
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -151,6 +165,7 @@ button {
   border-bottom: 2px inset #ffcc00;
   margin: 0px;
   padding: 0px;
+  font-weight: normal;
 
 }
 
@@ -162,7 +177,7 @@ button:hover{
   font-size: 1.1em;
   font-family:'Raleway',sans-serif;
   cursor: pointer;
-
+  font-weight: bold;
 }
 
 .footer {
@@ -171,7 +186,7 @@ button:hover{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 0.9em;
   background:#ffcc00;
 }
 
@@ -182,9 +197,9 @@ button:hover{
 
 .footer h1 {
   font-family: 'Raleway', sans-serif;
-  padding: 5px;
-  margin: 2px;
-  font-size: 23px;
+  padding: 0.4em;
+  margin: 0.1em;
+  font-size: 1.45em;
 }
 
 .footer p {
@@ -290,3 +305,30 @@ input:checked + .slider:before {
 }
 
 /* styling for the filter buttons above */
+.routes {
+
+background:#E0E0E0;
+border: 1px solid #000000;
+
+}
+
+table{
+  border-collapse: collapse;
+}
+
+table:hover {
+  cursor: help;
+}
+
+.segment{
+
+  background: #F8F8F8;
+  border: 1px solid #000000;
+  margin-left: 5%;
+
+}
+
+::placeholder {
+  /* color: #EE0000; red */
+  	color: #666666;
+}

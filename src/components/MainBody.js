@@ -24,7 +24,8 @@ class MainBody extends Component {
                 handleFilterFerry={this.props.handleFilterFerry}
                 handleFilterBus={this.props.handleFilterBus}/>
                 <SearchResults
-                routes={this.props.routes}/>
+                routes={this.props.routes}
+                minutesToHours = {this.props.minutesToHours}/>
             </div>
             )
         }else if(this.props.page==="falun"){

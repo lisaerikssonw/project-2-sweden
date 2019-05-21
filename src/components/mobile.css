@@ -1,0 +1,12 @@
+@media only screen and (max-width: 480px) {
+
+  .hidden {
+    display: none;
+  }
+
+}
+@media only screen and (max-width: 999px) {
+  .icon {
+    display: none;
+  }
+}
