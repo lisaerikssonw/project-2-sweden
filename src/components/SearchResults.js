@@ -68,7 +68,7 @@ class SearchResults extends Component {
                   <th onClick={() => this.setColumnState('price')} >Price</th>
                   <th onClick={() => this.setColumnState('distance')} 
                   className="hidden">Distance</th>
-                  <th onClick={() => this.setColumnState('transits')} className="hidden">Number of Transitions</th>
+                  <th onClick={() => this.setColumnState('transits')} className="hidden">No. Transits</th>
                 </tr>
                 {routeList}
                 </tbody>
