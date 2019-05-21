@@ -47,10 +47,8 @@ class SearchResults extends Component {
       )})
         return (
         <article>
-              <h1>Results</h1>
-
               <table>
-                <caption>Search results</caption>
+                <caption className="search-caption">Search results</caption>
                 <tbody>
                 <tr>
                   <th>From</th>
