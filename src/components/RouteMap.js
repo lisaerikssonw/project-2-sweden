@@ -8,13 +8,32 @@ const dubai = new Coordinates(25.20485, 55.27078);
 const stockholm = new Coordinates(59.32932, 18.06858);
 const paris = new Coordinates(48.85661, 2.35222);
 
-console.log(dubai);
-console.log(stockholm);
-console.log(paris);
+// console.log(dubai);
+// console.log(stockholm);
+// console.log(paris);
 
 class RouteMap extends Component {
 
   render() {
+
+    let destination = '';
+    let departure = '';
+    const list = this.props.routes
+        list.forEach(r => {
+
+            departure = new Coordinates(r.departurePlace.lat, r.departurePlace.lng);
+            destination = new Coordinates(r.arrivalPlace.lat, r.arrivalPlace.lng);
+
+        });
+
+
+      if (!destination)
+      console.log("den är false!")
+      else {
+        console.log("den är true!")
+        console.log("destination = " + JSON.stringify(destination));
+        console.log("departure = " + JSON.stringify(departure));
+      }
 
         return (
 

@@ -2,6 +2,7 @@ import '../styles/App.css'
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 import FalunText from '../data-texts/falun-info-text.json';
+import RouteMap from './RouteMap';
 //import FalunImage from '../images/falun.png'
 import React, { Component } from 'react';
 
@@ -18,16 +19,20 @@ class MainBody extends Component {
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
                 handleReturn={this.props.handleReturn}/>
-                <SearchResults
+
+                {this.props.routes!==false && <div><SearchResults
                 routes={this.props.routes}
                 minutesToHours = {this.props.minutesToHours}/>
+                <RouteMap routes={this.props.routes}
+                />
+              </div>}
+
             </div>
             )
         }else if(this.props.page==="falun"){
             return (
                 <article>
                 <h1 className="Header-text">FALUN</h1>
-                {/* <img className="info-img" src={FalunImage} alt="falun"></img> */}
                 <p className="info-text">{falunInfo.text}</p>
                 </article>
             )
