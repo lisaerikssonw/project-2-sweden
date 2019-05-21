@@ -10,6 +10,8 @@ class SearchResults extends Component {
       sortColumn: 'From',
       sortDirectionAsc: false
     }
+
+    this.setColumnState = this.setColumnState.bind(this)
   }
 
   sortPriceAsc = () => (a, b) => b.price-a.price
@@ -34,6 +36,13 @@ class SearchResults extends Component {
       if(this.state.sortColumn==='time') return this.sortTimeDes()
     }
   }
+
+  setColumnState(columnName) {
+    this.setState({
+      sortColumn: columnName, 
+      sortDirectionAsc: !this.state.sortDirectionAsc
+    })
+  }
   
   render() {
 
@@ -54,21 +63,11 @@ class SearchResults extends Component {
                   <th>From</th>
                   <th>To</th>
                   <th>Means of Travel</th>
-                  <th onClick={() => this.setState({
-                    sortColumn: "time", 
-                    sortDirectionAsc: !this.state.sortDirectionAsc
-                  })} >Time</th>
-                  <th onClick={() => this.setState({
-                    sortColumn: "price", 
-                    sortDirectionAsc: !this.state.sortDirectionAsc
-                  })} >Price</th>
-                  <th onClick={() => 
-                  this.setState({sortColumn: "distance", sortDirectionAsc: !this.state.sortDirectionAsc})} 
+                  <th onClick={() => this.setColumnState('time')} >Time</th>
+                  <th onClick={() => this.setColumnState('price')} >Price</th>
+                  <th onClick={() => this.setColumnState('distance')} 
                   className="hidden">Distance</th>
-                  <th onClick={() => this.setState({
-                    sortColumn: "transits", 
-                    sortDirectionAsc: !this.state.sortDirectionAsc
-                  })} className="hidden">Number of Transitions</th>
+                  <th onClick={() => this.setColumnState('transits')} className="hidden">Number of Transitions</th>
                 </tr>
                 {routeList}
                 </tbody>
