@@ -9,7 +9,7 @@ class SearchResults extends Component {
 
     this.state = {
       sortColumn: 'From',
-      sortDirectionAsc: false
+      sortDirectionAscending: false
     }
 
     this.setColumnState = this.setColumnState.bind(this)
@@ -25,23 +25,25 @@ class SearchResults extends Component {
   sortTimeDescending = () => (a, b) => a.durationMinutes-b.durationMinutes
 
   setSort() {
-    if(this.state.sortDirectionAscending===true) {
-      if(this.state.sortColumn==='price') return this.sortPriceAscending()
-      if(this.state.sortColumn==='transits') return this.sortNumberOfTransitsAscending()
-      if(this.state.sortColumn==='distance') return this.sortDistanceAscending()
-      if(this.state.sortColumn==='time') return this.sortTimeAscending()
-    } else if (this.state.sortDirectionAsc===false){
-      if(this.state.sortColumn==='price') return this.sortPriceDescending()
-      if(this.state.sortColumn==='transits') return this.sortNumberOfTransitsDescending()
-      if(this.state.sortColumn==='distance') return this.sortDistanceDescending()
-      if(this.state.sortColumn==='time') return this.sortTimeDescending()
-    }
+
+      if(this.state.sortColumn === 'price') {
+        return (this.state.sortDirectionAscending === true) ? return this.sortPriceAscending() : return this.sortPriceDescending();
+
+      } else if (this.state.sortColumn === 'transits') {
+        return (this.state.sortDirectionAscending === true) ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
+
+      } else if (this.state.sortColumn === 'distance') {
+        return (this.state.sortDirectionAscending === true) ? return this.sortDistanceAscending() : this.sortDistanceDescending();
+
+      } else if (this.state.sortColumn === 'time') {
+        return (this.state.sortDirectionAscending === true) ? return this.sortTimeAscending() : this.sortTimeDescending();
+      }
   }
 
   setColumnState(columnName) {
     this.setState({
       sortColumn: columnName,
-      sortDirectionAsc: !this.state.sortDirectionAscending
+      sortDirectionAscending: !this.state.sortDirectionAscending
     })
   }
 
