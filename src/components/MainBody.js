@@ -20,7 +20,7 @@ class MainBody extends Component {
                 handleReturn={this.props.handleReturn}
                 handleFilterAir={this.props.handleFilterAir}
                 handleFilterRail={this.props.handleFilterRail}
-                handleFilterCar={this.props.handleFiltercar}
+                handleFilterCar={this.props.handleFilterCar}
                 handleFilterFerry={this.props.handleFilterFerry}
                 handleFilterBus={this.props.handleFilterBus}/>
                 <SearchResults
