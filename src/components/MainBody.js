@@ -11,6 +11,7 @@ const falunInfo = JSON.parse(falunJson);
 class MainBody extends Component {
     render() {
         if(this.props.page==="home"){
+            
             return (
             <div>
                 <SearchForm submitSearch={this.props.submitSearch}
@@ -18,9 +19,11 @@ class MainBody extends Component {
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
                 handleReturn={this.props.handleReturn}/>
-                <SearchResults
+                
+                {this.props.routes!=false && <SearchResults
                 routes={this.props.routes}
-                minutesToHours = {this.props.minutesToHours}/>
+                minutesToHours = {this.props.minutesToHours}/>}
+
             </div>
             )
         }else if(this.props.page==="falun"){
