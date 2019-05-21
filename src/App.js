@@ -84,43 +84,43 @@ class App extends Component {
 
   handleFilterAir() {
     //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
-    this.setState({ filterAir: "&noAir" })
-
     if(this.state.filterAir.valueOf("&noAir")) {
       this.setState({ filterAir: "" })
+    } else {
+      this.setState({ filterAir: "&noAir" })
     }
   }
 
   handleFilterRail() {
     //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
-    this.setState({ filterRail: "&noRail" })
-
     if(this.state.filterRail.valueOf("&noRail")) {
       this.setState({ filterRail: "" })
+    } else {
+      this.setState({ filterRail: "&noRail" })
     }
   }
 
   handleFilterCar() {
-    this.setState({ filterCar: "&noCar" })
-
     if(this.state.filterCar.valueOf("&noCar")) {
       this.setState({ filterCar: "" })
+    } else {
+      this.setState({ filterCar: "&noCar" })
     }
   }
 
   handleFilterFerry() {
-    this.setState({ filterFerry: "&noFerry" })
-
     if(this.state.filterFerry.valueOf("&noFerry")) {
       this.setState({ filterFerry: "" })
+    } else {
+      this.setState({ filterFerry: "&noFerry" })
     }
   }
 
   handleFilterBus() {
-    this.setState({ filterBus: "&noBus" })
-
     if(this.state.filterBus.valueOf("&noBus")) {
       this.setState({ filterBus: "" })
+    } else {
+      this.setState({ filterBus: "&noBus" })
     }
   }
 
@@ -132,7 +132,7 @@ class App extends Component {
     console.log(queryString)
 
     this.setState({ filterChecked: !this.state.filterChecked })
-    if (this.state.filterChecked == true) {
+    if (this.state.filterChecked === true) {
       this.setState({ filterURL: "" })
     } else {
       this.setState({ filterURL: "&noRail" })
@@ -210,46 +210,9 @@ class App extends Component {
 
                 <button className="button hidden">View Recommended</button>
               </div>
-
             </nav>
 
             <hr />
-            {/* text for filter buttons */}
-            {/* <div className="filter-container">
-              <strong>No plane</strong>
-              <strong>No rail</strong>
-              <strong>No car</strong>
-              <strong>No ferry</strong>
-              <strong>No bus</strong>
-            </div> */}
-            {/* switch filter buttons */}
-            {/* <div className="filter-container">
-
-              <label className="switch">
-                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterAir} />
-                <div className="slider"></div>
-              </label>
-
-              <label className="switch">
-                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterRail} />
-                <div className="slider"></div>
-              </label>
-
-              <label className="switch">
-                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterCar} />
-                <div className="slider"></div>
-              </label>
-
-              <label className="switch">
-                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterFerry} />
-                <div className="slider"></div>
-              </label>
-
-              <label className="switch">
-                <input type="checkbox" value={this.state.filterChecked} onChange={this.handleFilterBus} />
-                <div className="slider"></div>
-              </label>
-            </div> */}
 
             <MainBody
               page={this.state.page}
