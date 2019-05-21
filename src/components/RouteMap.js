@@ -16,26 +16,9 @@ class RouteMap extends Component {
 
   render() {
 
-    let destination = '';
-    let departure = '';
-    const list = this.props.routes
-        list.forEach(r => {
-
-            departure = new Coordinates(r.departurePlace.lat, r.departurePlace.lng);
-            destination = new Coordinates(r.arrivalPlace.lat, r.arrivalPlace.lng);
-
-        });
-
-        console.log(JSON.stringify(list));
-
-
-      if (!destination)
-      console.log("den är false!")
-      else {
-        console.log("den är true!")
-        console.log("destination = " + JSON.stringify(destination));
-        console.log("departure = " + JSON.stringify(departure));
-      }
+    const route = this.props.routes[0]; // r === routes
+    let departure = new Coordinates(route.departurePlace.lat, route.departurePlace.lng);
+    let destination = new Coordinates(route.arrivalPlace.lat, route.arrivalPlace.lng);
 
         return (
 
