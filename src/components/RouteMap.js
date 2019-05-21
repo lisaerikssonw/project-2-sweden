@@ -4,19 +4,17 @@ require('dotenv').config();
 
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
 
+// Stockholm is used for centring the map
+// Other cities for debugging
 const dubai = new Coordinates(25.20485, 55.27078);
 const stockholm = new Coordinates(59.32932, 18.06858);
 const paris = new Coordinates(48.85661, 2.35222);
-
-// console.log(dubai);
-// console.log(stockholm);
-// console.log(paris);
 
 class RouteMap extends Component {
 
   render() {
 
-    const route = this.props.routes[0]; // r === routes
+    const route = this.props.routes[0];
     let departure = new Coordinates(route.departurePlace.lat, route.departurePlace.lng);
     let destination = new Coordinates(route.arrivalPlace.lat, route.arrivalPlace.lng);
 

@@ -113,8 +113,6 @@ class App extends Component {
             <noscript>You need to enable JavaScript to run this app.</noscript>
             <Header />
             <nav>
-              {/* menu block goes here*/}
-
               <div className="nav-container">
               <img className="icon"
                     src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
@@ -131,7 +129,6 @@ class App extends Component {
                     <div onClick={() => this.setState({ page: "are" })}>Åre</div>
                   </div>
                 </button>
-
                 <button className="button hidden">View Recommended</button>
               </div>
 
