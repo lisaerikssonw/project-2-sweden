@@ -62,49 +62,18 @@ class SearchResults extends Component {
                     sortColumn: "price", 
                     sortDirectionAsc: !this.state.sortDirectionAsc
                   })} >Price</th>
-                  <th onClick={() => this.setState({
-                    sortColumn: "distance", 
-                    sortDirectionAsc: !this.state.sortDirectionAsc
-                  })} >Distance</th>
+                  <th onClick={() => 
+                  this.setState({sortColumn: "distance", sortDirectionAsc: !this.state.sortDirectionAsc})} 
+                  className="hidden">Distance</th>
                   <th onClick={() => this.setState({
                     sortColumn: "transits", 
                     sortDirectionAsc: !this.state.sortDirectionAsc
-                  })}>Number of Transitions</th>
+                  })} className="hidden">Number of Transitions</th>
                 </tr>
                 {routeList}
-                {/*<tr>
-                  <td>
-                    <img src="images/icons/train.png"
-                      alt="Train"
-                      title="Railway" />
-                    &nbsp;Railway
-                </td>
-                  <td>6 h</td>
-                  <td>1000-2400 kr</td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="images/icons/aeroplane.png"
-                      alt="Aeroplane"
-                      title="By air" />
-                    &nbsp;Aeroplane
-                  </td>
-                  <td>1 h</td>
-                  <td>2000-5000 kr</td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src="images/icons/bus.png"
-                      alt="Bus"
-                      title="Bus" />
-                    &nbsp;Bus
-                  </td>
-                  <td>10 h</td>
-                  <td>700-1000 kr</td>
-                </tr>*/}
                 </tbody>
               </table>
-            </article>
+          </article>
         )
     }
 }

@@ -3,6 +3,7 @@ import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import './components/App.css';
+import './components/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
@@ -101,8 +102,8 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-
   render() {
+
     return (
       <div id="root">
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -113,10 +114,15 @@ class App extends Component {
               {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button" onClick={() => this.setState({ page: "home" })}>Home</button>
-                <button className="button">Search Trips</button>
+              <img className="icon"
+                    src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
+                    alt="Olympic rings"
+                    title="Winter Olympics 2024" />
+                <button className="button"
+                    onClick={()=> this.setState({page:"home"})}>Search Trips
+                </button>
                 <button className="button">About the Event</button>
-                <button className="dropdown">About our<br /> Destinations
+                <button className="dropdown">About our<br />Destinations
                   <div className="dropdown-content">
                     <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
                     <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
@@ -124,7 +130,7 @@ class App extends Component {
                   </div>
                 </button>
 
-                <button className="button">View Recommendations</button>
+                <button className="button hidden">View Recommended</button>
               </div>
 
             </nav>
@@ -139,7 +145,7 @@ class App extends Component {
               handleReturn={this.handleReturn}
               routes={this.state.routes}
               minutesToHours = {this.minutesToHours} />
-              
+
             <hr />
             <Footer />
           </main>
