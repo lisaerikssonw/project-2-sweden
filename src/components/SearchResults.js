@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Routes from './Routes'
-import './App.css';
+import '../styles/App.css';
 
 class SearchResults extends Component {
     render() {

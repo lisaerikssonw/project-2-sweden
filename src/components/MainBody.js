@@ -1,7 +1,7 @@
-import './App.css'
+import '../styles/App.css'
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
-import FalunText from '../dataTexts/falun-info-text.json';
+import FalunText from '../data-texts/falun-info-text.json';
 //import FalunImage from '../images/falun.png'
 import React, { Component } from 'react';
 

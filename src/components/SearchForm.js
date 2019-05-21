@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../styles/App.css';
 class SearchForm extends Component {
 
     render() {
@@ -55,9 +55,6 @@ class SearchForm extends Component {
                 </fieldset>
                 </div>
 
-                {/*put these into 2 flexboxes ?
-           In order to pgosition them next to each other
-           And border = 0 for the fieldset ?*/}
            <div className="departure-home-container">
                 <fieldset className="departure-home">
                     <legend>Departure date</legend>
