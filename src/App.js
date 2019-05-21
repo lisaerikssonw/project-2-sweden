@@ -21,8 +21,8 @@ class App extends Component {
       departureDate: '',
       returnDate: '',
       routes: [],
-
     }
+
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
     this.handleDeparture = this.handleDeparture.bind(this)
@@ -88,13 +88,14 @@ class App extends Component {
             name: route.name,
             departurePlace: data.places[0],
             arrivalPlace: data.places[1],
-            distance: route.distance + " Km",
+            distance: route.distance,
             totalDuration: route.totalDuration,
             price: route.indicativePrices ? route.indicativePrices[0].price : "FREE",
             currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
             places: data.places,
+            durationMinutes: route.totalDuration,
             durationHours: this.minutesToHours(route.totalDuration)
           })
         })
@@ -105,11 +106,6 @@ class App extends Component {
   render() {
 
     return (
-    //   <RouteMap />
-    //
-    //   </div>
-    // );
-
 
     <div id="root">
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
