@@ -86,15 +86,16 @@ class App extends Component {
             name: route.name,
             departurePlace: data.places[0].shortName,
             arrivalPlace: data.places[1].shortName,
-            distance: route.distance + " Km",
+            distance: route.distance,
             totalDuration: route.totalDuration,
             price: route.indicativePrices ? route.indicativePrices[0].price : "FREE",
             currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
             places: data.places,
+            durationMinutes: route.totalDuration,
             durationHours: this.minutesToHours(route.totalDuration)
-          }) 
+          })
         })
       })
       .catch(error => console.log(error))

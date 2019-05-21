@@ -7,12 +7,9 @@ class SearchResults extends Component {
     super(props)
 
     this.state = {
-      sortColumn: 'From', 
-      sortDirection: true
+      sortColumn: 'From',
+      sortDirectionAsc: false
     }
-
-    
-
   }
 
   sortPriceAsc = () => (a, b) => b.price-a.price
@@ -21,36 +18,22 @@ class SearchResults extends Component {
   sortNumberOfTransitsDes = () => (a, b) => a.segments.length-b.segments.length
   sortDistanceAsc = () => (a, b) => b.distance-a.distance
   sortDistanceDes = () => (a, b) => a.distance-b.distance
-  sortTimeAsc = () => (a, b) => b.durationHours-a.durationHours
-  sortTimeDes = () => (a, b) => a.durationHours-b.durationHours
+  sortTimeAsc = () => (a, b) => b.durationMinutes-a.durationMinutes
+  sortTimeDes = () => (a, b) => a.durationMinutes-b.durationMinutes
 
   setSort() {
-    if(this.state.sortDirection===true) {
+    if(this.state.sortDirectionAsc===true) {
       if(this.state.sortColumn==='price') return this.sortPriceAsc()
       if(this.state.sortColumn==='transits') return this.sortNumberOfTransitsAsc()
       if(this.state.sortColumn==='distance') return this.sortDistanceAsc()
       if(this.state.sortColumn==='time') return this.sortTimeAsc()
-    } else if (this.state.sortDirection===false){
+    } else if (this.state.sortDirectionAsc===false){
       if(this.state.sortColumn==='price') return this.sortPriceDes()
       if(this.state.sortColumn==='transits') return this.sortNumberOfTransitsDes()
       if(this.state.sortColumn==='distance') return this.sortDistanceDes()
       if(this.state.sortColumn==='time') return this.sortTimeDes()
     }
   }
-
-  /*setSort() {
-    if(this.state.sortColumn==='price' && this.state.sortDirection===true) {
-      return((a, b) => a.price-b.price)
-    } else if(this.state.sortColumn==='price' && this.state.sortDirection===false) {
-      return((a, b) => b.price-a.price)
-    } else if(this.state.sortColumn==='transits' && this.state.sortDirection===true) {
-      return((a, b) => a.segments.length-b.segments.length)
-    } else if(this.state.sortColumn==='transits' && this.state.sortDirection===false) {
-      return((a, b) => b.segments.length-a.segments.length)
-    } else if(this.state.sortColumn==='distance' && this.state.sortDirection===true) {
-      return((a, b) => a.price-b.price)
-    }
-  } */
   
   render() {
 
@@ -74,20 +57,20 @@ class SearchResults extends Component {
                   <th>To</th>
                   <th>Means of Travel</th>
                   <th onClick={() => this.setState({
-                    sortColumn: "durationHours", 
-                    sortDirection: !this.state.sortDirection
+                    sortColumn: "time", 
+                    sortDirectionAsc: !this.state.sortDirectionAsc
                   })} >Time</th>
                   <th onClick={() => this.setState({
                     sortColumn: "price", 
-                    sortDirection: !this.state.sortDirection
+                    sortDirectionAsc: !this.state.sortDirectionAsc
                   })} >Price</th>
                   <th onClick={() => this.setState({
                     sortColumn: "distance", 
-                    sortDirection: !this.state.sortDirection
+                    sortDirectionAsc: !this.state.sortDirectionAsc
                   })} >Distance</th>
                   <th onClick={() => this.setState({
                     sortColumn: "transits", 
-                    sortDirection: !this.state.sortDirection
+                    sortDirectionAsc: !this.state.sortDirectionAsc
                   })}>Number of Transitions</th>
                 </tr>
                 {routeList}
