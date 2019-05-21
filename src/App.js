@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import './components/App.css';
-import './components/mobile.css';
+import RouteMap from './components/RouteMap'
+import './styles/App.css';
+import './styles/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
@@ -20,8 +21,8 @@ class App extends Component {
       departureDate: '',
       returnDate: '',
       routes: [],
-
     }
+
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
     this.handleDeparture = this.handleDeparture.bind(this)
@@ -85,15 +86,16 @@ class App extends Component {
           route = {
             id: index,
             name: route.name,
-            departurePlace: data.places[0].shortName,
-            arrivalPlace: data.places[1].shortName,
-            distance: route.distance + " Km",
+            departurePlace: data.places[0],
+            arrivalPlace: data.places[1],
+            distance: route.distance,
             totalDuration: route.totalDuration,
             price: route.indicativePrices ? route.indicativePrices[0].price : "FREE",
             currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
             places: data.places,
+            durationMinutes: route.totalDuration,
             durationHours: this.minutesToHours(route.totalDuration)
           })
         })
@@ -104,7 +106,8 @@ class App extends Component {
   render() {
 
     return (
-      <div id="root">
+
+    <div id="root">
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -155,9 +158,7 @@ class App extends Component {
 }
 
 // debug environment variables
-const romeKey = process.env.REACT_APP_ROME_SECRET_KEY;
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
-console.log("rome 2 rio key = " + romeKey);
 console.log("google key = " + googleKey);
 
 export default App;
