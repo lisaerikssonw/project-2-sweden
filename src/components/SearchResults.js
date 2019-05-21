@@ -10,9 +10,35 @@ class SearchResults extends Component {
       sortColumn: 'From', 
       sortDirection: true
     }
+
+    
+
   }
 
+  sortPriceAsc = () => (a, b) => b.price-a.price
+  sortPriceDes = () => (a, b) => a.price-b.price
+  sortNumberOfTransitsAsc = () => (a, b) => b.segments.length-a.segments.length
+  sortNumberOfTransitsDes = () => (a, b) => a.segments.length-b.segments.length
+  sortDistanceAsc = () => (a, b) => b.distance-a.distance
+  sortDistanceDes = () => (a, b) => a.distance-b.distance
+  sortTimeAsc = () => (a, b) => b.durationHours-a.durationHours
+  sortTimeDes = () => (a, b) => a.durationHours-b.durationHours
+
   setSort() {
+    if(this.state.sortDirection===true) {
+      if(this.state.sortColumn==='price') return this.sortPriceAsc()
+      if(this.state.sortColumn==='transits') return this.sortNumberOfTransitsAsc()
+      if(this.state.sortColumn==='distance') return this.sortDistanceAsc()
+      if(this.state.sortColumn==='time') return this.sortTimeAsc()
+    } else if (this.state.sortDirection===false){
+      if(this.state.sortColumn==='price') return this.sortPriceDes()
+      if(this.state.sortColumn==='transits') return this.sortNumberOfTransitsDes()
+      if(this.state.sortColumn==='distance') return this.sortDistanceDes()
+      if(this.state.sortColumn==='time') return this.sortTimeDes()
+    }
+  }
+
+  /*setSort() {
     if(this.state.sortColumn==='price' && this.state.sortDirection===true) {
       return((a, b) => a.price-b.price)
     } else if(this.state.sortColumn==='price' && this.state.sortDirection===false) {
@@ -24,19 +50,11 @@ class SearchResults extends Component {
     } else if(this.state.sortColumn==='distance' && this.state.sortDirection===true) {
       return((a, b) => a.price-b.price)
     }
-  } 
-
-
-  /* setSort(column) {
-
-    if(this.state.sortDirection===true) {
-      return(a, b => a.column-b.column)
-    }
   } */
   
   render() {
 
-      const sortFunction = this.setSort(this.state.sortColumn)
+      const sortFunction = this.setSort()
       const routeList = this.props.routes
       .sort(sortFunction)
       .map(route => {return(
