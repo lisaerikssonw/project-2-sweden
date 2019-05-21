@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Routes from './Routes'
+import RouteMap from './RouteMap'
 import '../styles/App.css';
 
 class SearchResults extends Component {
@@ -29,6 +30,7 @@ class SearchResults extends Component {
                 {routeList}
                 </tbody>
               </table>
+              <RouteMap routes={this.props.routes} />
           </article>
         )
     }

@@ -26,6 +26,8 @@ class RouteMap extends Component {
 
         });
 
+        console.log(JSON.stringify(list));
+
 
       if (!destination)
       console.log("den är false!")
@@ -53,9 +55,8 @@ class RouteMap extends Component {
               <Polyline
                 path={
                   [
-                    dubai,
-                    paris,
-                    stockholm
+                    departure,
+                    destination
                   ]}
                   options={{
                     strokeColor: "#FF0000",

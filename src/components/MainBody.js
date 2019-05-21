@@ -20,12 +20,11 @@ class MainBody extends Component {
                 handleDeparture={this.props.handleDeparture}
                 handleReturn={this.props.handleReturn}/>
 
-                {this.props.routes!==false && <div><SearchResults
+                {this.props.routes!=false && <SearchResults
                 routes={this.props.routes}
                 minutesToHours = {this.props.minutesToHours}/>
-                <RouteMap routes={this.props.routes}
-                />
-              </div>}
+
+              }
 
             </div>
             )
