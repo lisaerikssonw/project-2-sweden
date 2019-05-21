@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import RouteMap from './components/RouteMap'
 import './styles/App.css';
 import './styles/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
