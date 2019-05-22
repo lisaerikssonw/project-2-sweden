@@ -11,6 +11,7 @@ class Routes extends Component {
         }
 
         this.editExpandMode = this.editExpandMode.bind(this)
+        this.handleOnclick = this.handleOnclick.bind(this)
     }
 
     editExpandMode() {
@@ -20,34 +21,39 @@ class Routes extends Component {
     }
 
     getVehicleList() {
-              return (
-              <td>{
-                  this.props.segments.map(segment => {
-                      const vehicleList = this.props.vehicles
-                      const segmentList = this.props.segments
-                      const position = segmentList.indexOf(segment);
+        return (
+            <td>{
+                this.props.segments.map(segment => {
+                    const vehicleList = this.props.vehicles
+                    const segmentList = this.props.segments
+                    const position = segmentList.indexOf(segment);
 
-                      return vehicleList[segmentList[position].vehicle].name + " "
-                  }
-                  )}
-              </td>
-    )
-  }
+                    return vehicleList[segmentList[position].vehicle].name + " "
+                }
+                )}
+            </td>
+        )
+    }
+
+    handleOnclick(){ 
+        this.editExpandMode();
+        
+    }
 
     render() {
 
         if (this.state.expandMode === false) {
             return (
-                <tr className="routes" onClick={this.editExpandMode}>
+                <tr className="routes" onClick={this.handleOnclick} >
                     <td>
                         <img className="black-triangle"
-                        src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
-                        alt="Black triangle"
-                        title="Expand" />
+                            src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
+                            alt="Black triangle"
+                            title="Expand" />
                         {this.props.departurePlace.shortName}
                     </td>
                     <td>{this.props.arrivalPlace.shortName}</td>
-                        {this.getVehicleList()}
+                    {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price + " " + this.props.currency}</td>
                     <td className="hidden">{this.props.distance} km</td>
@@ -56,16 +62,16 @@ class Routes extends Component {
             )
         } else {
             return (
-                [<tr className="routes" onClick={this.editExpandMode}>
+                [<tr className="routes" onClick={this.handleOnclick}>
                     <td>
-                    <img className="black-triangle"
-                        src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
-                        alt="Triangle pointing right"
-                        title="Collapse" />
+                        <img className="black-triangle"
+                            src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
+                            alt="Triangle pointing right"
+                            title="Collapse" />
                         {this.props.departurePlace.shortName}
                     </td>
                     <td>{this.props.arrivalPlace.shortName}</td>
-                          {this.getVehicleList()}
+                    {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
                     <td className="hidden">{this.props.distance} km</td>
@@ -82,8 +88,8 @@ class Routes extends Component {
                     segments={this.props.segments}
                     places={this.props.places}
                     vehicles={this.props.vehicles}
-                    minutesToHours ={this.props.minutesToHours}
-                    routes = {this.props.routes} />
+                    minutesToHours={this.props.minutesToHours}
+                    routes={this.props.routes} />
                 ]
             )
         }

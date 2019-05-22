@@ -25,7 +25,7 @@ class RouteMap extends Component {
 
   render() {
 
-    const route = this.props.routes[3]; // r === routes
+    const route = this.props.routes[this.props.mapValue]; // r === routes
     console.log(route)
         return (
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Routes from './Routes'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
+import {getRouteNumber} from './Routes'
 
 class SearchResults extends Component {
   constructor(props) {
@@ -10,11 +11,16 @@ class SearchResults extends Component {
     this.state = {
       sortColumn: 'From',
       sortDirectionAsc: false,
-      mapRouteValue:0
+      mapValue:0
+      
     }
 
     this.setColumnState = this.setColumnState.bind(this)
   }
+
+
+
+
 
   sortPriceAsc = () => (a, b) => b.price-a.price
   sortPriceDes = () => (a, b) => a.price-b.price
@@ -74,7 +80,7 @@ class SearchResults extends Component {
                 {routeList}
                 </tbody>
               </table>
-              <RouteMap routes={this.props.routes} />
+              <RouteMap mapValue={this.state.mapValue} routes = {this.props.routes} />
           </article>
         )
     }

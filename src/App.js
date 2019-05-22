@@ -30,7 +30,6 @@ class App extends Component {
     this.submitSearch = this.submitSearch.bind(this)
     this.sendRequest = this.sendRequest.bind(this)
     this.minutesToHours =this.minutesToHours.bind(this)
-
   }
 
   handleDestination(event) {
