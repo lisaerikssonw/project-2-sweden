@@ -89,7 +89,7 @@ class SearchForm extends Component {
                     <div className="filter-container">
                         <img src="images/icons/plane-filter.png"
                             alt="aeroplane"
-                            title="plane" 
+                            title="Airplane" 
                             className="filter-img"/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterAir} />
@@ -98,7 +98,7 @@ class SearchForm extends Component {
 
                         <img src="images/icons/rail-filter.png"
                             alt="rail"
-                            title="rail" 
+                            title="Rail" 
                             className="filter-img"/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterRail} />
@@ -107,7 +107,7 @@ class SearchForm extends Component {
 
                         <img src="images/icons/car.png"
                             alt="car"
-                            title="car" 
+                            title="Car" 
                             className="filter-img"/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterCar} />
@@ -116,7 +116,7 @@ class SearchForm extends Component {
 
                         <img src="images/icons/ferry.png"
                             alt="ferry"
-                            title="ferry" 
+                            title="Ferry" 
                             className="filter-img"/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterFerry} />
@@ -125,7 +125,7 @@ class SearchForm extends Component {
 
                         <img src="images/icons/bus-filter.png"
                             alt="bus"
-                            title="bus" 
+                            title="Bus" 
                             className="filter-img"/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterBus} />
