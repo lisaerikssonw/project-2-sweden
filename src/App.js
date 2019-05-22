@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import './components/App.css';
+import RouteMap from './components/RouteMap'
+import './styles/App.css';
+import './styles/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
@@ -19,8 +21,8 @@ class App extends Component {
       departureDate: '',
       returnDate: '',
       routes: [],
-
     }
+
     this.handleDestination = this.handleDestination.bind(this)
     this.handleOrigin = this.handleOrigin.bind(this)
     this.handleDeparture = this.handleDeparture.bind(this)
@@ -84,26 +86,28 @@ class App extends Component {
           route = {
             id: index,
             name: route.name,
-            departurePlace: data.places[0].shortName,
-            arrivalPlace: data.places[1].shortName,
-            distance: route.distance + " Km",
+            departurePlace: data.places[0],
+            arrivalPlace: data.places[1],
+            distance: route.distance,
             totalDuration: route.totalDuration,
             price: route.indicativePrices ? route.indicativePrices[0].price + " " + data.currencyCode : "FREE",
             currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
             places: data.places,
+            durationMinutes: route.totalDuration,
             durationHours: this.minutesToHours(route.totalDuration)
-          }) 
+          })
         })
       })
       .catch(error => console.log(error))
   }
 
-
   render() {
+
     return (
-      <div id="root">
+
+    <div id="root">
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -112,10 +116,15 @@ class App extends Component {
               {/* menu block goes here*/}
 
               <div className="nav-container">
-                <button className="button" onClick={() => this.setState({ page: "home" })}>Home</button>
-                <button className="button">Search Trips</button>
+              <img className="icon"
+                    src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
+                    alt="Olympic rings"
+                    title="Winter Olympics 2024" />
+                <button className="button"
+                    onClick={()=> this.setState({page:"home"})}>Search Trips
+                </button>
                 <button className="button">About the Event</button>
-                <button className="dropdown">About our<br /> Destinations
+                <button className="dropdown">About our<br />Destinations
                   <div className="dropdown-content">
                     <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
                     <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
@@ -123,7 +132,7 @@ class App extends Component {
                   </div>
                 </button>
 
-                <button className="button">View Recommendations</button>
+                <button className="button hidden">View Recommended</button>
               </div>
 
             </nav>
@@ -138,7 +147,7 @@ class App extends Component {
               handleReturn={this.handleReturn}
               routes={this.state.routes}
               minutesToHours = {this.minutesToHours} />
-              
+
             <hr />
             <Footer />
           </main>
@@ -149,9 +158,7 @@ class App extends Component {
 }
 
 // debug environment variables
-const romeKey = process.env.REACT_APP_ROME_SECRET_KEY;
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
-console.log("rome 2 rio key = " + romeKey);
 console.log("google key = " + googleKey);
 
 export default App;
