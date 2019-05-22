@@ -218,6 +218,75 @@ button:hover{
   margin: 0 auto;
 }
 
+/* styling for the filter buttons and icons below */
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;/* note to self put em as value instead */
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  outline: none;
+  margin-right: 40px;
+}
+
+.switch-input {
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #006699;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 30px;
+  bottom: 4px;
+  background-color: #ffffff;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ffffff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(-26px);
+  -ms-transform: translateX(-26px);
+  transform: translateX(-26px);
+}
+
+.filter-img {
+  padding-right: 3px;
+}
+
+/* styling for the filter buttons and icons above */
+
 .routes {
 
 background:#E0E0E0;
