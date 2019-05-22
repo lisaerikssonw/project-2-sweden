@@ -64,7 +64,7 @@ class SearchResults extends Component {
         routes={this.props.routes}/>
       )})
         return (
-        <article>
+        <article className="center-results">
               <table>
                 <caption className="search-caption">Search results</caption>
                 <tbody>

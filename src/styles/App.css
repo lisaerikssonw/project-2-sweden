@@ -50,17 +50,23 @@ body {
   padding: 0px;
 }
 
+.center-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .black-triangle {
   vertical-align: middle;
   cursor: pointer;
+  padding-bottom: 0.3em;
 }
 
 .sort-arrow {
-  background: transparent;
   max-height: 0.7em;
   vertical-align: middle;
   padding-bottom: 0.2em;
-
+  cursor: pointer;
 }
 
 .departure-home-container{
@@ -106,7 +112,7 @@ input.cities {
 
 .search-caption {
   margin-top: 40px;
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
   font-size: 1.7em;
   font-weight: bold;
@@ -306,9 +312,9 @@ table{
   border-collapse: collapse;
 }
 
-table:hover {
+/*table:hover {
   cursor: help;
-}
+}*/
 
 .segment{
 
