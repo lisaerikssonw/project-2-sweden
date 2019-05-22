@@ -78,13 +78,13 @@ class SearchForm extends Component {
                         </fieldset>
                     </div>
                     {/* text for filter buttons */}
-                    <div className="filter-container">
+                    {/* <div className="filter-container">
                         <strong>Air</strong>
                         <strong>Rail</strong>
                         <strong>Car</strong>
                         <strong>Ferry</strong>
                         <strong>Bus</strong>
-                    </div>
+                    </div> */}
                     {/* switch filter buttons */}
                     <div className="filter-container">
                         <img src="images/icons/plane-filter.png"
