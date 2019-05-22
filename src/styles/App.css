@@ -55,6 +55,14 @@ body {
   cursor: pointer;
 }
 
+.sort-arrow {
+  background: transparent;
+  max-height: 0.7em;
+  vertical-align: middle;
+  padding-bottom: 0.2em;
+
+}
+
 .departure-home-container{
   display: flex;
   flex-direction: row;
