@@ -27,16 +27,16 @@ class SearchResults extends Component {
   setSort() {
 
       if(this.state.sortColumn === 'price') {
-        return (this.state.sortDirectionAscending === true) ? this.sortPriceAscending() : this.sortPriceDescending();
+        return this.state.sortDirectionAscending ? this.sortPriceAscending() : this.sortPriceDescending();
 
-      } else if (this.state.sortColumn === 'transits') {
-        return (this.state.sortDirectionAscending === true) ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
+      } else if (this.state.sortColumn == 'transits') {
+        return this.state.sortDirectionAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
 
       } else if (this.state.sortColumn === 'distance') {
-        return (this.state.sortDirectionAscending === true) ? this.sortDistanceAscending() : this.sortDistanceDescending();
+        return this.state.sortDirectionAscending ? this.sortDistanceAscending() : this.sortDistanceDescending();
 
       } else if (this.state.sortColumn === 'time') {
-        return (this.state.sortDirectionAscending === true) ? this.sortTimeAscending() : this.sortTimeDescending();
+        return this.state.sortDirectionAscending ? this.sortTimeAscending() : this.sortTimeDescending();
       }
   }
 
