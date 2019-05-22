@@ -17,8 +17,13 @@ class MainBody extends Component {
                 handleOrigin={this.props.handleOrigin}
                 handleDestination={this.props.handleDestination}
                 handleDeparture={this.props.handleDeparture}
-                handleReturn={this.props.handleReturn}/>
-
+                handleReturn={this.props.handleReturn}
+                handleFilterAir={this.props.handleFilterAir}
+                handleFilterRail={this.props.handleFilterRail}
+                handleFilterCar={this.props.handleFilterCar}
+                handleFilterFerry={this.props.handleFilterFerry}
+                handleFilterBus={this.props.handleFilterBus}/>
+                
                 {this.props.routes!=false && <SearchResults
                 routes={this.props.routes}
                 minutesToHours = {this.props.minutesToHours}/>}
