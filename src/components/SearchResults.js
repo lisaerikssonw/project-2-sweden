@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Routes from './Routes'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
-import {getRouteNumber} from './Routes'
+
+
 
 class SearchResults extends Component {
   constructor(props) {
@@ -16,10 +17,18 @@ class SearchResults extends Component {
     }
 
     this.setColumnState = this.setColumnState.bind(this)
+    this.setMapValue = this.setMapValue.bind(this)
   }
 
+  
 
-
+  setMapValue = (value) => {  
+    if(!value){
+     value=0; 
+    }
+    console.log(value)
+    this.setState({mapValue:value})
+  }
 
 
   sortPriceAsc = () => (a, b) => b.price-a.price
@@ -59,7 +68,7 @@ class SearchResults extends Component {
       .sort(sortFunction)
       .map(route => {return(
         
-        <Routes minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
+        <Routes mapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
         routes={this.props.routes}/>
       )})
         return (

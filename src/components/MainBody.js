@@ -2,8 +2,6 @@ import '../styles/App.css'
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 import FalunText from '../data-texts/falun-info-text.json';
-import RouteMap from './RouteMap';
-//import FalunImage from '../images/falun.png'
 import React, { Component } from 'react';
 
 const falunJson = JSON.stringify(FalunText);

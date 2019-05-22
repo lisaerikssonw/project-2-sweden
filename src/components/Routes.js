@@ -7,7 +7,8 @@ class Routes extends Component {
         super(props)
 
         this.state = {
-            expandMode: false
+            expandMode: false,
+            mapValue:0
         }
 
         this.editExpandMode = this.editExpandMode.bind(this)
@@ -37,7 +38,7 @@ class Routes extends Component {
 
     handleOnclick(){ 
         this.editExpandMode();
-        
+        this.props.mapValue(this.props.key);
     }
 
     render() {
