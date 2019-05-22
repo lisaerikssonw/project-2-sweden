@@ -70,7 +70,7 @@ class App extends Component {
       return timeInMinutes + " Min";
     }else {
       let sum = timeInMinutes/60;
-      return sum.toFixed(1) + "h";
+      return sum.toFixed(2) + "h";
 
     }
   }
@@ -90,11 +90,12 @@ class App extends Component {
             arrivalPlace: data.places[1],
             distance: route.distance,
             totalDuration: route.totalDuration,
-            price: route.indicativePrices ? route.indicativePrices[0].price + " " + data.currencyCode : "FREE",
+            price: route.indicativePrices ? route.indicativePrices[0].price : " ",
             currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
             segments: route.segments,
             vehicles: data.vehicles,
             places: data.places,
+            currencyCode: data.currencyCode,
             durationMinutes: route.totalDuration,
             durationHours: this.minutesToHours(route.totalDuration)
           })

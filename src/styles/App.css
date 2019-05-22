@@ -227,6 +227,7 @@ border: 1px solid #000000;
 
 table{
   border-collapse: collapse;
+  max-width: 900px;
 }
 
 table:hover {
@@ -237,7 +238,7 @@ table:hover {
 
   background: #F8F8F8;
   border: 1px solid #000000;
-  margin-left: 5%;
+  
 
 }
 

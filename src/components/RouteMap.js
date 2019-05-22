@@ -4,22 +4,29 @@ require('dotenv').config();
 
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
 
-const dubai = new Coordinates(25.20485, 55.27078);
 const stockholm = new Coordinates(59.32932, 18.06858);
-const paris = new Coordinates(48.85661, 2.35222);
+
+let mapRoute = [];
+
+
+
+
+
 
 // console.log(dubai);
 // console.log(stockholm);
 // console.log(paris);
 
+
+
+
 class RouteMap extends Component {
+
 
   render() {
 
-    const route = this.props.routes[0]; // r === routes
-    let departure = new Coordinates(route.departurePlace.lat, route.departurePlace.lng);
-    let destination = new Coordinates(route.arrivalPlace.lat, route.arrivalPlace.lng);
-
+    const route = this.props.routes[3]; // r === routes
+    console.log(route)
         return (
 
             <LoadScript
@@ -36,11 +43,8 @@ class RouteMap extends Component {
                 zoom={2}
               >
               <Polyline
-                path={
-                  [
-                    departure,
-                    destination
-                  ]}
+              
+                path={getPosition(route)}
                   options={{
                     strokeColor: "#FF0000",
                     strokeOpacity: 0.8,
@@ -60,6 +64,29 @@ class RouteMap extends Component {
 function Coordinates(latitude, longitude) {
   this.lat = latitude;
   this.lng = longitude;
+}
+
+function getPosition(route) {
+  let departure = null;
+  let arrival = null;
+
+  route.segments.map(segment=>{
+    if(arrival === null){
+      departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);
+      arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
+      mapRoute.push(departure);
+      mapRoute.push(arrival);
+      }else {
+        departure = arrival;
+        arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
+        mapRoute.push(departure);
+        mapRoute.push(arrival);
+      }
+
+  })
+
+  console.log(mapRoute)
+  return mapRoute;
 }
 
 

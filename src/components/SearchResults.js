@@ -9,7 +9,8 @@ class SearchResults extends Component {
 
     this.state = {
       sortColumn: 'From',
-      sortDirectionAsc: false
+      sortDirectionAsc: false,
+      mapRouteValue:0
     }
 
     this.setColumnState = this.setColumnState.bind(this)
