@@ -222,9 +222,8 @@ button:hover{
 .filter-container {
   display: flex;
   flex-direction: row;
-  padding-top: 10px;
+  padding-top: 10px;/* note to self put em as value instead */
   align-items: center;
-  /*justify-content: space-evenly;*/
 }
 
 .switch {
@@ -262,7 +261,7 @@ button:hover{
   width: 26px;
   left: 30px;
   bottom: 4px;
-  background-color: white;
+  background-color: #ffffff;
   -webkit-transition: .2s;
   transition: .2s;
   border-radius: 50%;
@@ -273,16 +272,8 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px white;
+  box-shadow: 0 0 1px #ffffff;
 }
-
-/* input:checked + .slider { - previous styling
-  background-color: #006699;
-}
-
-input:focus + .slider { - previous styling
-  box-shadow: 0 0 1px white;
-} */
 
 input:checked + .slider:before {
   -webkit-transform: translateX(-26px);
@@ -292,7 +283,6 @@ input:checked + .slider:before {
 
 .filter-img {
   padding-right: 3px;
-  /*opacity: 0.3;*/
 }
 
 /* styling for the filter buttons and icons above */
