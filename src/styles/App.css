@@ -96,11 +96,14 @@ input.cities {
   cursor: text;
 }
 
-caption {
-  margin-top: 2em;
+.search-caption {
+  margin-top: 40px;
   text-align: left;
-  margin-bottom: 1em;
+  margin-bottom: 20px;
+  font-size: 1.7em;
+  font-weight: bold;
 }
+
 th {
      text-align: left;
      padding-right: 2em;

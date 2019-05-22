@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Segment from './Segment'
-import './App.css'
+import '../styles/App.css'
 
 class Routes extends Component {
     constructor(props) {
@@ -44,13 +44,13 @@ class Routes extends Component {
                         src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
                         alt="Black triangle"
                         title="Expand" />
-                        {this.props.departurePlace}
+                        {this.props.departurePlace.shortName}
                     </td>
-                    <td>{this.props.arrivalPlace}</td>
+                    <td>{this.props.arrivalPlace.shortName}</td>
                         {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
-                    <td className="hidden">{this.props.distance}</td>
+                    <td className="hidden">{this.props.distance} km</td>
                     <td className="hidden">{this.props.segments.length}</td>
                 </tr>
             )
@@ -62,13 +62,13 @@ class Routes extends Component {
                         src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
                         alt="Triangle pointing right"
                         title="Collapse" />
-                        {this.props.departurePlace}
+                        {this.props.departurePlace.shortName}
                     </td>
-                    <td>{this.props.arrivalPlace}</td>
+                    <td>{this.props.arrivalPlace.shortName}</td>
                           {this.getVehicleList()}
-                    <td>{this.props.durationHourscan}</td>
+                    <td>{this.props.durationHours}</td>
                     <td>{this.props.price}</td>
-                    <td className="hidden">{this.props.distance}</td>
+                    <td className="hidden">{this.props.distance} km</td>
                     <td className="hidden">{this.props.segments.length}</td>
                 </tr>,
                 <tr className="segment">

@@ -1,7 +1,8 @@
-import './App.css'
+import '../styles/App.css'
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
-import FalunText from '../dataTexts/falun-info-text.json';
+import FalunText from '../data-texts/falun-info-text.json';
+import RouteMap from './RouteMap';
 //import FalunImage from '../images/falun.png'
 import React, { Component } from 'react';
 
@@ -11,6 +12,7 @@ const falunInfo = JSON.parse(falunJson);
 class MainBody extends Component {
     render() {
         if(this.props.page==="home"){
+            
             return (
             <div>
                 <SearchForm submitSearch={this.props.submitSearch}
@@ -23,16 +25,17 @@ class MainBody extends Component {
                 handleFilterCar={this.props.handleFilterCar}
                 handleFilterFerry={this.props.handleFilterFerry}
                 handleFilterBus={this.props.handleFilterBus}/>
-                <SearchResults
+                
+                {this.props.routes!=false && <SearchResults
                 routes={this.props.routes}
-                minutesToHours = {this.props.minutesToHours}/>
+                minutesToHours = {this.props.minutesToHours}/>}
+
             </div>
             )
         }else if(this.props.page==="falun"){
             return (
                 <article>
                 <h1 className="Header-text">FALUN</h1>
-                {/* <img className="info-img" src={FalunImage} alt="falun"></img> */}
                 <p className="info-text">{falunInfo.text}</p>
                 </article>
             )
