@@ -71,8 +71,6 @@ class SearchForm extends Component {
                         alt="Going home date"
                         title="Choose date" />
                     <p>
-                        {/* popup window of the schedule?
-            //perhaps some javascript?*/}
                         <small><a href="#schedule">View the Olympic Schedule</a></small>
                     </p>
                 </fieldset>
