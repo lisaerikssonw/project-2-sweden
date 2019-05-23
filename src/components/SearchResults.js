@@ -29,7 +29,7 @@ class SearchResults extends Component {
       if(this.state.sortColumn === 'price') {
         return this.state.sortDirectionAscending ? this.sortPriceAscending() : this.sortPriceDescending();
 
-      } else if (this.state.sortColumn == 'transits') {
+      } else if (this.state.sortColumn === 'transits') {
         return this.state.sortDirectionAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
 
       } else if (this.state.sortColumn === 'distance') {
