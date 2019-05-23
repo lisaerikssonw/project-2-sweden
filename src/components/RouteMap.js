@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { GoogleMap, LoadScript, Polyline } from '@react-google-maps/api'
 require('dotenv').config();
 
@@ -14,39 +14,39 @@ class RouteMap extends Component {
   render() {
 
     let index = this.props.routes.map(route => route.id).indexOf(this.props.mapValue)
-    let route = this.props.routes[index]; 
+    let route = this.props.routes[index];
 
-        return (
+    return (
+      <div className="map">
+        <LoadScript
+          id="script loader"
+          googleMapsApiKey={googleKey}
+        >
+          <GoogleMap
+            id="example-map"
+            mapContainerStyle={{
+              height: "400px",
+              width: "800px"
+            }}
+            center={stockholm}
+            zoom={2}
+          >
+            <Polyline
 
-            <LoadScript
-                id="script loader"
-                googleMapsApiKey={googleKey}
-            >
-              <GoogleMap
-                id="example-map"
-                mapContainerStyle={{
-                  height: "400px",
-                  width: "800px"
-                }}
-                center={stockholm}
-                zoom={2}
-              >
-              <Polyline
-              
-                path={getPosition(route)}
-                  options={{
-                    strokeColor: "#FF0000",
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    editable: false,
-                    visible: true
-                }}
-              />
+              path={getPosition(route)}
+              options={{
+                strokeColor: "#FF0000",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                editable: false,
+                visible: true
+              }}
+            />
 
-              </GoogleMap>
-          </LoadScript>
-
-        )
+          </GoogleMap>
+        </LoadScript>
+      </div>
+    )
   }
 
 }
@@ -59,18 +59,18 @@ function getPosition(route) {
   let departure = null;
   let arrival = null;
   let mapRoute = [];
-  route.segments.map(segment=>{
-    
-    if(arrival === null){
-      departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);
-      
-      }else {
-        departure = arrival;
-      }
+  route.segments.map(segment => {
 
-      arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
-      mapRoute.push(departure);
-      mapRoute.push(arrival);
+    if (arrival === null) {
+      departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);
+
+    } else {
+      departure = arrival;
+    }
+
+    arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
+    mapRoute.push(departure);
+    mapRoute.push(arrival);
 
   })
   console.log(mapRoute)

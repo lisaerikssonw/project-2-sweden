@@ -77,7 +77,7 @@ class SearchResults extends Component {
         <article className="center-results">
               <table>
                 <caption className="search-caption">Search results</caption>
-                <tbody>
+                <tbody className="searchResults">
                 <tr>
                   <th className="searchResultHeader">From</th>
                   <th className="searchResultHeader">To</th>
@@ -104,6 +104,7 @@ class SearchResults extends Component {
               </table>
               <RouteMap mapValue = {this.state.mapValue} routes = {this.props.routes} />
           </article>
+        
         )
     }
 }
