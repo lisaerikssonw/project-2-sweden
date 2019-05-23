@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Routes from './Routes'
+import Route from './Route'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
 
@@ -70,7 +70,7 @@ class SearchResults extends Component {
       .sort(sortFunction)
       .map(route => {return(
 
-        <Routes setMapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
+        <Route setMapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
         routes={this.props.routes}/>
       )})
         return (
