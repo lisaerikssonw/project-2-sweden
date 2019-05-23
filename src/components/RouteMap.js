@@ -4,44 +4,17 @@ require('dotenv').config();
 
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
 
-<<<<<<< HEAD
-=======
-// Stockholm is used for centring the map
-// Other cities for debugging
-const dubai = new Coordinates(25.20485, 55.27078);
->>>>>>> 9aa44132f0057b851acb6a5603ff60f7f54ac09d
 const stockholm = new Coordinates(59.32932, 18.06858);
 
-let mapRoute = [];
 
 
 
-
-
-
-<<<<<<< HEAD
-// console.log(dubai);
-// console.log(stockholm);
-// console.log(paris);
-
-
-
-
-=======
->>>>>>> 9aa44132f0057b851acb6a5603ff60f7f54ac09d
 class RouteMap extends Component {
 
 
-<<<<<<< HEAD
   render() {
-=======
-    const route = this.props.routes[0];
-    let departure = new Coordinates(route.departurePlace.lat, route.departurePlace.lng);
-    let destination = new Coordinates(route.arrivalPlace.lat, route.arrivalPlace.lng);
->>>>>>> 9aa44132f0057b851acb6a5603ff60f7f54ac09d
+    let route = this.props.routes[this.props.mapValue]; // r === routes
 
-    const route = this.props.routes[this.props.mapValue]; // r === routes
-    console.log(route)
         return (
 
             <LoadScript
@@ -84,22 +57,21 @@ function Coordinates(latitude, longitude) {
 function getPosition(route) {
   let departure = null;
   let arrival = null;
-
+  let mapRoute = [];
   route.segments.map(segment=>{
+    
     if(arrival === null){
       departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);
+      
+      }else {
+        departure = arrival;
+      }
+
       arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
       mapRoute.push(departure);
       mapRoute.push(arrival);
-      }else {
-        departure = arrival;
-        arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
-        mapRoute.push(departure);
-        mapRoute.push(arrival);
-      }
 
   })
-
   console.log(mapRoute)
   return mapRoute;
 }

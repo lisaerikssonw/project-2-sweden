@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import RouteMap from './RouteMap'
 class Segment extends Component {
     
 

@@ -8,11 +8,9 @@ class Routes extends Component {
 
         this.state = {
             expandMode: false,
-            mapValue:0
         }
 
         this.editExpandMode = this.editExpandMode.bind(this)
-        this.handleOnclick = this.handleOnclick.bind(this)
     }
 
     editExpandMode() {
@@ -36,16 +34,19 @@ class Routes extends Component {
         )
     }
 
-    handleOnclick(){ 
+    handleOnClicks(){
+
         this.editExpandMode();
-        this.props.mapValue(this.props.key);
+        this.props.setMapValue(this.props.id);
     }
+
+
 
     render() {
 
         if (this.state.expandMode === false) {
             return (
-                <tr className="routes" onClick={this.handleOnclick} >
+                <tr className="routes" onClick={()=> this.handleOnClicks()} >
                     <td>
                         <img className="black-triangle"
                             src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
@@ -63,7 +64,7 @@ class Routes extends Component {
             )
         } else {
             return (
-                [<tr className="routes" onClick={this.handleOnclick}>
+                [<tr className="routes" onClick={this.editExpandMode}>
                     <td>
                         <img className="black-triangle"
                             src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
@@ -74,7 +75,7 @@ class Routes extends Component {
                     <td>{this.props.arrivalPlace.shortName}</td>
                     {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
-                    <td>{this.props.price}</td>
+                    <td>{this.props.price + " " + this.props.currency}</td>
                     <td className="hidden">{this.props.distance} km</td>
                     <td className="hidden">{this.props.segments.length}</td>
                 </tr>,
@@ -90,7 +91,7 @@ class Routes extends Component {
                     places={this.props.places}
                     vehicles={this.props.vehicles}
                     minutesToHours={this.props.minutesToHours}
-                    routes={this.props.routes} />
+                    routes={this.props.routes} />,
                 ]
             )
         }

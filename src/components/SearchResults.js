@@ -11,40 +11,15 @@ class SearchResults extends Component {
 
     this.state = {
       sortColumn: 'From',
-<<<<<<< HEAD
       sortDirectionAsc: false,
       mapValue:0
       
-=======
-      sortDirectionAscending: false
->>>>>>> 9aa44132f0057b851acb6a5603ff60f7f54ac09d
     }
 
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
   }
 
-  
-
-  setMapValue = (value) => {  
-    if(!value){
-     value=0; 
-    }
-    console.log(value)
-    this.setState({mapValue:value})
-  }
-
-<<<<<<< HEAD
-
-  sortPriceAsc = () => (a, b) => b.price-a.price
-  sortPriceDes = () => (a, b) => a.price-b.price
-  sortNumberOfTransitsAsc = () => (a, b) => b.segments.length-a.segments.length
-  sortNumberOfTransitsDes = () => (a, b) => a.segments.length-b.segments.length
-  sortDistanceAsc = () => (a, b) => b.distance-a.distance
-  sortDistanceDes = () => (a, b) => a.distance-b.distance
-  sortTimeAsc = () => (a, b) => b.durationMinutes-a.durationMinutes
-  sortTimeDes = () => (a, b) => a.durationMinutes-b.durationMinutes
-=======
   sortPriceAscending = () => (a, b) => b.price-a.price
   sortPriceDescending = () => (a, b) => a.price-b.price
   sortNumberOfTransitsAscending = () => (a, b) => b.segments.length-a.segments.length
@@ -53,14 +28,13 @@ class SearchResults extends Component {
   sortDistanceDescending = () => (a, b) => a.distance-b.distance
   sortTimeAscending = () => (a, b) => b.durationMinutes-a.durationMinutes
   sortTimeDescending = () => (a, b) => a.durationMinutes-b.durationMinutes
->>>>>>> 9aa44132f0057b851acb6a5603ff60f7f54ac09d
 
   setSort() {
 
       if(this.state.sortColumn === 'price') {
         return this.state.sortDirectionAscending ? this.sortPriceAscending() : this.sortPriceDescending();
 
-      } else if (this.state.sortColumn == 'transits') {
+      } else if (this.state.sortColumn === 'transits') {
         return this.state.sortDirectionAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
 
       } else if (this.state.sortColumn === 'distance') {
@@ -78,19 +52,21 @@ class SearchResults extends Component {
     })
   }
 
+  setMapValue(value){
+    
+
+    this.setState({mapValue:value})
+
+  }
+
   render() {
 
       const sortFunction = this.setSort()
       const routeList = this.props.routes
       .sort(sortFunction)
       .map(route => {return(
-<<<<<<< HEAD
         
-        <Routes mapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
-=======
-
-        <Routes minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
->>>>>>> 9aa44132f0057b851acb6a5603ff60f7f54ac09d
+        <Routes setMapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
         routes={this.props.routes}/>
       )})
         return (
@@ -112,7 +88,7 @@ class SearchResults extends Component {
                 {routeList}
                 </tbody>
               </table>
-              <RouteMap mapValue={this.state.mapValue} routes = {this.props.routes} />
+              <RouteMap mapValue = {this.state.mapValue} routes = {this.props.routes} />
           </article>
         )
     }
