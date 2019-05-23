@@ -162,10 +162,10 @@ button {
 /* Links inside the dropdown */
 .dropdown-content div {
   color:#ffcc00;
-  padding: 12px 16px;
   text-decoration: none;
   display: block;
   border-left: 2px inset;
+  padding: 12px 16px;
 
 }
 
@@ -317,13 +317,14 @@ border: 1px solid #000000;
 
 table{
   border-collapse: collapse;
+  max-width: 900px;
 }
 
 .segment{
 
   background: #F8F8F8;
   border: 1px solid #000000;
-  margin-left: 5%;
+  
 
 }
 

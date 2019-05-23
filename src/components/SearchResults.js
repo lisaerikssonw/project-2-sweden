@@ -3,16 +3,21 @@ import Routes from './Routes'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
 
+
+
 class SearchResults extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       sortColumn: 'From',
-      sortDirectionAscending: false
+      sortDirectionAsc: false,
+      mapValue:0
+      
     }
 
     this.setColumnState = this.setColumnState.bind(this)
+    this.setMapValue = this.setMapValue.bind(this)
   }
 
   sortPriceAscending = () => (a, b) => b.price-a.price
@@ -47,6 +52,10 @@ class SearchResults extends Component {
     })
   }
 
+  setMapValue(id){
+    this.setState({mapValue:id})
+  }
+
   render() {
 
 
@@ -59,8 +68,8 @@ class SearchResults extends Component {
       const routeList = this.props.routes
       .sort(sortFunction)
       .map(route => {return(
-
-        <Routes minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
+        
+        <Routes setMapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
         routes={this.props.routes}/>
       )})
         return (
@@ -80,7 +89,7 @@ class SearchResults extends Component {
                 {routeList}
                 </tbody>
               </table>
-              <RouteMap routes={this.props.routes} />
+              <RouteMap mapValue = {this.state.mapValue} routes = {this.props.routes} />
           </article>
         )
     }
