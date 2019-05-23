@@ -52,11 +52,8 @@ class SearchResults extends Component {
     })
   }
 
-  setMapValue(value){
-    
-
-    this.setState({mapValue:value})
-
+  setMapValue(id){
+    this.setState({mapValue:id})
   }
 
   render() {
