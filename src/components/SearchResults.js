@@ -81,9 +81,9 @@ class SearchResults extends Component {
                 <caption className="search-caption">Search results</caption>
                 <tbody>
                 <tr>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Means of Travel</th>
+                  <th className="searchResultHeader">From</th>
+                  <th className="searchResultHeader">To</th>
+                  <th className="searchResultHeader">Means of Travel</th>
                   <th
                     className="searchResultHeader"
                     onClick={() => this.setColumnState('time')} >Time {sortIcon}
