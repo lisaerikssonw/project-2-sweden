@@ -29,9 +29,9 @@ class MainBody extends Component {
                 filterFerryChecked={this.props.filterFerryChecked}
                 filterBusChecked={this.props.filterBusChecked}/>
                 
-                {this.props.routes!=false && <SearchResults
+                {this.props.routes.length ? <SearchResults
                 routes={this.props.routes}
-                minutesToHours = {this.props.minutesToHours}/>}
+                minutesToHours = {this.props.minutesToHours}/> : null }
 
             </div>
             )
