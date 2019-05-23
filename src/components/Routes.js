@@ -34,21 +34,27 @@ class Routes extends Component {
         )
     }
 
+    setRouteMap(){
+        this.props.setMapValue(this.props.id)
+    }
+
+
+
     render() {
 
 
         if (this.state.expandMode === false) {
             return (
-                <tr className="routes" onClick={ ()=> this.props.setMapValue(this.props.id)} >
+                <tr className="routes" onClick={()=> this.setRouteMap()} >
                     <td>
-                        <img className="black-triangle"
+                        <img onClick={() => this.editExpandMode()} className="black-triangle"
                             src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
                             alt="Black triangle"
                             title="Expand"
                             onClick={() => this.editExpandMode()} />
                         {this.props.departurePlace.shortName}
                     </td>
-                    <td>{this.props.arrivalPlace.shortName}</td>
+                    <td>{this.props.arrivalPlace.shortName} </td>
                     {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price + " " + this.props.currency}</td>

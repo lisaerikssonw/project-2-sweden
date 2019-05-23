@@ -8,12 +8,13 @@ const stockholm = new Coordinates(59.32932, 18.06858);
 
 
 
-
 class RouteMap extends Component {
 
 
   render() {
-    let route = this.props.routes[this.props.mapValue]; // r === routes
+
+    let index = this.props.routes.map(route => route.id).indexOf(this.props.mapValue)
+    let route = this.props.routes[index]; 
 
         return (
 
@@ -58,21 +59,22 @@ function getPosition(route) {
   let departure = null;
   let arrival = null;
   let mapRoute = [];
-  route.segments.map(segment=>{
+    route.segments.map(segment=>{
     
-    if(arrival === null){
+      if(arrival === null){
       departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);
       
-      }else {
-        departure = arrival;
-      }
+        }else {
+          departure = arrival;
+        }
 
       arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
       mapRoute.push(departure);
       mapRoute.push(arrival);
 
   })
-  console.log(mapRoute)
+
+  
   return mapRoute;
 }
 
