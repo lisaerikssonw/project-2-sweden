@@ -56,6 +56,7 @@ class SearchResults extends Component {
     
 
     this.setState({mapValue:value})
+    console.log(this.state.mapValue)
 
   }
 

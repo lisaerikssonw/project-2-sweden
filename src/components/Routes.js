@@ -34,24 +34,18 @@ class Routes extends Component {
         )
     }
 
-    handleOnClicks(){
-
-        this.editExpandMode();
-        this.props.setMapValue(this.props.id);
-    }
-
-
-
     render() {
+
 
         if (this.state.expandMode === false) {
             return (
-                <tr className="routes" onClick={()=> this.handleOnClicks()} >
+                <tr className="routes" onClick={ ()=> this.props.setMapValue(this.props.id)} >
                     <td>
                         <img className="black-triangle"
                             src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
                             alt="Black triangle"
-                            title="Expand" />
+                            title="Expand"
+                            onClick={() => this.editExpandMode()} />
                         {this.props.departurePlace.shortName}
                     </td>
                     <td>{this.props.arrivalPlace.shortName}</td>
@@ -64,9 +58,10 @@ class Routes extends Component {
             )
         } else {
             return (
-                [<tr className="routes" onClick={this.editExpandMode}>
+                [<tr className="routes">
                     <td>
                         <img className="black-triangle"
+                            onClick={()=>this.editExpandMode()}
                             src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
                             alt="Triangle pointing right"
                             title="Collapse" />
