@@ -86,6 +86,7 @@ class SearchForm extends Component {
                             <input type="checkbox" value={this.props.filterAirChecked} onChange={this.props.handleFilterAir} />
                             <div className="slider"></div>
                         </label>
+                        
                         <img src="images/icons/rail-filter.png"
                             alt="rail"
                             title="Rail" 

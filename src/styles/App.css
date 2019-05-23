@@ -297,11 +297,13 @@ input:checked + .slider:before {
 
 .filter-img {
   padding-right: 3px;
+  max-width: 100%;
 }
 
 .filter-img-toggled {
   padding-right: 3px;
   opacity: 0.3;
+  max-width: 100%;
 }
 
 /* styling for the filter buttons and icons above */
