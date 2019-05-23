@@ -29,7 +29,7 @@ class SearchResults extends Component {
       if(this.state.sortColumn === 'price') {
         return this.state.sortDirectionAscending ? this.sortPriceAscending() : this.sortPriceDescending();
 
-      } else if (this.state.sortColumn == 'transits') {
+      } else if (this.state.sortColumn === 'transits') {
         return this.state.sortDirectionAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
 
       } else if (this.state.sortColumn === 'distance') {
@@ -49,6 +49,12 @@ class SearchResults extends Component {
 
   render() {
 
+
+      const sortIcon = <img className="sort-arrow"
+      src={process.env.PUBLIC_URL + "/images/icons/sort-arrow.png"}
+      alt="sort-arrow"
+      title="Sort" />
+
       const sortFunction = this.setSort()
       const routeList = this.props.routes
       .sort(sortFunction)
@@ -58,7 +64,7 @@ class SearchResults extends Component {
         routes={this.props.routes}/>
       )})
         return (
-        <article>
+        <article className="center-results">
               <table>
                 <caption className="search-caption">Search results</caption>
                 <tbody>
@@ -66,12 +72,10 @@ class SearchResults extends Component {
                   <th>From</th>
                   <th>To</th>
                   <th>Means of Travel</th>
-                  <th onClick={() => this.setColumnState('time')} >Time</th>
-                  <th onClick={() => this.setColumnState('price')} >Price</th>
-                  <th onClick={() => this.setColumnState('distance')}
-                      className="hidden">Distance</th>
-                  <th onClick={() => this.setColumnState('transits')}
-                      className="hidden">No. Transits</th>
+                  <th onClick={() => this.setColumnState('time')} >Time {sortIcon} </th>
+                  <th onClick={() => this.setColumnState('price')} >Price {sortIcon} </th>
+                  <th onClick={() => this.setColumnState('distance')} className="hidden">Distance {sortIcon} </th>
+                  <th onClick={() => this.setColumnState('transits')} className="hidden">No. Transits {sortIcon} </th>
                 </tr>
                 {routeList}
                 </tbody>

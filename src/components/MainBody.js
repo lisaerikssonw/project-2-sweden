@@ -24,9 +24,9 @@ class MainBody extends Component {
                 handleFilterFerry={this.props.handleFilterFerry}
                 handleFilterBus={this.props.handleFilterBus}/>
                 
-                {this.props.routes!=false && <SearchResults
+                {this.props.routes.length ? <SearchResults
                 routes={this.props.routes}
-                minutesToHours = {this.props.minutesToHours}/>}
+                minutesToHours = {this.props.minutesToHours}/> : null }
 
             </div>
             )
