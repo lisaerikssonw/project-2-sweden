@@ -28,7 +28,11 @@ class App extends Component {
       returnDate: '',
       routes: [],
       places: [],
-      filterChecked: props.filterChecked || false, //boolean for filter buttons if checked or not
+      filterAirChecked: props.filterAirChecked || true, //boolean for filter buttons if checked or not
+      filterRailChecked: props.filterRailChecked || true,
+      filterCarChecked: props.filterCarChecked || true,
+      filterFerryChecked: props.filterFerryChecked || true,
+      filterBusChecked: props.filterBusChecked || true,
       filterURL: "",
       filterAir: "",
       filterRail: "",
@@ -49,8 +53,7 @@ class App extends Component {
     this.handleFilterCar = this.handleFilterCar.bind(this)
     this.handleFilterFerry = this.handleFilterFerry.bind(this)
     this.handleFilterRail = this.handleFilterRail.bind(this)
-    this.minutesToHours =this.minutesToHours.bind(this)
-
+    this.minutesToHours = this.minutesToHours.bind(this)
   }
 
   handleDestination(event) {
@@ -87,8 +90,10 @@ class App extends Component {
     //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
     if(this.state.filterAir.valueOf("&noAir")) {
       this.setState({ filterAir: "" })
+      this.setState({filterAirChecked: true})
     } else {
       this.setState({ filterAir: "&noAir" })
+      this.setState({filterAirChecked: false})
     }
   }
 
@@ -96,32 +101,40 @@ class App extends Component {
     //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
     if(this.state.filterRail.valueOf("&noRail")) {
       this.setState({ filterRail: "" })
+      this.setState({filterRailChecked: true})
     } else {
       this.setState({ filterRail: "&noRail" })
+      this.setState({filterRailChecked: false})
     }
   }
 
   handleFilterCar() {
     if(this.state.filterCar.valueOf("&noCar")) {
       this.setState({ filterCar: "" })
+      this.setState({filterCarChecked: true})
     } else {
       this.setState({ filterCar: "&noCar" })
+      this.setState({filterCarChecked: false})
     }
   }
 
   handleFilterFerry() {
     if(this.state.filterFerry.valueOf("&noFerry")) {
       this.setState({ filterFerry: "" })
+      this.setState({filterFerryChecked: true})
     } else {
       this.setState({ filterFerry: "&noFerry" })
+      this.setState({filterFerryChecked: false})
     }
   }
 
   handleFilterBus() {
     if(this.state.filterBus.valueOf("&noBus")) {
       this.setState({ filterBus: "" })
+      this.setState({filterBusChecked: true})
     } else {
       this.setState({ filterBus: "&noBus" })
+      this.setState({filterBusChecked: false})
     }
   }
 
@@ -227,7 +240,12 @@ class App extends Component {
               handleDeparture={this.handleDeparture}
               handleReturn={this.handleReturn}
               routes={this.state.routes}
-              minutesToHours = {this.minutesToHours} />
+              minutesToHours = {this.minutesToHours} 
+              filterAirChecked = {this.state.filterAirChecked}
+              filterRailChecked = {this.state.filterRailChecked}
+              filterCarChecked = {this.state.filterCarChecked}
+              filterFerryChecked = {this.state.filterFerryChecked}
+              filterBusChecked = {this.state.filterBusChecked}/>
 
             <hr />
             <Footer />
