@@ -23,7 +23,7 @@ class MainBody extends Component {
                 handleFilterCar={this.props.handleFilterCar}
                 handleFilterFerry={this.props.handleFilterFerry}
                 handleFilterBus={this.props.handleFilterBus}/>
-                
+
                 {this.props.routes.length ? <SearchResults
                 routes={this.props.routes}
                 minutesToHours = {this.props.minutesToHours}/> : null }
