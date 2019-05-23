@@ -120,10 +120,13 @@ input.cities {
   font-weight: bold;
 }
 
-.searchResultHeader th {
+.searchResultHeader {
      cursor: pointer;
      text-align: left;
+     padding: 0;
      padding-right: 1em;
+     padding-left:0.1em;
+
 }
 
 td {
@@ -302,6 +305,11 @@ input:checked + .slider:before {
   padding-right: 3px;
 }
 
+.filter-img-toggled {
+  padding-right: 3px;
+  opacity: 0.3;
+}
+
 /* styling for the filter buttons and icons above */
 
 .routes {
@@ -314,6 +322,7 @@ border: 1px solid #000000;
 table{
   border-collapse: collapse;
   max-width: 900px;
+  text-align: left;
 }
 
 .segment{
@@ -325,6 +334,5 @@ table{
 }
 
 ::placeholder {
-  /* color: #EE0000; red */
   	color: #666666;
 }

@@ -8,12 +8,13 @@ const stockholm = new Coordinates(59.32932, 18.06858);
 
 
 
-
 class RouteMap extends Component {
 
 
   render() {
-    let route = this.props.routes[this.props.mapValue]; // r === routes
+
+    let index = this.props.routes.map(route => route.id).indexOf(this.props.mapValue)
+    let route = this.props.routes[index]; 
 
         return (
 

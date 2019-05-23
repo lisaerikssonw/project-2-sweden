@@ -77,58 +77,48 @@ class SearchForm extends Component {
                             </p>
                         </fieldset>
                     </div>
-                    {/* text for filter buttons */}
-                    {/* <div className="filter-container">
-                        <strong>Air</strong>
-                        <strong>Rail</strong>
-                        <strong>Car</strong>
-                        <strong>Ferry</strong>
-                        <strong>Bus</strong>
-                    </div> */}
-                    {/* switch filter buttons */}
                     <div className="filter-container">
                         <img src="images/icons/plane-filter.png"
                             alt="aeroplane"
-                            title="Airplane" 
-                            className="filter-img"/>
+                            title="Plane" 
+                            className={this.props.filterAirChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
-                            <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterAir} />
+                            <input type="checkbox" value={this.props.filterAirChecked} onChange={this.props.handleFilterAir} />
                             <div className="slider"></div>
                         </label>
-
                         <img src="images/icons/rail-filter.png"
                             alt="rail"
                             title="Rail" 
-                            className="filter-img"/>
+                            className={this.props.filterRailChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
-                            <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterRail} />
+                            <input type="checkbox" value={this.props.filterRailChecked} onChange={this.props.handleFilterRail} />
                             <div className="slider"></div>
                         </label>
 
                         <img src="images/icons/car.png"
                             alt="car"
                             title="Car" 
-                            className="filter-img"/>
+                            className={this.props.filterCarChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
-                            <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterCar} />
+                            <input type="checkbox" value={this.props.filterCarChecked} onChange={this.props.handleFilterCar} />
                             <div className="slider"></div>
                         </label>
 
                         <img src="images/icons/ferry.png"
                             alt="ferry"
                             title="Ferry" 
-                            className="filter-img"/>
+                            className={this.props.filterFerryChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
-                            <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterFerry} />
+                            <input type="checkbox" value={this.props.filterFerryChecked} onChange={this.props.handleFilterFerry} />
                             <div className="slider"></div>
                         </label>
 
                         <img src="images/icons/bus-filter.png"
                             alt="bus"
                             title="Bus" 
-                            className="filter-img"/>
+                            className={this.props.filterBusChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
-                            <input type="checkbox" value={this.props.filterChecked} onChange={this.props.handleFilterBus} />
+                            <input type="checkbox" value={this.props.filterBusChecked} onChange={this.props.handleFilterBus} />
                             <div className="slider"></div>
                         </label>
                     </div>
