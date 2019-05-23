@@ -238,6 +238,8 @@ button:hover{
   flex-direction: row;
   padding-top: 10px;/* note to self put em as value instead */
   align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .switch {
