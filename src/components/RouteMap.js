@@ -14,7 +14,7 @@ class RouteMap extends Component {
   render() {
 
     let index = this.props.routes.map(route => route.id).indexOf(this.props.mapValue)
-    let route = this.props.routes[index]; // r === routes
+    let route = this.props.routes[index]; 
 
         return (
 
