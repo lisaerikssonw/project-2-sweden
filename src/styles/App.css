@@ -121,11 +121,12 @@ input.cities {
 }
 
 .searchResultHeader {
-     cursor: pointer;
-     text-align: left;
-     padding: 0;
-     padding-right: 1em;
-     padding-left:0.1em;
+    background: #EAEDED;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    padding-right: 1em;
+    padding-left:0.1em;
 
 }
 
@@ -318,11 +319,30 @@ input:checked + .slider:before {
 
 /* styling for the filter buttons and icons above */
 
+.searchResults {
+  border-radius: 5px;
+  display: inline-block;
+  border: 0.5px solid #7F8C8D;
+  padding: 0.1em;
+  background: #FFFFFF;
+}
+
 .routes {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D5DBDB;
+  border-top: 1px solid #AAB7B8;
+  }
 
-background:#E0E0E0;
-border: 1px solid #000000;
+.segment{
+  background: #FCF3CF;
+  /*border-bottom: 1px solid #AAB7B8;*/
+  font-size: 0.9em;
+  padding-top: 0px;
+}
 
+.segment th{
+  padding-right: 2em;
+  background: #EAEDED;
 }
 
 table{
@@ -331,18 +351,12 @@ table{
   text-align: left;
 }
 
-.segment{
-
-  background: #F8F8F8;
-  border: 1px solid #000000;
-
-
-}
-
 ::placeholder {
   	color: #666666;
 }
 
 .map {
   margin-top: 1.5em;
-}
+
+  }
+
