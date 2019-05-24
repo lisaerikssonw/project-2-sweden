@@ -70,14 +70,11 @@ class SearchForm extends Component {
                             <img src="images/icons/calendar.svg"
                                 alt="Going home date"
                                 title="Choose date" />
-                            <p>
-                                {/* popup window of the schedule?
-                                //perhaps some javascript?*/}
-                                <small><a href="#schedule">View the Olympic Schedule</a></small>
-                            </p>
                         </fieldset>
                     </div>
                     <div className="filter-container">
+
+                        <div>
                         <img src="images/icons/plane-filter.png"
                             alt="aeroplane"
                             title="Plane" 
@@ -86,6 +83,8 @@ class SearchForm extends Component {
                             <input type="checkbox" value={this.props.filterAirChecked} onChange={this.props.handleFilterAir} />
                             <div className="slider"></div>
                         </label>
+                        </div>
+                        <div>
                         <img src="images/icons/rail-filter.png"
                             alt="rail"
                             title="Rail" 
@@ -94,7 +93,8 @@ class SearchForm extends Component {
                             <input type="checkbox" value={this.props.filterRailChecked} onChange={this.props.handleFilterRail} />
                             <div className="slider"></div>
                         </label>
-
+                        </div>
+                        <div>
                         <img src="images/icons/car.png"
                             alt="car"
                             title="Car" 
@@ -103,7 +103,8 @@ class SearchForm extends Component {
                             <input type="checkbox" value={this.props.filterCarChecked} onChange={this.props.handleFilterCar} />
                             <div className="slider"></div>
                         </label>
-
+                        </div>
+                        <div>
                         <img src="images/icons/ferry.png"
                             alt="ferry"
                             title="Ferry" 
@@ -112,7 +113,8 @@ class SearchForm extends Component {
                             <input type="checkbox" value={this.props.filterFerryChecked} onChange={this.props.handleFilterFerry} />
                             <div className="slider"></div>
                         </label>
-
+                        </div>
+                        <div>
                         <img src="images/icons/bus-filter.png"
                             alt="bus"
                             title="Bus" 
@@ -121,6 +123,7 @@ class SearchForm extends Component {
                             <input type="checkbox" value={this.props.filterBusChecked} onChange={this.props.handleFilterBus} />
                             <div className="slider"></div>
                         </label>
+                        </div>
                     </div>
                     <hr/>
                     <div>

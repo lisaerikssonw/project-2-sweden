@@ -4,9 +4,20 @@
     display: none;
   }
 
+  .filter-img {
+    padding: 0;
+  }
+
+  .filter-img-toggled {
+    padding: 0;
+
+  }
+
 }
 @media only screen and (max-width: 999px) {
   .icon {
     display: none;
   }
+
+
 }

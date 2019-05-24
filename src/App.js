@@ -84,8 +84,9 @@ class App extends Component {
 
   submitSearch(event) {
     event.preventDefault()
-
+    
     this.sendRequest()
+ 
   }
 
   handleFilterAir() {
@@ -164,7 +165,7 @@ class App extends Component {
       return timeInMinutes + " Min";
     }else {
       let sum = timeInMinutes/60;
-      return sum.toFixed(2) + "h";
+      return sum.toFixed(1) + "h";
 
     }
   }

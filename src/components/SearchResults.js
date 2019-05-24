@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Routes from './Routes'
+import Route from './Route'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
 
@@ -13,7 +13,7 @@ class SearchResults extends Component {
       sortColumn: 'From',
       sortDirectionAsc: false,
       mapValue:0
-      
+
     }
 
     this.setColumnState = this.setColumnState.bind(this)
@@ -68,29 +68,42 @@ class SearchResults extends Component {
       const routeList = this.props.routes
       .sort(sortFunction)
       .map(route => {return(
-        
-        <Routes setMapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
+
+        <Route setMapValue={this.setMapValue} minutesToHours = {this.props.minutesToHours} {...route} key={route.id}
         routes={this.props.routes}/>
       )})
         return (
         <article className="center-results">
               <table>
                 <caption className="search-caption">Search results</caption>
-                <tbody>
+                <tbody className="searchResults">
                 <tr>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Means of Travel</th>
-                  <th onClick={() => this.setColumnState('time')} >Time {sortIcon} </th>
-                  <th onClick={() => this.setColumnState('price')} >Price {sortIcon} </th>
-                  <th onClick={() => this.setColumnState('distance')} className="hidden">Distance {sortIcon} </th>
-                  <th onClick={() => this.setColumnState('transits')} className="hidden">No. Transits {sortIcon} </th>
+                  <th className="searchResultHeader">From</th>
+                  <th className="searchResultHeader">To</th>
+                  <th className="searchResultHeader">Means of Travel</th>
+                  <th
+                    className="searchResultHeader"
+                    onClick={() => this.setColumnState('time')} >Time {sortIcon}
+                  </th>
+                  <th
+                    className="searchResultHeader"
+                    onClick={() => this.setColumnState('price')} >Price {sortIcon}
+                  </th>
+                  <th
+                    onClick={() => this.setColumnState('distance')}
+                    className="searchResultHeader hidden">Distance {sortIcon}
+                  </th>
+                  <th
+                    onClick={() => this.setColumnState('transits')}
+                    className="searchResultHeader hidden">Transits {sortIcon}
+                  </th>
                 </tr>
                 {routeList}
                 </tbody>
               </table>
               <RouteMap mapValue = {this.state.mapValue} routes = {this.props.routes} />
           </article>
+        
         )
     }
 }

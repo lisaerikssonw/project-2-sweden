@@ -63,8 +63,10 @@ body {
 }
 
 .sort-arrow {
-  max-height: 0.7em;
+  max-width: 12px;
   vertical-align: middle;
+  padding: 0;
+  margin: 0;
   padding-bottom: 0.2em;
   cursor: pointer;
 }
@@ -118,13 +120,18 @@ input.cities {
   font-weight: bold;
 }
 
-th {
-     text-align: left;
-     padding-right: 2em;
-    }
+.searchResultHeader {
+    background: #EAEDED;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    padding-right: 1em;
+    padding-left:0.1em;
+
+}
 
 td {
-    padding-right: 1.9em;
+    padding-right: 1.5em;
     padding-top: 1em;
   }
 
@@ -238,6 +245,8 @@ button:hover{
   flex-direction: row;
   padding-top: 10px;/* note to self put em as value instead */
   align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .switch {
@@ -297,36 +306,57 @@ input:checked + .slider:before {
 
 .filter-img {
   padding-right: 3px;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 .filter-img-toggled {
   padding-right: 3px;
   opacity: 0.3;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 /* styling for the filter buttons and icons above */
 
+.searchResults {
+  border-radius: 5px;
+  display: inline-block;
+  border: 0.5px solid #7F8C8D;
+  padding: 0.1em;
+  background: #FFFFFF;
+}
+
 .routes {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D5DBDB;
+  border-top: 1px solid #AAB7B8;
+  }
 
-background:#E0E0E0;
-border: 1px solid #000000;
+.segment{
+  background: #FCF3CF;
+  /*border-bottom: 1px solid #AAB7B8;*/
+  font-size: 0.9em;
+  padding-top: 0px;
+}
 
+.segment th{
+  padding-right: 2em;
+  background: #EAEDED;
 }
 
 table{
   border-collapse: collapse;
   max-width: 900px;
-}
-
-.segment{
-
-  background: #F8F8F8;
-  border: 1px solid #000000;
-  
-
+  text-align: left;
 }
 
 ::placeholder {
-  /* color: #EE0000; red */
   	color: #666666;
 }
+
+.map {
+  margin-top: 1.5em;
+
+  }
+
