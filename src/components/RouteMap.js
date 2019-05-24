@@ -29,7 +29,7 @@ class RouteMap extends Component {
                   width: "800px"
                 }}
                 center={stockholm}
-                zoom={2}
+                zoom={3}
               >
               <Polyline
               

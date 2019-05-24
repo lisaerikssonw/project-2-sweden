@@ -84,8 +84,9 @@ class App extends Component {
 
   submitSearch(event) {
     event.preventDefault()
-
+    
     this.sendRequest()
+ 
   }
 
   handleFilterAir() {
