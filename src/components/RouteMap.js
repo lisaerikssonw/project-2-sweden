@@ -18,6 +18,8 @@ class RouteMap extends Component {
 
         return (
 
+
+            <div className="map">
             <LoadScript
                 id="script loader"
                 googleMapsApiKey={googleKey}
@@ -45,6 +47,7 @@ class RouteMap extends Component {
 
               </GoogleMap>
           </LoadScript>
+          </div>
 
         )
   }

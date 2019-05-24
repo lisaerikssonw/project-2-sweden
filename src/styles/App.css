@@ -342,3 +342,7 @@ table{
 ::placeholder {
   	color: #666666;
 }
+
+.map {
+  margin-top: 1.5em;
+}
