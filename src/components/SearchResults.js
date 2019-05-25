@@ -12,7 +12,7 @@ class SearchResults extends Component {
 
     this.state = {
       sortColumn: 'From',
-      sortDirectionAsc: false,
+      sortDirectionAscending: false,
       mapValue:0
 
     }
