@@ -133,3 +133,17 @@ table{
 .map {
   margin-top: 1.5em;
 }
+
+/* Used in Segment.js and SearchResult.js ----------------------------- */
+.segment{
+  background: #FCF3CF;
+  /*border-bottom: 1px solid #AAB7B8;*/
+  font-size: 0.9em;
+  padding-top: 0px;
+}
+
+.segment th{
+  padding-right: 2em;
+  background: #EAEDED;
+}
+/*---------------------------------------------------------------------- */
