@@ -1,0 +1,25 @@
+.footer-heading {
+  background: #006699;
+  color: #ffcc00;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0.9em;
+  background:#ffcc00;
+}
+
+.footer h1 {
+  font-family: 'Raleway', sans-serif;
+  padding: 0.4em;
+  margin: 0.1em;
+  font-size: 1.45em;
+}
+
+.footer p {
+  font-family: 'Lato', sans-serif;
+}
