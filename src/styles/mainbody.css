@@ -1,0 +1,11 @@
+/* CSS used in MainBody.js component */
+
+.Header-text {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #006699;
+}
+
+.info-text {
+  font-family: 'Lato', sans-serif;
+}

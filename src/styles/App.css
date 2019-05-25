@@ -2,11 +2,6 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-/* used in MainBody.js */
-.info-text {
-  font-family: 'Lato', sans-serif;
-}
-
 /* used in app.js */
 .icon {
   position: relative;
