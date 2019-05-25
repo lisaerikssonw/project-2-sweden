@@ -1,0 +1,26 @@
+black-triangle routes segment
+/* CSS used in Route.js component */
+
+.routes {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D5DBDB;
+  border-top: 1px solid #AAB7B8;
+  }
+
+.segment{
+  background: #FCF3CF;
+  /*border-bottom: 1px solid #AAB7B8;*/
+  font-size: 0.9em;
+  padding-top: 0px;
+}
+
+.segment th{
+  padding-right: 2em;
+  background: #EAEDED;
+}
+
+.black-triangle {
+  vertical-align: middle;
+  cursor: pointer;
+  padding-bottom: 0.3em;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Segment from './Segment'
 import '../styles/App.css'
+import '../styles/route.css';
 
 class Routes extends Component {
     constructor(props) {
