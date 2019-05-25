@@ -1,0 +1,42 @@
+/* CSS used in SearchResult.js component */
+
+.center-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sort-arrow {
+  max-width: 12px;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 0.2em;
+  cursor: pointer;
+}
+
+.search-caption {
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.searchResults {
+  border-radius: 5px;
+  display: inline-block;
+  border: 0.5px solid #7F8C8D;
+  padding: 0.1em;
+  background: #FFFFFF;
+}
+
+.searchResultHeader {
+    background: #EAEDED;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    padding-right: 1em;
+    padding-left: 0.1em;
+
+}
