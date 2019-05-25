@@ -49,8 +49,8 @@ class Routes extends Component {
                 <tr className="routes" onClick={()=> this.setRouteMap()} >
                     <td>
                         <img onClick={() => this.editExpandMode()} className="black-triangle"
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
-                            alt="Black triangle"
+                            src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
+                            alt="Triangle pointing right"
                             title="Expand"
                             onClick={() => this.editExpandMode()} />
                         {this.props.departurePlace.shortName}
@@ -69,8 +69,8 @@ class Routes extends Component {
                     <td>
                         <img className="black-triangle"
                             onClick={()=>this.editExpandMode()}
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
-                            alt="Triangle pointing right"
+                            src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
+                            alt="Triangle pointing down"
                             title="Collapse" />
                         {this.props.departurePlace.shortName}
                     </td>
