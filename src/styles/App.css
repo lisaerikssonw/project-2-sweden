@@ -2,46 +2,12 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.Flex-container {
-  display: flex;
-}
-
-.Nav-container {
-  flex-direction: row;
-}
-
-.Header-text {
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color: #006699;
-}
-
-.Info-text {
-  font-family: 'Lato', sans-serif;
-  color: #ffcc00;
-}
-
-.Footer-container {
-  display: flex;
-}
-
-.Aside-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.falun-container {
-  display: flex;
-}
-
+/* used in MainBody.js */
 .info-text {
   font-family: 'Lato', sans-serif;
 }
 
-.info-img {
-  float: right;
-}
-
+/* used in app.js */
 .icon {
   position: relative;
   left: 0.3%;
@@ -359,4 +325,3 @@ table{
   margin-top: 1.5em;
 
   }
-
