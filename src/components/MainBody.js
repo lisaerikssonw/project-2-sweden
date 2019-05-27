@@ -40,7 +40,7 @@ class MainBody extends Component {
         }else if(this.props.page==="falun"){
             return (
                 <article>
-                <h1 className="Header-text">FALUN</h1>
+                <h1 className="header-text">FALUN</h1>
                 <p className="info-text">{falunInfo.text}</p>
                 </article>
             )
