@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Nav from './components/Nav';
 import './styles/App.css';
 import './styles/footer.css';
 import './styles/mobile.css';
@@ -57,6 +58,7 @@ class App extends Component {
     this.handleFilterRail = this.handleFilterRail.bind(this)
 
     this.minutesToHours = this.minutesToHours.bind(this)
+    this.handlePageState = this.handlePageState.bind(this)
 
   }
 
@@ -201,6 +203,10 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
+  handlePageState(editPage) {
+    this.setState({page: editPage})
+  }
+
   render() {
 
     return (
@@ -210,27 +216,8 @@ class App extends Component {
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
             <Header />
-            <nav>
-              <div className="nav-container">
-              <img className="icon"
-                    src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
-                    alt="Olympic rings"
-                    title="Winter Olympics 2024" />
-                <button className="button"
-                    onClick={()=> this.setState({page:"home"})}>Search Trips
-                </button>
-                <button className="button">About the Event</button>
-                <button className="dropdown">About our<br />Destinations
-                  <div className="dropdown-content">
-                    <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
-                    <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
-                    <div onClick={() => this.setState({ page: "are" })}>Åre</div>
-                  </div>
-                </button>
-                <button className="button hidden">View Recommended</button>
-              </div>
-            </nav>
-
+            <Nav page={this.state.page} handlePageState={this.handlePageState}/>
+            
             <hr />
 
             <MainBody
