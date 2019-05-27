@@ -48,7 +48,7 @@ class SearchForm extends Component {
                         <option value="🇨🇭 Zürich" />
                     </datalist>
 
-                    <select onChange={this.props.handleDestination}>
+                    <select className="select-destination" onChange={this.props.handleDestination}>
                         <option value="Stockholm">Stockholm</option>
                         <option value="Aare">Åre</option>
                         <option value="Falun">Falun</option>

@@ -1,4 +1,4 @@
-body {
+.default-font {
   font-family: 'Lato', sans-serif;
 }
 
@@ -11,15 +11,13 @@ body {
   padding: 0px;
 }
 
-select{
-
+.select-destination {
   padding:1%;
   border:none;
   background: rgb(230,230,230);
-
 }
 
-select:hover {
+.select-destination:hover {
   cursor: pointer;
 }
 
@@ -110,7 +108,7 @@ button:hover{
   font-weight: bold;
 }
 
-.App {
+.background-image {
   background-size: contain;
   height:100vh;
   background-repeat: no-repeat;
