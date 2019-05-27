@@ -6,10 +6,20 @@
   align-items: center;
 }
 
+.exterior-sort-box {
+  position: absolute;
+  width: 15px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  padding-left: 0.2em;
+}
+
 .sort-arrow {
+  width: 15px;
+  height: 30px;
   display: flex;
   flex-direction: column;
-  max-width: 12px;
   vertical-align: middle;
   padding: 0;
   margin: 0;
@@ -18,12 +28,14 @@
 }
 
 .arrow-up {
+  position: relative;
   max-width: 10px;
   padding: 0;
   margin: 0;
 }
 
 .arrow-down {
+  position: relative;
   max-width: 10px;
   padding: 0;
   margin: 0;

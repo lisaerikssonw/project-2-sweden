@@ -60,16 +60,18 @@ class SearchResults extends Component {
 
   render() {
 
-    const sortIcon = <span className="sort-arrow">
-      <img src={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"}
-        className="arrow-up"
-        alt="sort-arrow-up"
-        title="Sort-up" />
+    const sortIcon = <span className="exterior-sort-box">
+      <span className="sort-arrow">
+        <img src={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"}
+          className="arrow-up"
+          alt="sort-arrow-up"
+          title="Sort-up" />
 
-      <img src={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"}
-        className="arrow-down"
-        alt="sort-arrow-down"
-        title="Sort-down" />
+        <img src={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"}
+          className="arrow-down"
+          alt="sort-arrow-down"
+          title="Sort-down" />
+      </span>
     </span>
 
     const sortFunction = this.setSort()
