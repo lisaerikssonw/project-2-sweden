@@ -21,8 +21,7 @@
   cursor: pointer;
 }
 
-input {
-
+.input-style {
   border:none;
   padding:1%;
   background: rgb(230,230,230);
@@ -30,15 +29,14 @@ input {
   cursor: pointer;
 }
 
-input.cities {
+.input-style.cities {
   cursor: text;
 }
 
-td {
-    padding-right: 1.5em;
-    padding-top: 1em;
-  }
-
+.tabledata-style {
+  padding-right: 1.5em;
+  padding-top: 1em;
+}
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -49,7 +47,7 @@ td {
   z-index: 1;
 }
 
-button {
+.button-style {
 
   width: 10em;
   border: none;
@@ -94,11 +92,10 @@ button {
   margin: 0px;
   padding: 0px;
   font-weight: normal;
-
 }
 
 
-button:hover{
+.button-style:hover{
   background:#ffcc00;
   color: #006699;
   padding: 0px;
@@ -117,7 +114,7 @@ button:hover{
   margin: 0 auto;
 }
 
-table{
+.table-style {
   border-collapse: collapse;
   max-width: 900px;
   text-align: left;

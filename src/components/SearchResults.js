@@ -76,7 +76,7 @@ class SearchResults extends Component {
       )})
         return (
         <article className="center-results">
-              <table>
+              <table className="table-style">
                 <caption className="search-caption">Search results</caption>
                 <tbody className="searchResults">
                 <tr>

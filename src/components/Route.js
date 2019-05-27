@@ -22,7 +22,7 @@ class Routes extends Component {
 
     getVehicleList() {
         return (
-            <td>{
+            <td className="tabledata-style">{
                 this.props.segments.map(segment => {
                     const vehicleList = this.props.vehicles
                     const segmentList = this.props.segments
@@ -47,7 +47,7 @@ class Routes extends Component {
         if (this.state.expandMode === false) {
             return (
                 <tr className="routes" onClick={()=> this.setRouteMap()} >
-                    <td>
+                    <td className="tabledata-style">
                         <img onClick={() => this.editExpandMode()} className="black-triangle"
                             src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
                             alt="Triangle pointing right"
@@ -55,10 +55,10 @@ class Routes extends Component {
                             onClick={() => this.editExpandMode()} />
                         {this.props.departurePlace.shortName}
                     </td>
-                    <td>{this.props.arrivalPlace.shortName} </td>
+                    <td className="tabledata-style">{this.props.arrivalPlace.shortName} </td>
                     {this.getVehicleList()}
-                    <td>{this.props.durationHours}</td>
-                    <td>{this.props.price + " " + this.props.currency}</td>
+                    <td className="tabledata-style">{this.props.durationHours}</td>
+                    <td className="tabledata-style">{this.props.price + " " + this.props.currency}</td>
                     <td className="hidden">{this.props.distance} km</td>
                     <td className="hidden">{this.props.segments.length}</td>
                 </tr>
@@ -66,7 +66,7 @@ class Routes extends Component {
         } else {
             return (
                 [<tr className="routes" onClick={() => this.setRouteMap()}>
-                    <td>
+                    <td className="tabledata-style">
                         <img className="black-triangle"
                             onClick={()=>this.editExpandMode()}
                             src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
@@ -74,10 +74,10 @@ class Routes extends Component {
                             title="Collapse" />
                         {this.props.departurePlace.shortName}
                     </td>
-                    <td>{this.props.arrivalPlace.shortName}</td>
+                    <td className="tabledata-style">{this.props.arrivalPlace.shortName}</td>
                     {this.getVehicleList()}
-                    <td>{this.props.durationHours}</td>
-                    <td>{this.props.price + " " + this.props.currency}</td>
+                    <td className="tabledata-style">{this.props.durationHours}</td>
+                    <td className="tabledata-style">{this.props.price + " " + this.props.currency}</td>
                     <td className="hidden">{this.props.distance} km</td>
                     <td className="hidden">{this.props.segments.length}</td>
                 </tr>,

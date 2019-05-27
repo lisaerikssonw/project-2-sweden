@@ -216,18 +216,18 @@ class App extends Component {
                     src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
                     alt="Olympic rings"
                     title="Winter Olympics 2024" />
-                <button className="button"
+                <button className="button-style"
                     onClick={()=> this.setState({page:"home"})}>Search Trips
                 </button>
-                <button className="button">About the Event</button>
-                <button className="dropdown">About our<br />Destinations
+                <button className="button-style">About the Event</button>
+                <button className="button-style dropdown">About our<br />Destinations
                   <div className="dropdown-content">
                     <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
                     <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
                     <div onClick={() => this.setState({ page: "are" })}>Åre</div>
                   </div>
                 </button>
-                <button className="button hidden">View Recommended</button>
+                <button className="button-style hidden">View Recommended</button>
               </div>
             </nav>
 
