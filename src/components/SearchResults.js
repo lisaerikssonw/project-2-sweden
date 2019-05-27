@@ -14,11 +14,12 @@ class SearchResults extends Component {
       sortColumn: 'From',
       sortDirectionAscending: false,
       mapValue: 0
-
+      
     }
 
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
+  
   }
 
   sortPriceAscending = () => (a, b) => b.price - a.price
@@ -81,7 +82,7 @@ class SearchResults extends Component {
         return (
 
           <Route setMapValue={this.setMapValue} minutesToHours={this.props.minutesToHours} {...route} key={route.id}
-            routes={this.props.routes} />
+            routes={this.props.routes} mapValue={this.state.mapValue} />
         )
       })
     return (
