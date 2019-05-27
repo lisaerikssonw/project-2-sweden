@@ -1,8 +1,10 @@
 import '../styles/App.css'
+import '../styles/mainbody.css'
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 import FalunText from '../data-texts/falun-info-text.json';
 import React, { Component } from 'react';
+
 
 const falunJson = JSON.stringify(FalunText);
 const falunInfo = JSON.parse(falunJson);
@@ -29,7 +31,7 @@ class MainBody extends Component {
                 filterCarChecked={this.props.filterCarChecked}
                 filterFerryChecked={this.props.filterFerryChecked}
                 filterBusChecked={this.props.filterBusChecked}/>
-                
+
                 {this.props.routes.length ? <SearchResults
                 routes={this.props.routes}
                 minutesToHours = {this.props.minutesToHours}/> : null }

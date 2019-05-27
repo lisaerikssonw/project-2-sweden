@@ -3,7 +3,9 @@ import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import './styles/App.css';
+import './styles/footer.css';
 import './styles/mobile.css';
+
 import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
@@ -84,9 +86,9 @@ class App extends Component {
 
   submitSearch(event) {
     event.preventDefault()
-    
+
     this.sendRequest()
- 
+
   }
 
   handleFilterAir() {
@@ -145,7 +147,7 @@ class App extends Component {
   handleFilterChange(id) {
     const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
     console.log(id)
-    
+
     console.log(queryString)
 
     this.setState({ filterChecked: !this.state.filterChecked })
@@ -244,7 +246,7 @@ class App extends Component {
               handleDeparture={this.handleDeparture}
               handleReturn={this.handleReturn}
               routes={this.state.routes}
-              minutesToHours = {this.minutesToHours} 
+              minutesToHours = {this.minutesToHours}
               filterAirChecked = {this.state.filterAirChecked}
               filterRailChecked = {this.state.filterRailChecked}
               filterCarChecked = {this.state.filterCarChecked}

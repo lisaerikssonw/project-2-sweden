@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import '../styles/search-form.css';
 class SearchForm extends Component {
 
     render() {
@@ -7,7 +8,7 @@ class SearchForm extends Component {
         <aside>
             <form onSubmit={this.props.submitSearch}>
             <div>
-                <fieldset className="from-to">
+                <fieldset>
                     <img src="images/icons/search.svg"
                         alt="Magnifying glass"
                         title="Search" />
@@ -77,7 +78,7 @@ class SearchForm extends Component {
                         <div>
                         <img src="images/icons/plane-filter.png"
                             alt="aeroplane"
-                            title="Plane" 
+                            title="Plane"
                             className={this.props.filterAirChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterAirChecked} onChange={this.props.handleFilterAir} />
@@ -87,7 +88,7 @@ class SearchForm extends Component {
                         <div>
                         <img src="images/icons/rail-filter.png"
                             alt="rail"
-                            title="Rail" 
+                            title="Rail"
                             className={this.props.filterRailChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterRailChecked} onChange={this.props.handleFilterRail} />
@@ -97,7 +98,7 @@ class SearchForm extends Component {
                         <div>
                         <img src="images/icons/car.png"
                             alt="car"
-                            title="Car" 
+                            title="Car"
                             className={this.props.filterCarChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterCarChecked} onChange={this.props.handleFilterCar} />
@@ -107,7 +108,7 @@ class SearchForm extends Component {
                         <div>
                         <img src="images/icons/ferry.png"
                             alt="ferry"
-                            title="Ferry" 
+                            title="Ferry"
                             className={this.props.filterFerryChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterFerryChecked} onChange={this.props.handleFilterFerry} />
@@ -117,7 +118,7 @@ class SearchForm extends Component {
                         <div>
                         <img src="images/icons/bus-filter.png"
                             alt="bus"
-                            title="Bus" 
+                            title="Bus"
                             className={this.props.filterBusChecked ? "filter-img" : "filter-img-toggled"}/>
                         <label className="switch">
                             <input type="checkbox" value={this.props.filterBusChecked} onChange={this.props.handleFilterBus} />

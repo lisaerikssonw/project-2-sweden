@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Route from './Route'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
+import '../styles/search-results.css';
 
 
 
@@ -11,7 +12,7 @@ class SearchResults extends Component {
 
     this.state = {
       sortColumn: 'From',
-      sortDirectionAsc: false,
+      sortDirectionAscending: false,
       mapValue:0
 
     }
@@ -104,7 +105,7 @@ class SearchResults extends Component {
               </table>
               <RouteMap mapValue = {this.state.mapValue} routes = {this.props.routes} />
           </article>
-        
+
         )
     }
 }
