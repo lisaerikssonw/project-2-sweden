@@ -7,12 +7,26 @@
 }
 
 .sort-arrow {
+  display: flex;
+  flex-direction: column;
   max-width: 12px;
   vertical-align: middle;
   padding: 0;
   margin: 0;
   padding-bottom: 0.2em;
   cursor: pointer;
+}
+
+.arrow-up {
+  max-width: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.arrow-down {
+  max-width: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 .search-caption {
@@ -31,12 +45,11 @@
   background: #FFFFFF;
 }
 
-.searchResultHeader {
+.searchResults th {
     background: #EAEDED;
     cursor: pointer;
     text-align: left;
     padding: 0;
     padding-right: 1em;
     padding-left: 0.1em;
-
 }
