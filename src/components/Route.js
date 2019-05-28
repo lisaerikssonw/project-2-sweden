@@ -43,10 +43,11 @@ class Routes extends Component {
 
     render() {
 
+        let routeClass = this.props.id===this.props.mapValue ? "marked-route" : "routes"
 
         if (this.state.expandMode === false) {
             return (
-                <tr className="routes" onClick={()=> this.setRouteMap()} >
+                <tr className={routeClass} onClick={()=> this.setRouteMap()} >
                     <td>
                         <img onClick={() => this.editExpandMode()} className="black-triangle"
                             src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
@@ -65,7 +66,7 @@ class Routes extends Component {
             )
         } else {
             return (
-                [<tr className="routes" onClick={() => this.setRouteMap()}>
+                [<tr className={routeClass} onClick={() => this.setRouteMap()}>
                     <td>
                         <img className="black-triangle"
                             onClick={()=>this.editExpandMode()}
