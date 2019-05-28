@@ -48,7 +48,7 @@
 .search-results {
   border-radius: 5px;
   display: inline-block;
-  border: 0.5px solid #7F8C8D;
+  /* border: 0.5px solid #7F8C8D; */
   background: #F4D03F;
 }
 
