@@ -78,26 +78,26 @@ class SearchResults extends Component {
         <article className="center-results">
               <table className="table-style">
                 <caption className="search-caption">Search results</caption>
-                <tbody className="searchResults">
+                <tbody className="search-results">
                 <tr>
-                  <th className="searchResultHeader">From</th>
-                  <th className="searchResultHeader">To</th>
-                  <th className="searchResultHeader">Means of Travel</th>
+                  <th className="search-result-header">From</th>
+                  <th className="search-result-header">To</th>
+                  <th className="search-result-header">Means of Travel</th>
                   <th
-                    className="searchResultHeader"
+                    className="search-result-header"
                     onClick={() => this.setColumnState('time')} >Time {sortIcon}
                   </th>
                   <th
-                    className="searchResultHeader"
+                    className="search-result-header"
                     onClick={() => this.setColumnState('price')} >Price {sortIcon}
                   </th>
                   <th
                     onClick={() => this.setColumnState('distance')}
-                    className="searchResultHeader hidden">Distance {sortIcon}
+                    className="search-result-header hidden">Distance {sortIcon}
                   </th>
                   <th
                     onClick={() => this.setColumnState('transits')}
-                    className="searchResultHeader hidden">Transits {sortIcon}
+                    className="search-result-header hidden">Transits {sortIcon}
                   </th>
                 </tr>
                 {routeList}
