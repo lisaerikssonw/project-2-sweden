@@ -80,7 +80,6 @@ class SearchResults extends Component {
       .sort(sortFunction)
       .map(route => {
         return (
-
           <Route setMapValue={this.setMapValue} minutesToHours={this.props.minutesToHours} {...route} key={route.id}
             routes={this.props.routes} mapValue={this.state.mapValue} />
         )
