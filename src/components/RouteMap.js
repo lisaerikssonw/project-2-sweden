@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, Polyline } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Polyline, Marker, TrafficLayer } from '@react-google-maps/api'
 require('dotenv').config();
 
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
@@ -32,7 +32,6 @@ class RouteMap extends Component {
             zoom={3}
           >
             <Polyline
-
               path={getPosition(route)}
               options={{
                 strokeColor: "#FF0000",
@@ -42,7 +41,6 @@ class RouteMap extends Component {
                 visible: true
               }}
             />
-
           </GoogleMap>
         </LoadScript>
       </div>
@@ -53,6 +51,17 @@ class RouteMap extends Component {
 function Coordinates(latitude, longitude) {
   this.lat = latitude;
   this.lng = longitude;
+}
+
+function getArrival(route){
+
+  let arrival = null;
+  route.segments.map(segment => {
+
+      arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng);
+  
+    })
+    return arrival;
 }
 
 function getPosition(route) {
