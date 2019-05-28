@@ -87,7 +87,7 @@ class Routes extends Component {
                     <th>Departure Place</th>
                     <th>Arrival Place</th>
                     <th>Means of Travel</th>
-                    <th>Transit Time</th>
+                    <th colSpan="4">Transit Time</th>
                 </tr>,
 
                 <Segment
