@@ -49,7 +49,7 @@ class Routes extends Component {
             return (
 
                 <tr className={routeClass} onClick={()=> this.setRouteMap()} >
-                    <td className="tabledata-style>
+                    <td className="tabledata-style">
                         <img onClick={() => this.editExpandMode()} className="black-triangle"
                             src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
                             alt="Triangle pointing right"
@@ -68,7 +68,7 @@ class Routes extends Component {
         } else {
             return (
                 [<tr className={routeClass} onClick={() => this.setRouteMap()}>
-                    <td className="tabledata-style>
+                    <td className="tabledata-style">
                         <img className="black-triangle"
                             onClick={()=>this.editExpandMode()}
                             src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}

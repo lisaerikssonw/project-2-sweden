@@ -14,12 +14,12 @@ class SearchResults extends Component {
       sortColumn: 'From',
       sortDirectionAscending: false,
       mapValue: 0
-      
+
     }
 
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
-  
+
   }
 
   sortPriceAscending = () => (a, b) => b.price - a.price
@@ -86,9 +86,9 @@ class SearchResults extends Component {
       })
     return (
       <article className="center-results">
-        <table>
+        <table className="table-fuckme">
           <caption className="search-caption">Search results</caption>
-          <tbody className="searchResults">
+          <tbody className="search-results">
             <tr>
               <th>From</th>
               <th>To</th>

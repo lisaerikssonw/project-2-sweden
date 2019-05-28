@@ -48,16 +48,19 @@
 .search-results {
   border-radius: 5px;
   display: inline-block;
-  border: 0.5px solid #7F8C8D;
-  padding: 0.1em;
-  background: #FFFFFF;
+  /* border: 0.5px solid #7F8C8D; */
+  background: #F4D03F;
 }
 
-.search-result-header {
+.search-results th{
     background: #EAEDED;
     cursor: pointer;
     text-align: left;
     padding: 0;
     padding-right: 1em;
     padding-left: 0.1em;
+}
+
+.table-fuckme {
+  border-spacing: 0;
 }
