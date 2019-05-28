@@ -19,6 +19,7 @@ class SearchResults extends Component {
 
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
+    this.setSortArrow = this.setSortArrow.bind(this)
 
   }
 
@@ -59,26 +60,37 @@ class SearchResults extends Component {
     this.setState({ mapValue: id })
   }
 
-  setSortArrow(column) {
-    
+  setSortArrow(isAscending, columnName) {
+    this.setState({
+      sortAscending: isAscending ? true : false,
+      sortColumn: columnName
+    })
   }
 
-  
-  render() {
-
-    const sortArrowUp = <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
-      sortImg={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"} />
-
-    const sortArrowDown = <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
-      sortImg={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"} />
-
-    const sortArrows = <span className="exterior-sort-box">
+  setSortArrows(columnName) {
+    return(
+      <span className="exterior-sort-box">
       <span className="sort-arrow">
-        {sortArrowUp}
-        {sortArrowDown}
+        {this.setSortArrow(true)}
+        {this.setSortArrow(false)}
       </span>
     </span>
+    )
+  }
 
+  setSortArrowUp(columnName) {
+    return(
+    <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
+    sortImg={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"} onClick={()=>this.setSortArrow(columnName)}/>)
+  }
+
+  setSortArrowDown(columnName) { 
+    return(
+    <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
+      sortImg={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"} onClick={()=>this.setSortArrow(columnName)} />)
+  }
+  
+  render() {
     const sortFunction = this.setSort()
     const routeList = this.props.routes
       .sort(sortFunction)
@@ -99,18 +111,18 @@ class SearchResults extends Component {
               <th>To</th>
               <th>Means of Travel</th>
               <th
-                onClick={() => this.setColumnState('time')} >Time {sortArrows}
+                onClick={() => this.setColumnState('time')} >Time {this.setSortArrows('time')}
               </th>
               <th
-                onClick={() => this.setColumnState('price')} >Price {sortArrows}
+                onClick={() => this.setColumnState('price')} >Price {this.setSortArrows('price')}}
               </th>
               <th
                 onClick={() => this.setColumnState('distance')}
-                className="hidden">Distance {sortArrows}
+                className="hidden">Distance {this.setSortArrows('distance')}
               </th>
               <th
                 onClick={() => this.setColumnState('transits')}
-                className="hidden">Transits {sortArrows}
+                className="hidden">Transits {this.setSortArrows('transits')}
               </th>
             </tr>
             {routeList}
