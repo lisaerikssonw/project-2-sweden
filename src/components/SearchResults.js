@@ -3,7 +3,7 @@ import Route from './Route'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
 import '../styles/search-results.css';
-
+import SortArrow from './SortArrow';
 
 
 class SearchResults extends Component {
@@ -12,14 +12,14 @@ class SearchResults extends Component {
 
     this.state = {
       sortColumn: 'From',
-      sortDirectionAscending: false,
+      sortAscending: false,
       mapValue: 0
-      
+
     }
 
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
-  
+
   }
 
   sortPriceAscending = () => (a, b) => b.price - a.price
@@ -34,23 +34,23 @@ class SearchResults extends Component {
   setSort() {
 
     if (this.state.sortColumn === 'price') {
-      return this.state.sortDirectionAscending ? this.sortPriceAscending() : this.sortPriceDescending();
+      return this.state.sortAscending ? this.sortPriceAscending() : this.sortPriceDescending();
 
     } else if (this.state.sortColumn === 'transits') {
-      return this.state.sortDirectionAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
+      return this.state.sortAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
 
     } else if (this.state.sortColumn === 'distance') {
-      return this.state.sortDirectionAscending ? this.sortDistanceAscending() : this.sortDistanceDescending();
+      return this.state.sortAscending ? this.sortDistanceAscending() : this.sortDistanceDescending();
 
     } else if (this.state.sortColumn === 'time') {
-      return this.state.sortDirectionAscending ? this.sortTimeAscending() : this.sortTimeDescending();
+      return this.state.sortAscending ? this.sortTimeAscending() : this.sortTimeDescending();
     }
   }
 
   setColumnState(columnName) {
     this.setState({
       sortColumn: columnName,
-      sortDirectionAscending: !this.state.sortDirectionAscending
+      sortAscending: !this.state.sortAscending
     })
   }
 
@@ -59,19 +59,23 @@ class SearchResults extends Component {
     this.setState({ mapValue: id })
   }
 
+  setSortArrow(column) {
+    
+  }
+
+  
   render() {
 
-    const sortIcon = <span className="exterior-sort-box">
-      <span className="sort-arrow">
-        <img src={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"}
-          className="arrow-up"
-          alt="sort-arrow-up"
-          title="Sort-up" />
+    const sortArrowUp = <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
+      sortImg={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"} />
 
-        <img src={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"}
-          className="arrow-down"
-          alt="sort-arrow-down"
-          title="Sort-down" />
+    const sortArrowDown = <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
+      sortImg={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"} />
+
+    const sortArrows = <span className="exterior-sort-box">
+      <span className="sort-arrow">
+        {sortArrowUp}
+        {sortArrowDown}
       </span>
     </span>
 
@@ -95,18 +99,18 @@ class SearchResults extends Component {
               <th>To</th>
               <th>Means of Travel</th>
               <th
-                onClick={() => this.setColumnState('time')} >Time {sortIcon}
+                onClick={() => this.setColumnState('time')} >Time {sortArrows}
               </th>
               <th
-                onClick={() => this.setColumnState('price')} >Price {sortIcon}
+                onClick={() => this.setColumnState('price')} >Price {sortArrows}
               </th>
               <th
                 onClick={() => this.setColumnState('distance')}
-                className="hidden">Distance {sortIcon}
+                className="hidden">Distance {sortArrows}
               </th>
               <th
                 onClick={() => this.setColumnState('transits')}
-                className="hidden">Transits {sortIcon}
+                className="hidden">Transits {sortArrows}
               </th>
             </tr>
             {routeList}
