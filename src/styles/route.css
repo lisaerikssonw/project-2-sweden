@@ -11,3 +11,7 @@
   cursor: pointer;
   padding-bottom: 0.3em;
 }
+
+.marked-route {
+  border: 5px solid #F4D03F;
+}
