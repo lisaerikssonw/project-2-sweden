@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^1.2.3-alpha.11",
+    "decode-google-map-polyline": "^1.0.1",
     "dotenv": "^8.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

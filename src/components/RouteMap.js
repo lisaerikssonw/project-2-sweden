@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, Polyline } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Polyline, Marker } from '@react-google-maps/api'
+const decodePolyline = require('decode-google-map-polyline');
 require('dotenv').config();
 
 const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
@@ -15,6 +16,9 @@ class RouteMap extends Component {
 
     let index = this.props.routes.map(route => route.id).indexOf(this.props.mapValue)
     let route = this.props.routes[index];
+
+    let departurePlace = route.departurePlace;
+    let arrivalPlace = route.arrivalPlace;
 
     return (
       <div className="map">
@@ -42,6 +46,12 @@ class RouteMap extends Component {
                 visible: true
               }}
             />
+            <Marker
+            position={departurePlace}
+            />
+            <Marker
+            position={arrivalPlace}
+            />
 
           </GoogleMap>
         </LoadScript>
@@ -59,22 +69,29 @@ function getPosition(route) {
   let departure = null;
   let arrival = null;
   let mapRoute = [];
+  let surfaceRoute = [];
+
+
   route.segments.map(segment => {
 
-    if (arrival === null) {
-      departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);
+    if(segment.segmentKind === "surface"){
+      surfaceRoute = decodePolyline(segment.path)    
+      mapRoute = mapRoute.concat(surfaceRoute)
+    }else if(segment.segmentKind==="air"){
 
-    } else {
-      departure = arrival;
+      departure = new Coordinates(route.places[segment.depPlace].lat,route.places[segment.depPlace].lng);
+      arrival = new Coordinates(route.places[segment.arrPlace].lat,route.places[segment.arrPlace].lng)
+      mapRoute.push(departure)
+      mapRoute.push(arrival)
     }
-
-    arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
-    mapRoute.push(departure);
-    mapRoute.push(arrival);
-
   })
+
+
   return mapRoute;
 }
 
 
 export default RouteMap;
+
+
+
