@@ -8,6 +8,7 @@ import '../styles/App.css';
 class SearchResults extends Component {
   constructor(props) {
     super(props)
+    this.resultRef=React.createRef();
 
     this.state = {
       sortColumn: 'From',
@@ -75,7 +76,7 @@ class SearchResults extends Component {
         return (
         <article className="center-results">
               <table>
-                <caption className="search-caption">Search results</caption>
+                <caption id="results" className="search-caption">Search results</caption>
                 <tbody className="searchResults">
                 <tr>
                   <th className="searchResultHeader">From</th>
@@ -91,11 +92,11 @@ class SearchResults extends Component {
                   </th>
                   <th
                     onClick={() => this.setColumnState('distance')}
-                    className="searchResultHeader hidden">Distance {sortIcon}
+                    className="searchResultHeader hidden">Transits {sortIcon}
                   </th>
                   <th
                     onClick={() => this.setColumnState('transits')}
-                    className="searchResultHeader hidden">Transits {sortIcon}
+                    className="searchResultHeader hidden">Map {sortIcon}
                   </th>
                 </tr>
                 {routeList}

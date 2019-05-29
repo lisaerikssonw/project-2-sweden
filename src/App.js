@@ -5,6 +5,7 @@ import Header from './components/Header';
 import './styles/App.css';
 import './styles/mobile.css';
 import backgroundImage from "./images/olympic-rings.png";
+import { async } from 'q';
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
@@ -82,11 +83,11 @@ class App extends Component {
     })
   }
 
+
   submitSearch(event) {
     event.preventDefault()
-    
-    this.sendRequest()
- 
+  
+   this.sendRequest()
   }
 
   handleFilterAir() {
@@ -169,12 +170,12 @@ class App extends Component {
 
     }
   }
-
+  
   sendRequest() {
-    fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
+   fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
     &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar${this.state.filterAir}${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
-      .then(response => response.json())
-      .then(data => {
+      .then( response => response.json())
+      .then( data => {
         this.setState({
           routes: data.routes.map((route, index) =>
 

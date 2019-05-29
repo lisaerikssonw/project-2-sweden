@@ -51,15 +51,19 @@ class Routes extends Component {
                             src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
                             alt="Black triangle"
                             title="Expand"
-                            onClick={() => this.editExpandMode()} />
+                            />
                         {this.props.departurePlace.shortName}
                     </td>
                     <td>{this.props.arrivalPlace.shortName} </td>
                     {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price + " " + this.props.currency}</td>
-                    <td className="hidden">{this.props.distance} km</td>
                     <td className="hidden">{this.props.segments.length}</td>
+                    <td className="google-map-icon"><img onClick={()=>{
+                            let map = document.getElementById("map")
+                            map.scrollIntoView({behavior: "smooth", inline: "nearest"});
+
+                        }} src="\images\icons\GoogleMaps.png"></img></td>
                 </tr>
             )
         } else {
@@ -85,6 +89,7 @@ class Routes extends Component {
                     <th>Arrival Place</th>
                     <th>Means of Travel</th>
                     <th>Transit Time</th>
+                    <th>Map</th>
                 </tr>,
 
                 <Segment

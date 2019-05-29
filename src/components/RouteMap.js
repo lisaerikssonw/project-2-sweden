@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, Polyline, Marker } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Polyline, Marker, InfoWindow } from '@react-google-maps/api'
 const decodePolyline = require('decode-google-map-polyline');
 require('dotenv').config();
 
@@ -18,10 +18,10 @@ class RouteMap extends Component {
     let route = this.props.routes[index];
 
     let departurePlace = route.departurePlace;
-    let arrivalPlace = route.arrivalPlace;
+    let arrivalPlace = new Coordinates(route.places[route.segments[route.segments.length - 1].arrPlace].lat, route.places[route.segments[route.segments.length - 1].arrPlace].lng)
 
     return (
-      <div className="map">
+      <div id="map" className="map">
         <LoadScript
           id="script loader"
           googleMapsApiKey={googleKey}
@@ -47,10 +47,11 @@ class RouteMap extends Component {
               }}
             />
             <Marker
-            position={departurePlace}
+              position={departurePlace}
+              animation={2}
             />
             <Marker
-            position={arrivalPlace}
+              position={arrivalPlace}
             />
 
           </GoogleMap>
@@ -74,13 +75,13 @@ function getPosition(route) {
 
   route.segments.map(segment => {
 
-    if(segment.segmentKind === "surface"){
-      surfaceRoute = decodePolyline(segment.path)    
+    if (segment.segmentKind === "surface") {
+      surfaceRoute = decodePolyline(segment.path)
       mapRoute = mapRoute.concat(surfaceRoute)
-    }else if(segment.segmentKind==="air"){
+    } else if (segment.segmentKind === "air") {
 
-      departure = new Coordinates(route.places[segment.depPlace].lat,route.places[segment.depPlace].lng);
-      arrival = new Coordinates(route.places[segment.arrPlace].lat,route.places[segment.arrPlace].lng)
+      departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);
+      arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng)
       mapRoute.push(departure)
       mapRoute.push(arrival)
     }
