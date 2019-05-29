@@ -59,7 +59,7 @@ class Routes extends Component {
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price + " " + this.props.currency}</td>
                     <td className="hidden">{this.props.segments.length}</td>
-                    <td className="google-map-icon"><img onClick={()=>{
+                    <td className="google-map-icon"><img alt="google map icon" onClick={()=>{
                             let map = document.getElementById("map")
                             map.scrollIntoView({behavior: "smooth", inline: "nearest"});
 

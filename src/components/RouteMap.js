@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, Polyline, Marker, InfoWindow } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Polyline, Marker } from '@react-google-maps/api'
 const decodePolyline = require('decode-google-map-polyline');
 require('dotenv').config();
 

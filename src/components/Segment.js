@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Map from './Map'
+
 class Segment extends Component {
 
     
