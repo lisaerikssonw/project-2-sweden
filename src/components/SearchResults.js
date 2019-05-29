@@ -3,7 +3,6 @@ import Route from './Route'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
 import '../styles/search-results.css';
-import SortArrow from './SortArrow';
 
 
 class SearchResults extends Component {
@@ -19,7 +18,8 @@ class SearchResults extends Component {
 
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
-  
+    this.setSortArrows = this.setSortArrows.bind(this)
+
 
   }
 
@@ -48,30 +48,34 @@ class SearchResults extends Component {
     }
   }
 
-  setColumnState(columnName, isAscending) {
+  setColumnState(columnName) {
     this.setState({
       sortColumn: columnName,
-      sortAscending: isAscending ? this.state.sortAscending === true : false
+      sortAscending: !this.state.sortAscending
     })
   }
-
 
   setMapValue(id) {
     this.setState({ mapValue: id })
   }
 
   setSortArrows(columnName) {
+    this.setState({sortColumn: columnName})
     return (
       <span className="exterior-sort-box">
         <span className="sort-arrow">
 
-          <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
-            sortImg={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"}
-            onClick={() => this.setColumnState(columnName, false)} name={columnName} />
+          <img src={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"}
+            className="arrow-up"
+            alt="sort-arrow-up"
+            title="Sort-up"
+          />
 
-          <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
-            sortImg={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"}
-            onClick={() => this.setColumnState(columnName, true)} name={columnName} />   
+          <img src={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"}
+            className="arrow-up"
+            alt="sort-arrow-up"
+            title="Sort-up"
+          />
 
         </span>
       </span>
