@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Segment from './Segment'
 import '../styles/App.css'
 import '../styles/route.css';
+//import '../images/icons';
 
 class Routes extends Component {
     constructor(props) {
@@ -21,17 +22,35 @@ class Routes extends Component {
     }
 
     getVehicleList() {
+        
         return (
             <td className="tabledata-style">{
+            this.props.segments.forEach(segment => {
+                const vehicleList = this.props.vehicles
+                const segmentList = this.props.segments
+                const position = segmentList.indexOf(segment);
+                if(vehicleList[segmentList[position].vehicle].name === "Plane") {
+                    vehicleList[segmentList[position].vehicle].name = <img src={"../images/icons/plane-small.png"}/>;
+                }
+                return vehicleList[segmentList[position].vehicle].name + " "
+            })}
+            </td>
+            /*<td className="tabledata-style">{
                 this.props.segments.map(segment => {
                     const vehicleList = this.props.vehicles
                     const segmentList = this.props.segments
                     const position = segmentList.indexOf(segment);
 
+
+                    if(vehicleList[segmentList[position].vehicle].name === "Plane") {
+                        vehicleList[segmentList[position].vehicle].name = <img src={"../images/icons/plane-small.png"}/>;
+                    } else if(vehicleList[segmentList[position].vehicle].name === "Car") {
+                        vehicleList[segmentList[position].vehicle].name = <img src={"../images/icons/car-small.png"}/>;
+                    }
                     return vehicleList[segmentList[position].vehicle].name + " "
                 }
                 )}
-            </td>
+            </td>*/
         )
     }
 
