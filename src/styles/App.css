@@ -366,3 +366,8 @@ table{
 
 
 }
+
+.google-map-icon:hover{
+
+  cursor: pointer;
+}
