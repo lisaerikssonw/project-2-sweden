@@ -19,7 +19,7 @@ class SearchResults extends Component {
 
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
-    this.setSortArrow = this.setSortArrow.bind(this)
+  
 
   }
 
@@ -48,10 +48,10 @@ class SearchResults extends Component {
     }
   }
 
-  setColumnState(columnName) {
+  setColumnState(columnName, isAscending) {
     this.setState({
       sortColumn: columnName,
-      sortAscending: !this.state.sortAscending
+      sortAscending: isAscending ? this.state.sortAscending === true : false
     })
   }
 
@@ -60,36 +60,24 @@ class SearchResults extends Component {
     this.setState({ mapValue: id })
   }
 
-  setSortArrow(isAscending, columnName) {
-    this.setState({
-      sortAscending: isAscending ? true : false,
-      sortColumn: columnName
-    })
-  }
-
   setSortArrows(columnName) {
-    return(
+    return (
       <span className="exterior-sort-box">
-      <span className="sort-arrow">
-        {this.setSortArrow(true)}
-        {this.setSortArrow(false)}
+        <span className="sort-arrow">
+
+          <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
+            sortImg={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"}
+            onClick={() => this.setColumnState(columnName, false)} name={columnName} />
+
+          <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
+            sortImg={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"}
+            onClick={() => this.setColumnState(columnName, true)} name={columnName} />   
+
+        </span>
       </span>
-    </span>
     )
   }
 
-  setSortArrowUp(columnName) {
-    return(
-    <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
-    sortImg={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"} onClick={()=>this.setSortArrow(columnName)}/>)
-  }
-
-  setSortArrowDown(columnName) { 
-    return(
-    <SortArrow sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending}
-      sortImg={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"} onClick={()=>this.setSortArrow(columnName)} />)
-  }
-  
   render() {
     const sortFunction = this.setSort()
     const routeList = this.props.routes
@@ -111,18 +99,18 @@ class SearchResults extends Component {
               <th>To</th>
               <th>Means of Travel</th>
               <th
-                onClick={() => this.setColumnState('time')} >Time {this.setSortArrows('time')}
+                onClick={() => this.setColumnState('time')} >Time {() => this.setSortArrows('time')}
               </th>
               <th
-                onClick={() => this.setColumnState('price')} >Price {this.setSortArrows('price')}}
+                onClick={() => this.setColumnState('price')} >Price {() => this.setSortArrows('price')}
               </th>
               <th
                 onClick={() => this.setColumnState('distance')}
-                className="hidden">Distance {this.setSortArrows('distance')}
+                className="hidden">Distance {() => this.setSortArrows('distance')}
               </th>
               <th
                 onClick={() => this.setColumnState('transits')}
-                className="hidden">Transits {this.setSortArrows('transits')}
+                className="hidden">Transits {() => this.setSortArrows('transits')}
               </th>
             </tr>
             {routeList}
