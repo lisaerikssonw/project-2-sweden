@@ -91,12 +91,11 @@ class SearchResults extends Component {
                     onClick={() => this.setColumnState('price')} >Price {sortIcon}
                   </th>
                   <th
-                    onClick={() => this.setColumnState('distance')}
+                    onClick={() => this.setColumnState('transits')}
                     className="searchResultHeader hidden">Transits {sortIcon}
                   </th>
                   <th
-                    onClick={() => this.setColumnState('transits')}
-                    className="searchResultHeader hidden">Map {sortIcon}
+                    className="searchResultHeader hidden">Map 
                   </th>
                 </tr>
                 {routeList}
