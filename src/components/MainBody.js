@@ -18,6 +18,21 @@ const areJson = JSON.stringify(AreText);
 const areInfo = JSON.parse(areJson);
 
 class MainBody extends Component {
+    
+    cityArticle(imgSrc, imgAlt, imgTitle, headerContent, pTag) {
+        return(<article className="info-article">
+        <img src={imgSrc}
+            className="city-img"
+            alt={imgAlt}
+            title={imgTitle} />
+        <div className="info-box">
+            <h1 className="header-text">{headerContent}</h1>
+            {pTag}
+        </div>
+    </article>)
+
+    }
+    
     render() {
         if(this.props.page==="home"){
 
@@ -46,47 +61,29 @@ class MainBody extends Component {
             </div>
             )
         }else if(this.props.page==="falun"){
+            const pFalun = <p className="info-text">{falunInfo.text[0]}<br/><br/>{falunInfo.text[1]}</p>
+
             return (
-                <article className="info-article">
-                    <img src={process.env.PUBLIC_URL + "/images/falun.png"}
-                        className="city-img"
-                        alt="Image of Falun"
-                        title="falun" />
-                    <div className="info-box">
-                        <h1 className="header-text">FALUN</h1>
-                        <p className="info-text">{falunInfo.text[0]}<br/><br/>{falunInfo.text[1]}</p>
-                    </div>
-                </article>
+                this.cityArticle('/images/falun.png', 'Image of Falun', 'Falun',
+                'Falun', pFalun)
             )
 
         }else if(this.props.page==="are"){
+            const pAre = <p className="info-text">{areInfo.text[0]}<br/><br/>{areInfo.text[1]}</p>
+
             return (
-                <article className="info-article">
-                    <img src={process.env.PUBLIC_URL + "/images/aurora.jpg"}
-                        className="city-img"
-                        alt="Image of Åre"
-                        title="are" />
-                    <div className="info-box">
-                        <h1 className="header-text">Åre</h1>
-                        <p className="info-text">{areInfo.text[0]}<br/><br/>{areInfo.text[1]}
-                        </p>
-                    </div>
-                </article>
+
+                this.cityArticle('/images/aurora.jpg', 'Image of Åre', 'Åre',
+                'Åre', pAre)
             )
 
         }else if(this.props.page==="stockholm"){
+
+            const pStockholm = <p className="info-text">{stockholmInfo.text[0]}<br/><br/>{stockholmInfo.text[1]}<br/><br/>{stockholmInfo.text[2]}</p>
             return (
-                <article className="info-article">
-                    <img src={process.env.PUBLIC_URL + "/images/stockholm.png"}
-                        className="city-img"
-                        alt="Image of Stockholm"
-                        title="stockholm" />
-                    <div className="info-box">
-                        <h1 className="header-text">Stockholm</h1>
-                        <p className="info-text">{stockholmInfo.text[0]}<br/><br/>{stockholmInfo.text[1]}<br/><br/>{stockholmInfo.text[2]}
-                        </p>
-                  </div>
-                </article>
+
+                this.cityArticle('/images/stockholm.png', 'Image of Stockholm', 'Stockholm',
+                'Stockholm', pStockholm)
             )
 
         }
