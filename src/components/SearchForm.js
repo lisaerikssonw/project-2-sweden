@@ -128,7 +128,7 @@ class SearchForm extends Component {
                     </div>
                     <hr/>
                     <div>
-                        <button className="search-button">Search</button>
+                        <button className="button-style search-button">Search</button>
                     </div>
                 </form>
             </aside>
