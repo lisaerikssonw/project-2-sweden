@@ -22,13 +22,14 @@ class MainBody extends Component {
                 handleFilterRail={this.props.handleFilterRail}
                 handleFilterCar={this.props.handleFilterCar}
                 handleFilterFerry={this.props.handleFilterFerry}
-
+                handleCurrency = {this.props.handleCurrency}
                 handleFilterBus={this.props.handleFilterBus}
                 filterAirChecked={this.props.filterAirChecked}
                 filterRailChecked={this.props.filterRailChecked}
                 filterCarChecked={this.props.filterCarChecked}
                 filterFerryChecked={this.props.filterFerryChecked}
-                filterBusChecked={this.props.filterBusChecked}/>
+                filterBusChecked={this.props.filterBusChecked}
+                />
                 
                 {this.props.routes.length ? <SearchResults
                 routes={this.props.routes}

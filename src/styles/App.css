@@ -87,13 +87,6 @@ body {
   margin-top: 0.4em;
 }
 
-select{
-
-  padding:1%;
-  border:none;
-  background: rgb(230,230,230);
-
-}
 
 select:hover {
   cursor: pointer;
@@ -370,4 +363,12 @@ table{
 .google-map-icon:hover{
 
   cursor: pointer;
+}
+
+.select-field{
+
+  padding:1%;
+  border:none;
+  background: rgb(230,230,230);
+  margin-left: 1.3em;
 }

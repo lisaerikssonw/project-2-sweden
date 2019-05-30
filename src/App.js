@@ -24,6 +24,7 @@ class App extends Component {
       page: "home",
       origin: '',
       destination: 'Stockholm',
+      currencyCodeURL: 'USD',
       departureDate: '',
       returnDate: '',
       routes: [],
@@ -53,7 +54,7 @@ class App extends Component {
     this.handleFilterCar = this.handleFilterCar.bind(this)
     this.handleFilterFerry = this.handleFilterFerry.bind(this)
     this.handleFilterRail = this.handleFilterRail.bind(this)
-
+    this.handleCurrency = this.handleCurrency.bind(this)
     this.minutesToHours = this.minutesToHours.bind(this)
 
   }
@@ -79,6 +80,12 @@ class App extends Component {
   handleReturn(event) {
     this.setState({
       returnDate: event.target.value
+    })
+  }
+
+  handleCurrency(event) {
+    this.setState({
+      currencyCodeURL: event.target.value
     })
   }
 
@@ -172,7 +179,7 @@ class App extends Component {
   
   sendRequest() {
    fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
-    &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar${this.state.filterAir}${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
+    &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar&currencyCode=${this.state.currencyCodeURL}${this.state.filterAir}${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
       .then( response => response.json())
       .then( data => {
         this.setState({
@@ -249,7 +256,10 @@ class App extends Component {
               filterRailChecked = {this.state.filterRailChecked}
               filterCarChecked = {this.state.filterCarChecked}
               filterFerryChecked = {this.state.filterFerryChecked}
-              filterBusChecked = {this.state.filterBusChecked}/>
+              filterBusChecked = {this.state.filterBusChecked}
+              handleCurrency = {this.handleCurrency}
+              />
+              
 
             <hr />
             <Footer />
