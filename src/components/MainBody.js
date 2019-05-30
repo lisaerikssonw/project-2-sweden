@@ -32,7 +32,6 @@ class MainBody extends Component {
                 handleFilterRail={this.props.handleFilterRail}
                 handleFilterCar={this.props.handleFilterCar}
                 handleFilterFerry={this.props.handleFilterFerry}
-
                 handleFilterBus={this.props.handleFilterBus}
                 filterAirChecked={this.props.filterAirChecked}
                 filterRailChecked={this.props.filterRailChecked}
