@@ -23,18 +23,15 @@
   cursor: pointer;
 }
 
-.arrow-up {
+.arrow {
   position: relative;
   max-width: 10px;
   padding: 0;
   margin: 0;
 }
 
-.arrow-down {
-  position: relative;
-  max-width: 10px;
-  padding: 0;
-  margin: 0;
+.arrow-grey {
+  opacity: 0.3;
 }
 
 .search-caption {

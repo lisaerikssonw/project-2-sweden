@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 class Segment extends Component {
-    
+
 
     render() {
         return (
@@ -11,8 +11,8 @@ class Segment extends Component {
                         <td>{this.props.places[segment.depPlace].shortName}</td>
                         <td>{this.props.places[segment.arrPlace].shortName}</td>
                         <td>{this.props.vehicles[segment.vehicle].name}</td>
-                        <td>{this.props.minutesToHours(segment.transitDuration)}</td>
-                    </tr>  
+                        <td colSpan="4">{this.props.minutesToHours(segment.transitDuration)}</td>
+                    </tr>
                 ]
                 )
             })
