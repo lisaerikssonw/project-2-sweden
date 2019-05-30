@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-input {
+.input-style {
 
   border:none;
   padding:1%;
@@ -30,7 +30,7 @@ input {
   cursor: pointer;
 }
 
-input.cities {
+.input-style.cities {
   cursor: text;
 }
 
