@@ -119,8 +119,11 @@ button:hover{
 
 table{
   border-collapse: collapse;
-  max-width: 900px;
+  /* max-width: 900px; */
+  width: 100%;
   text-align: left;
+  table-layout: fixed;
+  border: 3px solid purple;
 }
 
 ::placeholder {
