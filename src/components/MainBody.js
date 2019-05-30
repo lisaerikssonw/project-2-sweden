@@ -19,15 +19,15 @@ const areInfo = JSON.parse(areJson);
 
 class MainBody extends Component {
     
-    cityArticle(imgSrc, imgAlt, imgTitle, headerContent, pTag) {
+    cityArticle(city) {
         return(<article className="info-article">
-        <img src={imgSrc}
+        <img src={city.imgSrc}
             className="city-img"
-            alt={imgAlt}
-            title={imgTitle} />
+            alt={city.imgAlt}
+            title={city.imgTitle} />
         <div className="info-box">
-            <h1 className="header-text">{headerContent}</h1>
-            {pTag}
+            <h1 className="header-text">{city.headerContent}</h1>
+            {city.pTag}
         </div>
     </article>)
 
@@ -62,28 +62,23 @@ class MainBody extends Component {
             )
         }else if(this.props.page==="falun"){
             const pFalun = <p className="info-text">{falunInfo.text[0]}<br/><br/>{falunInfo.text[1]}</p>
-
             return (
-                this.cityArticle('/images/falun.png', 'Image of Falun', 'Falun',
-                'Falun', pFalun)
+                this.cityArticle({imgSrc:'/images/falun.jpg', imgAlt:'Image of Falun', imgTitle:'Falun',
+                headerContent:'Falun', pTag: pFalun})
             )
 
         }else if(this.props.page==="are"){
             const pAre = <p className="info-text">{areInfo.text[0]}<br/><br/>{areInfo.text[1]}</p>
-
             return (
-
-                this.cityArticle('/images/aurora.jpg', 'Image of Åre', 'Åre',
-                'Åre', pAre)
+                this.cityArticle({imgSrc:'/images/aurora.jpg', imgAlt:'Image of Åre', imgTitle:'Åre',
+                headerContent:'Åre', pTag: pAre})
             )
 
         }else if(this.props.page==="stockholm"){
-
             const pStockholm = <p className="info-text">{stockholmInfo.text[0]}<br/><br/>{stockholmInfo.text[1]}<br/><br/>{stockholmInfo.text[2]}</p>
             return (
-
-                this.cityArticle('/images/stockholm.png', 'Image of Stockholm', 'Stockholm',
-                'Stockholm', pStockholm)
+                this.cityArticle({imgSrc: '/images/stockholm.png', imgAlt:'Image of Stockholm', imgTitle:'Stockholm',
+                headerContent: 'Stockholm', pTag: pStockholm})
             )
 
         }
