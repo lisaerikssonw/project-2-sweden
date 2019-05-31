@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 class Segment extends Component {
-    
+
 
     render() {
         return (

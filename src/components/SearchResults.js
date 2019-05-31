@@ -3,7 +3,7 @@ import Route from './Route'
 import RouteMap from './RouteMap'
 import '../styles/App.css';
 import '../styles/search-results.css';
-
+import SortArrows from './SortArrows'
 
 
 class SearchResults extends Component {
@@ -12,7 +12,7 @@ class SearchResults extends Component {
 
     this.state = {
       sortColumn: 'From',
-      sortDirectionAscending: false,
+      sortAscending: false,
       mapValue: 0
 
     }
@@ -34,47 +34,31 @@ class SearchResults extends Component {
   setSort() {
 
     if (this.state.sortColumn === 'price') {
-      return this.state.sortDirectionAscending ? this.sortPriceAscending() : this.sortPriceDescending();
+      return this.state.sortAscending ? this.sortPriceAscending() : this.sortPriceDescending();
 
     } else if (this.state.sortColumn === 'transits') {
-      return this.state.sortDirectionAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
+      return this.state.sortAscending ? this.sortNumberOfTransitsAscending() : this.sortNumberOfTransitsDescending();
 
     } else if (this.state.sortColumn === 'distance') {
-      return this.state.sortDirectionAscending ? this.sortDistanceAscending() : this.sortDistanceDescending();
+      return this.state.sortAscending ? this.sortDistanceAscending() : this.sortDistanceDescending();
 
     } else if (this.state.sortColumn === 'time') {
-      return this.state.sortDirectionAscending ? this.sortTimeAscending() : this.sortTimeDescending();
+      return this.state.sortAscending ? this.sortTimeAscending() : this.sortTimeDescending();
     }
   }
 
   setColumnState(columnName) {
     this.setState({
       sortColumn: columnName,
-      sortDirectionAscending: !this.state.sortDirectionAscending
+      sortAscending: !this.state.sortAscending
     })
   }
-
 
   setMapValue(id) {
     this.setState({ mapValue: id })
   }
 
   render() {
-
-    const sortIcon = <span className="exterior-sort-box">
-      <span className="sort-arrow">
-        <img src={process.env.PUBLIC_URL + "/images/icons/sort-up-1.png"}
-          className="arrow-up"
-          alt="sort-arrow-up"
-          title="Sort-up" />
-
-        <img src={process.env.PUBLIC_URL + "/images/icons/sort-down-1.png"}
-          className="arrow-down"
-          alt="sort-arrow-down"
-          title="Sort-down" />
-      </span>
-    </span>
-
     const sortFunction = this.setSort()
     const routeList = this.props.routes
       .sort(sortFunction)
@@ -94,18 +78,22 @@ class SearchResults extends Component {
               <th>To</th>
               <th>Means of Travel</th>
               <th
-                onClick={() => this.setColumnState('time')} >Time {sortIcon}
+                onClick={() => this.setColumnState('time')} >Time 
+                <SortArrows name="time" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
               <th
-                onClick={() => this.setColumnState('price')} >Price {sortIcon}
+                onClick={() => this.setColumnState('price')} >Price 
+                <SortArrows name="price" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
               <th
                 onClick={() => this.setColumnState('distance')}
-                className="hidden">Distance {sortIcon}
+                className="hidden">Distance 
+                <SortArrows name="distance" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
               <th
                 onClick={() => this.setColumnState('transits')}
-                className="hidden">Transits {sortIcon}
+                className="hidden">Transits 
+                <SortArrows name="transits" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
             </tr>
             {routeList}
