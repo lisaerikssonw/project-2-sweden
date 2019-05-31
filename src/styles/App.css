@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-input {
+.input-style {
 
   border:none;
   padding:1%;
@@ -30,7 +30,7 @@ input {
   cursor: pointer;
 }
 
-input.cities {
+.input-style.cities {
   cursor: text;
 }
 
@@ -49,7 +49,7 @@ td {
   z-index: 1;
 }
 
-button {
+.button-style {
 
   width: 10em;
   border: none;
@@ -98,7 +98,7 @@ button {
 }
 
 
-button:hover{
+.button-style:hover{
   background:#ffcc00;
   color: #006699;
   padding: 0px;
