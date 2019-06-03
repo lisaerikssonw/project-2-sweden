@@ -44,13 +44,12 @@ class Routes extends Component {
 
         let routeClass = this.props.id === this.props.mapValue ? "marked-route" : "routes"
         
-        let routeRow = (<tr className={routeClass} onClick={() => this.setRouteMap()} >
+        const routeRow = (<tr className={routeClass} onClick={() => this.setRouteMap()} >
             <td>
                 <img onClick={() => this.editExpandMode()} className="black-triangle"
                     src={this.state.expandMode ? "/images/icons/triangle.png" : "/images/icons/triangle-right.png"}
                     alt={this.state.expandMode ? "Triangle pointing down" : "Triangle pointing right"}
-                    title={this.state.expandMode ? "Collapse" : "Expand"}
-                    onClick={() => this.editExpandMode()} />
+                    title={this.state.expandMode ? "Collapse" : "Expand"} />
                 {this.props.departurePlace.shortName}
             </td>
             <td>{this.props.arrivalPlace.shortName} </td>
