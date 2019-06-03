@@ -184,11 +184,11 @@ class App extends Component {
 
     return (
         <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
-          
-            <noscript>You need to enable JavaScript to run this app.</noscript>
-            <Header />
-            <Nav page={this.state.page} handlePageState={this.handlePageState}/>
-            
+
+            <Header>
+              <Nav page={this.state.page} handlePageState={this.handlePageState}/>
+            </Header>
+
             <hr />
             <main>
             <MainBody
@@ -213,7 +213,7 @@ class App extends Component {
               </main>
             <hr />
             <Footer />
-          
+
         </div>
     );
   }
