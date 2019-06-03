@@ -84,6 +84,7 @@
   padding-right: 3px;
   max-width: 100%;
   vertical-align: middle;
+  transition: 0.3s;
 }
 
 .filter-img-toggled {
@@ -91,6 +92,11 @@
   opacity: 0.3;
   max-width: 100%;
   vertical-align: middle;
+  transition: 0.3s;
+}
+
+.button-filter {
+  cursor: pointer;
 }
 
 /* styling for the FILTER BUTTONS and ICONS above ----------------------------*/
