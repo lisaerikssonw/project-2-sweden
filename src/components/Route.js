@@ -35,66 +35,50 @@ class Routes extends Component {
         )
     }
 
-    setRouteMap(){
+    setRouteMap() {
         this.props.setMapValue(this.props.id)
     }
 
 
-
     render() {
 
-        let routeClass = this.props.id===this.props.mapValue ? "marked-route" : "routes"
+        let routeClass = this.props.id === this.props.mapValue ? "marked-route" : "routes"
+        let routeRow = (<tr className={routeClass} onClick={() => this.setRouteMap()} >
+            <td>
+                <img onClick={() => this.editExpandMode()} className="black-triangle"
+                    src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
+                    alt="Triangle pointing right"
+                    title="Expand"
+                    onClick={() => this.editExpandMode()} />
+                {this.props.departurePlace.shortName}
+            </td>
+            <td>{this.props.arrivalPlace.shortName} </td>
+            {this.getVehicleList()}
+            <td>{this.props.durationHours}</td>
+            <td>{this.props.price + " " + this.props.currency}</td>
+            <td className="hidden">{this.props.distance} km</td>
+            <td className="hidden">{this.props.segments.length}</td>
+        </tr>)
 
         if (this.state.expandMode === false) {
-            return (
-                <tr className={routeClass} onClick={()=> this.setRouteMap()} >
-                    <td>
-                        <img onClick={() => this.editExpandMode()} className="black-triangle"
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
-                            alt="Triangle pointing right"
-                            title="Expand"
-                            onClick={() => this.editExpandMode()} />
-                        {this.props.departurePlace.shortName}
-                    </td>
-                    <td>{this.props.arrivalPlace.shortName} </td>
-                    {this.getVehicleList()}
-                    <td>{this.props.durationHours}</td>
-                    <td>{this.props.price + " " + this.props.currency}</td>
-                    <td className="hidden">{this.props.distance} km</td>
-                    <td className="hidden">{this.props.segments.length}</td>
-                </tr>
-            )
+            return routeRow
         } else {
             return (
-                [<tr className={routeClass} onClick={() => this.setRouteMap()}>
-                    <td>
-                        <img className="black-triangle"
-                            onClick={()=>this.editExpandMode()}
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
-                            alt="Triangle pointing down"
-                            title="Collapse" />
-                        {this.props.departurePlace.shortName}
-                    </td>
-                    <td>{this.props.arrivalPlace.shortName}</td>
-                    {this.getVehicleList()}
-                    <td>{this.props.durationHours}</td>
-                    <td>{this.props.price + " " + this.props.currency}</td>
-                    <td className="hidden">{this.props.distance} km</td>
-                    <td className="hidden">{this.props.segments.length}</td>
-                </tr>,
-                <tr className="segment">
-                    <th>Departure Place</th>
-                    <th>Arrival Place</th>
-                    <th>Means of Travel</th>
-                    <th colSpan="4">Transit Time</th>
-                </tr>,
+                [
+                    routeRow,
+                    <tr className="segment">
+                        <th>Departure Place</th>
+                        <th>Arrival Place</th>
+                        <th>Means of Travel</th>
+                        <th colSpan="4">Transit Time</th>
+                    </tr>,
 
-                <Segment
-                    segments={this.props.segments}
-                    places={this.props.places}
-                    vehicles={this.props.vehicles}
-                    minutesToHours={this.props.minutesToHours}
-                    routes={this.props.routes} />,
+                    <Segment
+                        segments={this.props.segments}
+                        places={this.props.places}
+                        vehicles={this.props.vehicles}
+                        minutesToHours={this.props.minutesToHours}
+                        routes={this.props.routes} />,
                 ]
             )
         }
