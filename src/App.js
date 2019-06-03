@@ -185,9 +185,8 @@ class App extends Component {
     return (
         <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
 
-            <Header>
-              <Nav page={this.state.page} handlePageState={this.handlePageState}/>
-            </Header>
+            <Header />
+            <Nav page={this.state.page} handlePageState={this.handlePageState}/>
 
             <hr />
             <main>
