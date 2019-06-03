@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Nav from './components/Nav';
 import './styles/App.css';
 import './styles/footer.css';
 import './styles/mobile.css';
@@ -185,8 +184,7 @@ class App extends Component {
     return (
         <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
 
-            <Header />
-            <Nav page={this.state.page} handlePageState={this.handlePageState}/>
+            <Header page={this.state.page} handlePageState={this.handlePageState} />
 
             <hr />
             <main>
