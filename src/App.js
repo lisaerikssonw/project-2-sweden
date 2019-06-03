@@ -11,13 +11,6 @@ import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
-const filterQueries = { //for future use of query string for filter in URL
-  a: "noAir",
-  b: "noRail",
-  c: "noCar",
-  d: "noFerry",
-  e: "noBus"
-};
 
 class App extends Component {
 
@@ -50,7 +43,6 @@ class App extends Component {
     this.handleReturn = this.handleReturn.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
     this.sendRequest = this.sendRequest.bind(this)
-    this.handleFilterChange = this.handleFilterChange.bind(this)
     this.handleFilterAir = this.handleFilterAir.bind(this)
     this.handleFilterBus = this.handleFilterBus.bind(this)
     this.handleFilterCar = this.handleFilterCar.bind(this)
@@ -94,7 +86,6 @@ class App extends Component {
   }
 
   handleFilterAir() {
-    //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
     if(this.state.filterAir.valueOf("&noAir")) {
       this.setState({ filterAir: "" })
       this.setState({filterAirChecked: true})
@@ -105,7 +96,6 @@ class App extends Component {
   }
 
   handleFilterRail() {
-    //const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
     if(this.state.filterRail.valueOf("&noRail")) {
       this.setState({ filterRail: "" })
       this.setState({filterRailChecked: true})
@@ -143,23 +133,6 @@ class App extends Component {
       this.setState({ filterBus: "&noBus" })
       this.setState({filterBusChecked: false})
     }
-  }
-
-  //function for filter buttons - through query string - not in use but will be
-  handleFilterChange(id) {
-    const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
-    console.log(id)
-
-    console.log(queryString)
-
-    this.setState({ filterChecked: !this.state.filterChecked })
-    if (this.state.filterChecked === true) {
-      this.setState({ filterURL: "" })
-    } else {
-      this.setState({ filterURL: "&noRail" })
-    }
-    console.log("Filter toggled")
-    console.log(this.state.filterChecked)
   }
 
   minutesToHours(timeInMinutes){
@@ -210,16 +183,13 @@ class App extends Component {
   render() {
 
     return (
-
-    <div id="root">
         <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
-          <main>
-            <noscript>You need to enable JavaScript to run this app.</noscript>
+
             <Header />
             <Nav page={this.state.page} handlePageState={this.handlePageState}/>
-            
-            <hr />
 
+            <hr />
+            <main>
             <MainBody
               page={this.state.page}
               submitSearch={this.submitSearch}
@@ -239,17 +209,16 @@ class App extends Component {
               filterCarChecked = {this.state.filterCarChecked}
               filterFerryChecked = {this.state.filterFerryChecked}
               filterBusChecked = {this.state.filterBusChecked}/>
-
+              </main>
             <hr />
             <Footer />
-          </main>
+
         </div>
-      </div>
     );
   }
 }
 // debug environment variables
-const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
-console.log("google key = " + googleKey);
+/* const googleKey = process.env.REACT_APP_GOOGLE_SECRET_KEY;
+console.log("google key = " + googleKey); */
 
 export default App;
