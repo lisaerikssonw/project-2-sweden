@@ -42,9 +42,17 @@ class Routes extends Component {
 
     render() {
 
+        const segmentList = this.props.segments.map((segment, index)=> {return(
+            <Segment {...segment} key={index} 
+            places={this.props.places}
+            vehicles={this.props.vehicles}
+            minutesToHours={this.props.minutesToHours}
+            routes={this.props.routes} />
+        )})
+
         let routeClass = this.props.id === this.props.mapValue ? "marked-route" : "routes"
         
-        const routeRow = (<tr className={routeClass} onClick={() => this.setRouteMap()} >
+        const routeRow = (<tr className={routeClass} onClick={() => this.setRouteMap()}>
             <td>
                 <img onClick={() => this.editExpandMode()} className="black-triangle"
                     src={this.state.expandMode ? "/images/icons/triangle.png" : "/images/icons/triangle-right.png"}
@@ -72,13 +80,8 @@ class Routes extends Component {
                         <th>Means of Travel</th>
                         <th colSpan="4">Transit Time</th>
                     </tr>,
-
-                    <Segment
-                        segments={this.props.segments}
-                        places={this.props.places}
-                        vehicles={this.props.vehicles}
-                        minutesToHours={this.props.minutesToHours}
-                        routes={this.props.routes} />,
+                    
+                        segmentList
                 ]
             )
         }
