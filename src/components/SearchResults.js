@@ -70,7 +70,7 @@ class SearchResults extends Component {
       })
     return (
       <article className="center-results">
-        <table className="table-fuckme">
+        <table className="result-table">
           <caption className="search-caption">Search results</caption>
           <tbody className="search-results">
             <tr>
@@ -78,21 +78,21 @@ class SearchResults extends Component {
               <th>To</th>
               <th>Means of Travel</th>
               <th
-                onClick={() => this.setColumnState('time')} >Time 
+                onClick={() => this.setColumnState('time')} >Time
                 <SortArrows name="time" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
               <th
-                onClick={() => this.setColumnState('price')} >Price 
+                onClick={() => this.setColumnState('price')} >Price
                 <SortArrows name="price" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
               <th
                 onClick={() => this.setColumnState('distance')}
-                className="hidden">Distance 
+                className="hidden">Distance
                 <SortArrows name="distance" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
               <th
                 onClick={() => this.setColumnState('transits')}
-                className="hidden">Transits 
+                className="hidden">Transits
                 <SortArrows name="transits" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
             </tr>

@@ -34,6 +34,26 @@
   opacity: 0.3;
 }
 
+/* Table styling using class and child-elements (Kenneth-style) */
+
+.result-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+  /* border: 3px solid purple; */
+  text-align: center;
+}
+
+.result-table td, th {
+  padding: 0.9em;
+  padding-left: 0;
+}
+
+.result-table tbody {
+  text-align: left;
+}
+
 .search-caption {
   margin-top: 40px;
   text-align: center;
