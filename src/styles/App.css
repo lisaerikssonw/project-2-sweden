@@ -149,24 +149,6 @@ td {
   margin: 0 auto;
 }
 
-table{
-  border-collapse: collapse;
-  width: 100%;
-  text-align: left;
-  table-layout: fixed;
-  /* border: 3px solid purple; */
-  text-align: center;
-}
-
-th, td {
-  padding: 0.9em;
-  padding-left: 0;
-}
-tbody {
-  text-align: left;
-}
-
-
 ::placeholder {
   	color: #666666;
 }

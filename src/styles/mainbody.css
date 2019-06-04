@@ -16,16 +16,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 20px;
+  padding: 1em;
 }
 
 .city-img {
-  max-width: 40em;
+  max-width: 600px;
   border: 0.5px solid black;
 }
 
 .info-box {
-  padding: 20px;
-  margin: 10px;
+  padding: 1em;
+  margin: 0.5em;
   border: 4px solid #006699;
 }

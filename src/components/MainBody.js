@@ -18,13 +18,15 @@ const areJson = JSON.stringify(AreText);
 const areInfo = JSON.parse(areJson);
 
 class MainBody extends Component {
-    
+
     cityArticle(city) {
         return(<article className="info-article">
-        <img src={city.imgSrc}
-            className="city-img"
-            alt={city.imgAlt}
-            title={city.imgTitle} />
+        <figure>
+          <img src={city.imgSrc}
+              className="city-img"
+              alt={city.imgAlt}
+              title={city.imgTitle} />
+        </figure>
         <div className="info-box">
             <h1 className="header-text">{city.headerContent}</h1>
             {city.pTag}
@@ -32,7 +34,7 @@ class MainBody extends Component {
     </article>)
 
     }
-    
+
     render() {
         if(this.props.page==="home"){
 

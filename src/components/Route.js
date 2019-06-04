@@ -35,15 +35,30 @@ class Routes extends Component {
         )
     }
 
-    setRouteMap(){
+    setRouteMap() {
         this.props.setMapValue(this.props.id)
     }
 
 
-
     render() {
 
-        let routeClass = this.props.id===this.props.mapValue ? "marked-route" : "routes"
+        let routeClass = this.props.id === this.props.mapValue ? "marked-route" : "routes"
+        
+        const routeRow = (<tr className={routeClass} onClick={() => this.setRouteMap()} >
+            <td>
+                <img onClick={() => this.editExpandMode()} className="black-triangle"
+                    src={this.state.expandMode ? "/images/icons/triangle.png" : "/images/icons/triangle-right.png"}
+                    alt={this.state.expandMode ? "Triangle pointing down" : "Triangle pointing right"}
+                    title={this.state.expandMode ? "Collapse" : "Expand"} />
+                {this.props.departurePlace.shortName}
+            </td>
+            <td>{this.props.arrivalPlace.shortName} </td>
+            {this.getVehicleList()}
+            <td>{this.props.durationHours}</td>
+            <td>{this.props.price + " " + this.props.currency}</td>
+            <td className="hidden">{this.props.distance} km</td>
+            <td className="hidden">{this.props.segments.length}</td>
+        </tr>)
 
         if (this.state.expandMode === false) {
             return (
@@ -98,12 +113,12 @@ class Routes extends Component {
                     <th>Map</th>
                 </tr>,
 
-                <Segment
-                    segments={this.props.segments}
-                    places={this.props.places}
-                    vehicles={this.props.vehicles}
-                    minutesToHours={this.props.minutesToHours}
-                    routes={this.props.routes} />,
+                    <Segment
+                        segments={this.props.segments}
+                        places={this.props.places}
+                        vehicles={this.props.vehicles}
+                        minutesToHours={this.props.minutesToHours}
+                        routes={this.props.routes} />,
                 ]
             )
         }

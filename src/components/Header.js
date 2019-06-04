@@ -1,12 +1,11 @@
-import React,{Component} from 'react'
+import React from 'react'
+import Nav from './Nav';
 
-class Header extends Component{
-    render(){
-        return (
+const Header = (props) => (
+
             <header>
+                <Nav page={props.page} handlePageState={props.handlePageState}/>
             </header>
         )
-    }
-}
 
 export default Header;
