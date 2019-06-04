@@ -1,0 +1,17 @@
+/* CSS used in Route.js component */
+
+.routes {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D5DBDB;
+  border-top: 1px solid #AAB7B8;
+  }
+
+.black-triangle {
+  vertical-align: middle;
+  cursor: pointer;
+  padding-bottom: 0.3em;
+}
+
+.marked-route {
+  border: 5px solid #F4D03F;
+}

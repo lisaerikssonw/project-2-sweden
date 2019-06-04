@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import MainBody from './components/MainBody';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Nav from './components/Nav';
 import './styles/App.css';
+import './styles/footer.css';
 import './styles/mobile.css';
+
 import backgroundImage from "./images/olympic-rings.png";
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
@@ -56,6 +59,7 @@ class App extends Component {
     this.handleFilterRail = this.handleFilterRail.bind(this)
     this.handleCurrency = this.handleCurrency.bind(this)
     this.minutesToHours = this.minutesToHours.bind(this)
+    this.handlePageState = this.handlePageState.bind(this)
 
   }
 
@@ -152,7 +156,7 @@ class App extends Component {
   handleFilterChange(id) {
     const queryString = Object.keys(filterQueries).map(key => filterQueries[key]).join('&')
     console.log(id)
-    
+
     console.log(queryString)
 
     this.setState({ filterChecked: !this.state.filterChecked })
@@ -206,36 +210,21 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
+  handlePageState(editPage) {
+    this.setState({page: editPage})
+  }
+
   render() {
 
     return (
 
     <div id="root">
-        <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
           <main>
             <noscript>You need to enable JavaScript to run this app.</noscript>
             <Header />
-            <nav>
-              <div className="nav-container">
-              <img className="icon"
-                    src={process.env.PUBLIC_URL + "/images/icons/rings.png"}
-                    alt="Olympic rings"
-                    title="Winter Olympics 2024" />
-                <button className="button"
-                    onClick={()=> this.setState({page:"home"})}>Search Trips
-                </button>
-                <button className="button">About the Event</button>
-                <button className="dropdown">About our<br />Destinations
-                  <div className="dropdown-content">
-                    <div onClick={() => this.setState({ page: "falun" })}>Falun</div>
-                    <div onClick={() => this.setState({ page: "stockholm" })}>Stockholm</div>
-                    <div onClick={() => this.setState({ page: "are" })}>Åre</div>
-                  </div>
-                </button>
-                <button className="button hidden">View Recommended</button>
-              </div>
-            </nav>
-
+            <Nav page={this.state.page} handlePageState={this.handlePageState}/>
+            
             <hr />
 
             <MainBody
@@ -251,7 +240,7 @@ class App extends Component {
               handleDeparture={this.handleDeparture}
               handleReturn={this.handleReturn}
               routes={this.state.routes}
-              minutesToHours = {this.minutesToHours} 
+              minutesToHours = {this.minutesToHours}
               filterAirChecked = {this.state.filterAirChecked}
               filterRailChecked = {this.state.filterRailChecked}
               filterCarChecked = {this.state.filterCarChecked}

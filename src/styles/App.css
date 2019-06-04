@@ -1,47 +1,8 @@
-body {
+.default-font {
   font-family: 'Lato', sans-serif;
 }
 
-.Flex-container {
-  display: flex;
-}
-
-.Nav-container {
-  flex-direction: row;
-}
-
-.Header-text {
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color: #006699;
-}
-
-.Info-text {
-  font-family: 'Lato', sans-serif;
-  color: #ffcc00;
-}
-
-.Footer-container {
-  display: flex;
-}
-
-.Aside-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.falun-container {
-  display: flex;
-}
-
-.info-text {
-  font-family: 'Lato', sans-serif;
-}
-
-.info-img {
-  float: right;
-}
-
+/* used in app.js */
 .icon {
   position: relative;
   left: 0.3%;
@@ -88,11 +49,11 @@ body {
 }
 
 
-select:hover {
+.select-destination:hover {
   cursor: pointer;
 }
 
-input {
+.input-style {
 
   border:none;
   padding:1%;
@@ -101,26 +62,8 @@ input {
   cursor: pointer;
 }
 
-input.cities {
+.input-style.cities {
   cursor: text;
-}
-
-.search-caption {
-  margin-top: 40px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.7em;
-  font-weight: bold;
-}
-
-.searchResultHeader {
-    background: #EAEDED;
-    cursor: pointer;
-    text-align: left;
-    padding: 0;
-    padding-right: 1em;
-    padding-left:0.1em;
-
 }
 
 td {
@@ -138,7 +81,7 @@ td {
   z-index: 1;
 }
 
-button {
+.button-style {
 
   width: 10em;
   border: none;
@@ -187,7 +130,7 @@ button {
 }
 
 
-button:hover{
+.button-style:hover{
   background:#ffcc00;
   color: #006699;
   padding: 0px;
@@ -197,33 +140,7 @@ button:hover{
   font-weight: bold;
 }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 0.9em;
-  background:#ffcc00;
-}
-
-.footer-heading {
-  background: #006699;
-  color: #ffcc00;
-}
-
-.footer h1 {
-  font-family: 'Raleway', sans-serif;
-  padding: 0.4em;
-  margin: 0.1em;
-  font-size: 1.45em;
-}
-
-.footer p {
-  font-family: 'Lato', sans-serif;
-}
-
-.App {
+.background-image {
   background-size: contain;
   height:100vh;
   background-repeat: no-repeat;
@@ -232,100 +149,34 @@ button:hover{
   margin: 0 auto;
 }
 
-/* styling for the filter buttons and icons below */
-.filter-container {
-  display: flex;
-  flex-direction: row;
-  padding-top: 10px;/* note to self put em as value instead */
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 100%;
+table{
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+  /* border: 3px solid purple; */
+  text-align: center;
 }
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  outline: none;
-  margin-right: 40px;
+th, td {
+  padding: 0.9em;
+  padding-left: 0;
+}
+tbody {
+  text-align: left;
 }
 
-.switch-input {
-  position: absolute;
-  top: -99999px;
-  left: -99999px;
+
+::placeholder {
+  	color: #666666;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #006699;
-  -webkit-transition: .2s;
-  transition: .2s;
-  border-radius: 34px;
+/* Used in RouteMap.js component */
+.map {
+  margin-top: 1.5em;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 30px;
-  bottom: 4px;
-  background-color: #ffffff;
-  -webkit-transition: .2s;
-  transition: .2s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #ccc;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #ffffff;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(-26px);
-  -ms-transform: translateX(-26px);
-  transform: translateX(-26px);
-}
-
-.filter-img {
-  padding-right: 3px;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.filter-img-toggled {
-  padding-right: 3px;
-  opacity: 0.3;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-/* styling for the filter buttons and icons above */
-
-.searchResults {
-  border-radius: 5px;
-  display: inline-block;
-  border: 0.5px solid #7F8C8D;
-  padding: 0.1em;
-  background: #FFFFFF;
-}
-
-.routes {
-  background: #FFFFFF;
-  border-bottom: 1px solid #D5DBDB;
-  border-top: 1px solid #AAB7B8;
-  }
-
+/* Used in Segment.js and SearchResult.js ----------------------------- */
 .segment{
   background: #FCF3CF;
   /*border-bottom: 1px solid #AAB7B8;*/
@@ -341,7 +192,7 @@ input:checked + .slider:before {
 table{
   border-collapse: collapse;
   max-width: 900px;
-  text-align: left;
+  text-align: center;
 }
 
 ::placeholder {

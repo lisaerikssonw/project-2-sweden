@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Segment from './Segment'
 import '../styles/App.css'
+import '../styles/route.css';
 
 class Routes extends Component {
     constructor(props) {
@@ -42,14 +43,15 @@ class Routes extends Component {
 
     render() {
 
+        let routeClass = this.props.id===this.props.mapValue ? "marked-route" : "routes"
 
         if (this.state.expandMode === false) {
             return (
-                <tr className="routes" onClick={()=> this.setRouteMap()} >
+                <tr className={routeClass} onClick={()=> this.setRouteMap()} >
                     <td>
                         <img onClick={() => this.editExpandMode()} className="black-triangle"
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
-                            alt="Black triangle"
+                            src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
+                            alt="Triangle pointing right"
                             title="Expand"
                             />
                         {this.props.departurePlace.shortName}
@@ -68,12 +70,12 @@ class Routes extends Component {
             )
         } else {
             return (
-                [<tr className="routes" onClick={() => this.setRouteMap()}>
+                [<tr className={routeClass} onClick={() => this.setRouteMap()}>
                     <td>
                         <img className="black-triangle"
                             onClick={()=>this.editExpandMode()}
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
-                            alt="Triangle pointing right"
+                            src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
+                            alt="Triangle pointing down"
                             title="Collapse" />
                         {this.props.departurePlace.shortName}
                     </td>
@@ -81,8 +83,12 @@ class Routes extends Component {
                     {this.getVehicleList()}
                     <td>{this.props.durationHours}</td>
                     <td>{this.props.price + " " + this.props.currency}</td>
-                    <td className="hidden">{this.props.distance} km</td>
                     <td className="hidden">{this.props.segments.length}</td>
+                    <td className="google-map-icon"><img alt="google map icon" onClick={()=>{
+                            let map = document.getElementById("map")
+                            map.scrollIntoView({behavior: "smooth", inline: "nearest"});
+
+                        }} src="\images\icons\GoogleMaps.png"></img></td>
                 </tr>,
                 <tr className="segment">
                     <th>Departure Place</th>

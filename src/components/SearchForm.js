@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import '../styles/search-form.css';
 class SearchForm extends Component {
 
     render() {
@@ -11,7 +12,7 @@ class SearchForm extends Component {
                             <img src="images/icons/search.svg"
                                 alt="Magnifying glass"
                                 title="Search" />
-                            <input className="cities"
+                            <input className="select-field"
                                 list="cities"
                                 type="search"
                                 name="search"
@@ -72,7 +73,7 @@ class SearchForm extends Component {
 
                         <fieldset className="departure-home">
                             <legend>Return date</legend>
-                            <input type="date" onChange={this.props.handleReturn} />
+                            <input type="date" className="input-style" onChange={this.props.handleReturn} />
                             <img src="images/icons/calendar.svg"
                                 alt="Going home date"
                                 title="Choose date" />
@@ -133,7 +134,7 @@ class SearchForm extends Component {
                     </div>
                     <hr />
                     <div>
-                        <button className="search-button">Search</button>
+                        <button className="button-style search-button">Search</button>
                     </div>
                 </form>
             </aside>
