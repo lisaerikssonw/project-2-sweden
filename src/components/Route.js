@@ -27,8 +27,10 @@ class Routes extends Component {
                     const vehicleList = this.props.vehicles
                     const segmentList = this.props.segments
                     const position = segmentList.indexOf(segment);
+                    const segmentKind = vehicleList[segmentList[position].vehicle].kind
+                    const name = segmentKind.charAt(0).toUpperCase() + segmentKind.slice(1)
 
-                    return vehicleList[segmentList[position].vehicle].name + " "
+                    return name + " "
                 }
                 )}
             </td>
