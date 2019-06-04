@@ -34,12 +34,6 @@
   cursor: text;
 }
 
-td {
-    padding-right: 1.5em;
-    padding-top: 1em;
-  }
-
-
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
