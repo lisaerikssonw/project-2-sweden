@@ -14,18 +14,24 @@ constructor(props){
   super(props)
 
     this.state = {
-      animationOn:true,
-      animationValueDep:1,
-      animationValueArr:1
+      animationValueDep:0,
+      animationValueArr:0
     }
 
-    this.changeAnimation = this.changeAnimation.bind(this)
+    this.changeAnimationDep = this.changeAnimationDep.bind(this)
+    this.changeAnimationArr = this.changeAnimationArr.bind(this)
 }
 
-changeAnimation(animationValue){
+changeAnimationDep(){
 
+  this.state.animationValueDep===1 ? this.setState({animationValueDep:0}) : this.setState({animationValueDep:1})
+  
 
-  animationValue === 1 ? this.setState({animationValue:0}) : this.setState({animationValue:1})
+}
+changeAnimationArr(){
+
+  this.state.animationValueArr===1 ? this.setState({animationValueArr:0}) : this.setState({animationValueArr:1})
+
 }
 
 
@@ -64,11 +70,12 @@ changeAnimation(animationValue){
               }}
             />
             <Marker
-              onClick={this.changeAnimation}
+              onClick={this.changeAnimationDep}
               position={departurePlace}
               animation={this.state.animationValueDep}
             />
             <Marker
+              onClick={this.changeAnimationArr}
               position={arrivalPlace}
               animation={this.state.animationValueArr}
             />
