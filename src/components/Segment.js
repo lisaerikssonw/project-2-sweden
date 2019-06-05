@@ -1,23 +1,14 @@
-import React, { Component } from 'react'
-class Segment extends Component {
+import React from 'react'
 
+const Segment = (props) => (
 
-    render() {
-        return (
-            this.props.segments.map(segment => {
-                return ([
+<tr className="segment">
+<td>{props.places[props.depPlace].shortName}</td>
+<td>{props.places[props.arrPlace].shortName}</td>
+<td>{props.vehicles[props.vehicle].name}</td>
+<td colSpan="4">{props.minutesToHours(props.transitDuration)}</td>
+</tr>
 
-                    <tr className="segment">
-                        <td>{this.props.places[segment.depPlace].shortName}</td>
-                        <td>{this.props.places[segment.arrPlace].shortName}</td>
-                        <td>{this.props.vehicles[segment.vehicle].name}</td>
-                        <td colSpan="4">{this.props.minutesToHours(segment.transitDuration)}</td>
-                    </tr>
-                ]
-                )
-            })
-        )
-    }
+) 
 
-}
 export default Segment
