@@ -82,7 +82,7 @@ const SearchForm = (props) => (
                         <div className="button-filter" value={props.filterRailChecked} onClick={props.handleFilterRail}>
                             <img src="images/icons/rail-filter.png"
                                 alt="Rail"
-                                title="Rail"
+                                title="Train"
                                 className={props.filterRailChecked ? "filter-img" : "filter-img-toggled"}/>
                         </div>
                         <div className="button-filter" value={props.filterCarChecked} onClick={props.handleFilterCar}>

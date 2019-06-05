@@ -55,7 +55,11 @@
   color: #ffcc00;
   font-size: 1.1em;
   outline: none;
+  
+}
 
+.nav-uppercase {
+  text-transform: uppercase;
 }
 
 .button-style:focus{
