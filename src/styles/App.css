@@ -127,6 +127,10 @@
   margin-top: 1.5em;
 }
 
+.google-map-icon {
+  cursor: pointer;
+}
+
 /* Used in Segment.js and SearchResult.js ----------------------------- */
 .segment{
   background: #FCF3CF;
