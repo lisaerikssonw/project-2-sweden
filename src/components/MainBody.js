@@ -65,21 +65,21 @@ class MainBody extends Component {
         }else if(this.props.page==="falun"){
             const pFalun = <p className="info-text">{falunInfo.text[0]}<br/><br/>{falunInfo.text[1]}</p>
             return (
-                this.cityArticle({imgSrc:'/images/falun.jpg', imgAlt:'Image of Falun', imgTitle:'Falun',
+                this.cityArticle({imgSrc:'/images/falun1.jpg', imgAlt:'Image of Falun', imgTitle:'Falun',
                 headerContent:'Falun', pTag: pFalun})
             )
 
         }else if(this.props.page==="are"){
             const pAre = <p className="info-text">{areInfo.text[0]}<br/><br/>{areInfo.text[1]}</p>
             return (
-                this.cityArticle({imgSrc:'/images/aurora.jpg', imgAlt:'Image of Åre', imgTitle:'Åre',
+                this.cityArticle({imgSrc:'/images/aurora1.jpg', imgAlt:'Image of Åre', imgTitle:'Åre',
                 headerContent:'Åre', pTag: pAre})
             )
 
         }else if(this.props.page==="stockholm"){
             const pStockholm = <p className="info-text">{stockholmInfo.text[0]}<br/><br/>{stockholmInfo.text[1]}<br/><br/>{stockholmInfo.text[2]}</p>
             return (
-                this.cityArticle({imgSrc: '/images/stockholm.png', imgAlt:'Image of Stockholm', imgTitle:'Stockholm',
+                this.cityArticle({imgSrc: '/images/stockholm1.png', imgAlt:'Image of Stockholm', imgTitle:'Stockholm',
                 headerContent: 'Stockholm', pTag: pStockholm})
             )
 
