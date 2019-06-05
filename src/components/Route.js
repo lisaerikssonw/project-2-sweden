@@ -70,7 +70,7 @@ class Routes extends Component {
             </td>
             <td>{this.props.arrivalPlace.shortName} </td>
             <td>{this.getVehicleList()}</td>
-            <td>{this.props.durationHours}</td>
+            <td><time datetime={`${this.props.durationMinutes}M`}>{this.props.durationHours}</time></td>
             <td>{this.props.price + " " + this.props.currency}</td>
             <td className="hidden">{this.props.distance} km</td>
             <td className="hidden">{this.props.segments.length}</td>
