@@ -55,7 +55,7 @@
   color: #ffcc00;
   font-size: 1.1em;
   outline: none;
-  
+
 }
 
 .nav-uppercase {
@@ -81,7 +81,6 @@
   color:#ffcc00;
   text-decoration: none;
   display: block;
-  border-left: 2px inset;
   padding: 12px 16px;
 
 }
