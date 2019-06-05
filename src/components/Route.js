@@ -20,6 +20,10 @@ class Routes extends Component {
         })
     }
 
+    capitalizeFirstLetter(name) {
+        return name.charAt(0).toUpperCase() + name.slice(1)
+    }
+
     getVehicleList() {
         return (
           <span>
@@ -28,8 +32,9 @@ class Routes extends Component {
                     const vehicleList = this.props.vehicles
                     const segmentList = this.props.segments
                     const position = segmentList.indexOf(segment);
+                    const segmentName = vehicleList[segmentList[position].vehicle].name
 
-                    return vehicleList[segmentList[position].vehicle].name + " "
+                    return this.capitalizeFirstLetter(segmentName) + " "
                 }
                 )}
           </span>
@@ -49,7 +54,8 @@ class Routes extends Component {
             places={this.props.places}
             vehicles={this.props.vehicles}
             minutesToHours={this.props.minutesToHours}
-            routes={this.props.routes} />
+            routes={this.props.routes}
+            capitalizeFirstLetter = {this.capitalizeFirstLetter} />
         )})
 
         let routeClass = this.props.id === this.props.mapValue ? "marked-route" : "routes"
