@@ -7,7 +7,6 @@ import './styles/footer.css';
 import './styles/mobile.css';
 
 import backgroundImage from "./images/olympic-rings.png";
-import { throwStatement } from '@babel/types';
 require('dotenv').config();
 const url = "http://free.rome2rio.com/api/1.4/json/Search?"
 const apiKey = process.env.REACT_APP_ROME_SECRET_KEY
