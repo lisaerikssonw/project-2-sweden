@@ -86,8 +86,7 @@ class Routes extends Component {
                         <th>Means of Travel</th>
                         <th colSpan="4">Transit Time</th>
                     </tr>,
-
-                        segmentList
+                    segmentList
                 ]
             )
         }

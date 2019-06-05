@@ -47,13 +47,13 @@ const SearchForm = (props) => (
                         <option value="🇨🇭 Zürich" />
                     </datalist>
 
-                    <select className="select-destination" onChange={props.handleDestination}>
+                    <select className="select-field" onChange={props.handleDestination}>
                         <option value="Stockholm">Stockholm</option>
                         <option value="Aare">Åre</option>
                         <option value="Falun">Falun</option>
                     </select>
 
-                    <select className="select-destination" onChange={props.handleCurrency}>
+                    <select className="select-field" onChange={props.handleCurrency}>
                         <option value="USD">USD</option>
                         <option value="SEK">SEK</option>
                         <option value="EUR">EURO</option>
