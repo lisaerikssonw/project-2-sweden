@@ -81,16 +81,36 @@
 }
 
 .filter-img {
-  padding-right: 3px;
+  margin-right: 35px;
+  margin-left: 35px;
   max-width: 100%;
   vertical-align: middle;
+  transition: 0.3s;
 }
 
 .filter-img-toggled {
-  padding-right: 3px;
+  margin-right: 35px;
+  margin-left: 35px;
   opacity: 0.3;
   max-width: 100%;
   vertical-align: middle;
+  transition: 0.3s;
+}
+
+.filter-img:hover {
+  box-shadow: 0 0 25px 5px #006699;
+  border-radius: 5px;
+  background-color: #ccf;
+}
+
+.filter-img-toggled:hover {
+  box-shadow: 0 0 25px 15px #ffcc00;
+  border-radius: 5px;
+  background-color: #ffe064;
+}
+
+.button-filter {
+  cursor: pointer;
 }
 
 /* styling for the FILTER BUTTONS and ICONS above ----------------------------*/

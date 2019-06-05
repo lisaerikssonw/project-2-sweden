@@ -64,73 +64,52 @@ const SearchForm = (props) => (
                         title="Choose date" />
                 </fieldset>
 
-                <fieldset className="departure-home">
-                    <legend>Return date</legend>
-                    <input type="date" className="input-style" onChange={props.handleReturn} />
-                    <img src="images/icons/calendar.svg"
-                        alt="Going home date"
-                        title="Choose date" />
-                </fieldset>
-            </div>
-            <div className="filter-container">
-
-                <div>
-                    <img src="images/icons/plane-filter.png"
-                        alt="aeroplane"
-                        title="Plane"
-                        className={props.filterAirChecked ? "filter-img" : "filter-img-toggled"} />
-                    <label className="switch">
-                        <input className="input-style" type="checkbox" value={props.filterAirChecked} onChange={props.handleFilterAir} />
-                        <div className="slider"></div>
-                    </label>
-                </div>
-                <div>
-                    <img src="images/icons/rail-filter.png"
-                        alt="rail"
-                        title="Rail"
-                        className={props.filterRailChecked ? "filter-img" : "filter-img-toggled"} />
-                    <label className="switch">
-                        <input className="input-style" type="checkbox" value={props.filterRailChecked} onChange={props.handleFilterRail} />
-                        <div className="slider"></div>
-                    </label>
-                </div>
-                <div>
-                    <img src="images/icons/car.png"
-                        alt="car"
-                        title="Car"
-                        className={props.filterCarChecked ? "filter-img" : "filter-img-toggled"} />
-                    <label className="switch">
-                        <input className="input-style" type="checkbox" value={props.filterCarChecked} onChange={props.handleFilterCar} />
-                        <div className="slider"></div>
-                    </label>
-                </div>
-                <div>
-                    <img src="images/icons/ferry.png"
-                        alt="ferry"
-                        title="Ferry"
-                        className={props.filterFerryChecked ? "filter-img" : "filter-img-toggled"} />
-                    <label className="switch">
-                        <input className="input-style" type="checkbox" value={props.filterFerryChecked} onChange={props.handleFilterFerry} />
-                        <div className="slider"></div>
-                    </label>
-                </div>
-                <div>
-                    <img src="images/icons/bus-filter.png"
-                        alt="bus"
-                        title="Bus"
-                        className={props.filterBusChecked ? "filter-img" : "filter-img-toggled"} />
-                    <label className="switch">
-                        <input className="input-style" type="checkbox" value={props.filterBusChecked} onChange={props.handleFilterBus} />
-                        <div className="slider"></div>
-                    </label>
-                </div>
-            </div>
-            <hr />
-            <div>
-                <button className="button-style search-button">Search</button>
-            </div>
-        </form>
-    </aside>
-)
+                        <fieldset className="departure-home">
+                            <legend>Return date</legend>
+                            <input type="date" className="input-style" onChange={props.handleReturn} />
+                            <img src="images/icons/calendar.svg"
+                                alt="Going home date"
+                                title="Choose date" />
+                        </fieldset>
+                    </div>
+                    <div className="filter-container">
+                        <div className="button-filter" value={props.filterAirChecked} onClick={props.handleFilterAir}>
+                            <img src="images/icons/plane-filter.png"
+                                alt="Aeroplane"
+                                title="Plane"
+                                className={props.filterAirChecked ? "filter-img" : "filter-img-toggled"}/>
+                        </div>
+                        <div className="button-filter" value={props.filterRailChecked} onClick={props.handleFilterRail}>
+                            <img src="images/icons/rail-filter.png"
+                                alt="Rail"
+                                title="Rail"
+                                className={props.filterRailChecked ? "filter-img" : "filter-img-toggled"}/>
+                        </div>
+                        <div className="button-filter" value={props.filterCarChecked} onClick={props.handleFilterCar}>
+                            <img src="images/icons/car.png"
+                                alt="Car"
+                                title="Car"
+                                className={props.filterCarChecked ? "filter-img" : "filter-img-toggled"}/>
+                        </div>
+                        <div className="button-filter" value={props.filterFerryChecked} onClick={props.handleFilterFerry}>
+                            <img src="images/icons/ferry.png"
+                                alt="Ferry"
+                                title="Ferry"
+                                className={props.filterFerryChecked ? "filter-img" : "filter-img-toggled"}/>
+                        </div>
+                        <div className="button-filter" value={props.filterBusChecked} onClick={props.handleFilterBus}>
+                            <img src="images/icons/bus-filter.png"
+                                alt="Bus"
+                                title="Bus"
+                                className={props.filterBusChecked ? "filter-img" : "filter-img-toggled"}/>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div>
+                        <button className="button-style search-button">Search</button>
+                    </div>
+                </form>
+            </aside>
+        )
 
 export default SearchForm;
