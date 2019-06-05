@@ -26,7 +26,8 @@ class Routes extends Component {
 
     getVehicleList() {
         return (
-            <td>{
+          <span>
+            {
                 this.props.segments.map(segment => {
                     const vehicleList = this.props.vehicles
                     const segmentList = this.props.segments
@@ -36,7 +37,8 @@ class Routes extends Component {
                     return this.capitalizeFirstLetter(segmentName) + " "
                 }
                 )}
-            </td>
+          </span>
+
         )
     }
 
@@ -48,7 +50,7 @@ class Routes extends Component {
     render() {
 
         const segmentList = this.props.segments.map((segment, index)=> {return(
-            <Segment {...segment} key={index} 
+            <Segment {...segment} key={index}
             places={this.props.places}
             vehicles={this.props.vehicles}
             minutesToHours={this.props.minutesToHours}
@@ -57,7 +59,7 @@ class Routes extends Component {
         )})
 
         let routeClass = this.props.id === this.props.mapValue ? "marked-route" : "routes"
-        
+
         const routeRow = (<tr className={routeClass} onClick={() => this.setRouteMap()}>
             <td>
                 <img onClick={() => this.editExpandMode()} className="black-triangle"
@@ -67,7 +69,7 @@ class Routes extends Component {
                 {this.props.departurePlace.shortName}
             </td>
             <td>{this.props.arrivalPlace.shortName} </td>
-            {this.getVehicleList()}
+            <td>{this.getVehicleList()}</td>
             <td>{this.props.durationHours}</td>
             <td>{this.props.price + " " + this.props.currency}</td>
             <td className="hidden">{this.props.distance} km</td>
@@ -86,7 +88,7 @@ class Routes extends Component {
                         <th>Means of Travel</th>
                         <th colSpan="4">Transit Time</th>
                     </tr>,
-                    
+
                         segmentList
                 ]
             )
