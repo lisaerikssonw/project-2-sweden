@@ -59,7 +59,7 @@ function getPosition(route) {
   let departure = null;
   let arrival = null;
   let mapRoute = [];
-  route.segments.map(segment => {
+  route.segments.forEach(segment => {
 
     if (arrival === null) {
       departure = new Coordinates(route.places[segment.depPlace].lat, route.places[segment.depPlace].lng);

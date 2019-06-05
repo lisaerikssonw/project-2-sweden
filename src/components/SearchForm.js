@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/App.css';
 import '../styles/search-form.css';
-class SearchForm extends Component {
 
-    render() {
-        return (
-        <aside>
-            <form onSubmit={this.props.submitSearch}>
+const SearchForm = (props) => (
+
+    <aside>
+        <form onSubmit={props.submitSearch}>
             <div>
                 <fieldset>
                     <img src="images/icons/search.svg"
@@ -17,7 +16,7 @@ class SearchForm extends Component {
                         type="search"
                         name="search"
                         placeholder="From"
-                        onChange={this.props.handleOrigin}/>
+                        onChange={props.handleOrigin} />
                     <datalist id="cities">
                         <option value="🇳🇱 Amsterdam" />
                         <option value="🇨🇳 Beijing" />
@@ -48,18 +47,18 @@ class SearchForm extends Component {
                         <option value="🇨🇭 Zürich" />
                     </datalist>
 
-                    <select className="select-destination" onChange={this.props.handleDestination}>
+                    <select className="select-destination" onChange={props.handleDestination}>
                         <option value="Stockholm">Stockholm</option>
                         <option value="Aare">Åre</option>
                         <option value="Falun">Falun</option>
                     </select>
                 </fieldset>
-                </div>
+            </div>
 
-           <div className="departure-home-container">
+            <div className="departure-home-container">
                 <fieldset className="departure-home">
                     <legend>Departure date</legend>
-                    <input type="date" className="input-style" onChange={this.props.handleDeparture}/>
+                    <input type="date" className="input-style" onChange={props.handleDeparture} />
                     <img src="images/icons/calendar.svg"
                         alt="Departure date"
                         title="Choose date" />
@@ -67,42 +66,42 @@ class SearchForm extends Component {
 
                         <fieldset className="departure-home">
                             <legend>Return date</legend>
-                            <input type="date" className="input-style" onChange={this.props.handleReturn} />
+                            <input type="date" className="input-style" onChange={props.handleReturn} />
                             <img src="images/icons/calendar.svg"
                                 alt="Going home date"
                                 title="Choose date" />
                         </fieldset>
                     </div>
                     <div className="filter-container">
-                        <div className="button-filter" value={this.props.filterAirChecked} onClick={this.props.handleFilterAir}>
+                        <div className="button-filter" value={props.filterAirChecked} onClick={props.handleFilterAir}>
                             <img src="images/icons/plane-filter.png"
                                 alt="Aeroplane"
                                 title="Plane"
-                                className={this.props.filterAirChecked ? "filter-img" : "filter-img-toggled"}/>
+                                className={props.filterAirChecked ? "filter-img" : "filter-img-toggled"}/>
                         </div>
-                        <div className="button-filter" value={this.props.filterRailChecked} onClick={this.props.handleFilterRail}>
+                        <div className="button-filter" value={props.filterRailChecked} onClick={props.handleFilterRail}>
                             <img src="images/icons/rail-filter.png"
-                                alt="rail"
+                                alt="Rail"
                                 title="Rail"
-                                className={this.props.filterRailChecked ? "filter-img" : "filter-img-toggled"}/>
+                                className={props.filterRailChecked ? "filter-img" : "filter-img-toggled"}/>
                         </div>
-                        <div className="button-filter" value={this.props.filterCarChecked} onClick={this.props.handleFilterCar}>
+                        <div className="button-filter" value={props.filterCarChecked} onClick={props.handleFilterCar}>
                             <img src="images/icons/car.png"
-                                alt="car"
+                                alt="Car"
                                 title="Car"
-                                className={this.props.filterCarChecked ? "filter-img" : "filter-img-toggled"}/>
+                                className={props.filterCarChecked ? "filter-img" : "filter-img-toggled"}/>
                         </div>
-                        <div className="button-filter" value={this.props.filterFerryChecked} onClick={this.props.handleFilterFerry}>
+                        <div className="button-filter" value={props.filterFerryChecked} onClick={props.handleFilterFerry}>
                             <img src="images/icons/ferry.png"
-                                alt="ferry"
+                                alt="Ferry"
                                 title="Ferry"
-                                className={this.props.filterFerryChecked ? "filter-img" : "filter-img-toggled"}/>
+                                className={props.filterFerryChecked ? "filter-img" : "filter-img-toggled"}/>
                         </div>
-                        <div className="button-filter" value={this.props.filterBusChecked} onClick={this.props.handleFilterBus}>
+                        <div className="button-filter" value={props.filterBusChecked} onClick={props.handleFilterBus}>
                             <img src="images/icons/bus-filter.png"
-                                alt="bus"
+                                alt="Bus"
                                 title="Bus"
-                                className={this.props.filterBusChecked ? "filter-img" : "filter-img-toggled"}/>
+                                className={props.filterBusChecked ? "filter-img" : "filter-img-toggled"}/>
                         </div>
                     </div>
                     <hr/>
@@ -114,5 +113,6 @@ class SearchForm extends Component {
         )
     }
 }
+
 
 export default SearchForm;
