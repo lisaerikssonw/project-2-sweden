@@ -20,7 +20,8 @@
 }
 
 .city-img {
-  max-width: 100em;
+  width: 600px;
+  height: auto;
   border: 0.5px solid black;
 }
 
