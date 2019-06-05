@@ -10,6 +10,24 @@ const stockholm = new Coordinates(59.32932, 18.06858);
 
 
 class RouteMap extends Component {
+constructor(props){
+  super(props)
+
+    this.state = {
+      animationOn:true,
+      animationValueDep:1,
+      animationValueArr:1
+    }
+
+    this.changeAnimation = this.changeAnimation.bind(this)
+}
+
+changeAnimation(animationValue){
+
+
+  animationValue === 1 ? this.setState({animationValue:0}) : this.setState({animationValue:1})
+}
+
 
 
   render() {
@@ -36,7 +54,6 @@ class RouteMap extends Component {
             zoom={3}
           >
             <Polyline
-
               path={getPosition(route)}
               options={{
                 strokeColor: "#FF0000",
@@ -47,11 +64,13 @@ class RouteMap extends Component {
               }}
             />
             <Marker
+              onClick={this.changeAnimation}
               position={departurePlace}
-              animation={2}
+              animation={this.state.animationValueDep}
             />
             <Marker
               position={arrivalPlace}
+              animation={this.state.animationValueArr}
             />
 
           </GoogleMap>
@@ -64,6 +83,17 @@ class RouteMap extends Component {
 function Coordinates(latitude, longitude) {
   this.lat = latitude;
   this.lng = longitude;
+}
+
+function getArrival(route){
+
+  let arrival = null;
+  route.segments.map(segment => {
+
+      arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng);
+  
+    })
+    return arrival;
 }
 
 function getPosition(route) {

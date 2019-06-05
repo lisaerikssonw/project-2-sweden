@@ -21,7 +21,6 @@ class SearchResults extends Component {
     this.setColumnState = this.setColumnState.bind(this)
     this.setMapValue = this.setMapValue.bind(this)
 
-
   }
 
   sortPriceAscending = () => (a, b) => b.price - a.price
@@ -66,7 +65,6 @@ class SearchResults extends Component {
       .sort(sortFunction)
       .map(route => {
         return (
-
           <Route setMapValue={this.setMapValue} minutesToHours={this.props.minutesToHours} {...route} key={route.id}
             routes={this.props.routes} mapValue={this.state.mapValue} />
         )
@@ -75,7 +73,7 @@ class SearchResults extends Component {
       <article className="center-results">
         <table className="result-table">
           <caption className="search-caption">Search results</caption>
-          <tbody className="searchResults">
+          <tbody className="search-results">
             <tr>
               <th>From</th>
               <th>To</th>

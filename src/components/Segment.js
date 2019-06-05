@@ -9,11 +9,11 @@ class Segment extends Component {
                 return ([
 
                     <tr className="segment">
-                        <td>{this.props.places[segment.depPlace].shortName}</td>
-                        <td>{this.props.places[segment.arrPlace].shortName}</td>
-                        <td>{this.props.vehicles[segment.vehicle].name}</td>
-                        <td colSpan="4">{this.props.minutesToHours(segment.transitDuration)}</td>
-                    </tr>
+                        <td className="tabledata-style">{this.props.places[segment.depPlace].shortName}</td>
+                        <td className="tabledata-style">{this.props.places[segment.arrPlace].shortName}</td>
+                        <td className="tabledata-style">{this.props.vehicles[segment.vehicle].name}</td>
+                        <td className="tabledata-style">{this.props.minutesToHours(segment.transitDuration)}</td>
+                    </tr>  
                 ]
                 )
             })

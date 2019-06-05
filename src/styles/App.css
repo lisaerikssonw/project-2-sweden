@@ -54,7 +54,6 @@
 }
 
 .input-style {
-
   border:none;
   padding:1%;
   background: rgb(230,230,230);
@@ -66,19 +65,9 @@
   cursor: text;
 }
 
-td {
-    padding-right: 1.5em;
-    padding-top: 1em;
-  }
-
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color:#006699;
-  color: #ffcc00;
-  z-index: 1;
+.tabledata-style {
+  padding-right: 1.5em;
+  padding-top: 1em;
 }
 
 .button-style {

@@ -56,62 +56,26 @@ class Routes extends Component {
             {this.getVehicleList()}
             <td>{this.props.durationHours}</td>
             <td>{this.props.price + " " + this.props.currency}</td>
-            <td className="hidden">{this.props.distance} km</td>
             <td className="hidden">{this.props.segments.length}</td>
+            <td className="google-map-icon"><img alt="google map icon" onClick={()=>{
+                            let map = document.getElementById("map")
+                            map.scrollIntoView({behavior: "smooth", inline: "nearest"});
+
+                        }} src="\images\icons\GoogleMaps.png"></img></td>
         </tr>)
 
         if (this.state.expandMode === false) {
-            return (
-                <tr className={routeClass} onClick={()=> this.setRouteMap()} >
-                    <td>
-                        <img onClick={() => this.editExpandMode()} className="black-triangle"
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle-right.png"}
-                            alt="Triangle pointing right"
-                            title="Expand"
-                            />
-                        {this.props.departurePlace.shortName}
-                    </td>
-                    <td>{this.props.arrivalPlace.shortName} </td>
-                    {this.getVehicleList()}
-                    <td>{this.props.durationHours}</td>
-                    <td>{this.props.price + " " + this.props.currency}</td>
-                    <td className="hidden">{this.props.segments.length}</td>
-                    <td className="google-map-icon"><img alt="google map icon" onClick={()=>{
-                            let map = document.getElementById("map")
-                            map.scrollIntoView({behavior: "smooth", inline: "nearest"});
-
-                        }} src="\images\icons\GoogleMaps.png"></img></td>
-                </tr>
-            )
+            return routeRow
         } else {
             return (
-                [<tr className={routeClass} onClick={() => this.setRouteMap()}>
-                    <td>
-                        <img className="black-triangle"
-                            onClick={()=>this.editExpandMode()}
-                            src={process.env.PUBLIC_URL + "/images/icons/triangle.png"}
-                            alt="Triangle pointing down"
-                            title="Collapse" />
-                        {this.props.departurePlace.shortName}
-                    </td>
-                    <td>{this.props.arrivalPlace.shortName}</td>
-                    {this.getVehicleList()}
-                    <td>{this.props.durationHours}</td>
-                    <td>{this.props.price + " " + this.props.currency}</td>
-                    <td className="hidden">{this.props.segments.length}</td>
-                    <td className="google-map-icon"><img alt="google map icon" onClick={()=>{
-                            let map = document.getElementById("map")
-                            map.scrollIntoView({behavior: "smooth", inline: "nearest"});
-
-                        }} src="\images\icons\GoogleMaps.png"></img></td>
-                </tr>,
-                <tr className="segment">
-                    <th>Departure Place</th>
-                    <th>Arrival Place</th>
-                    <th>Means of Travel</th>
-                    <th>Transit Time</th>
-                    <th>Map</th>
-                </tr>,
+                [
+                    routeRow,
+                    <tr className="segment">
+                        <th>Departure Place</th>
+                        <th>Arrival Place</th>
+                        <th>Means of Travel</th>
+                        <th colSpan="4">Transit Time</th>
+                    </tr>,
 
                     <Segment
                         segments={this.props.segments}
