@@ -52,6 +52,12 @@ const SearchForm = (props) => (
                         <option value="Aare">Åre</option>
                         <option value="Falun">Falun</option>
                     </select>
+
+                    <select className="select-destination" onChange={props.handleCurrency}>
+                        <option value="USD">USD</option>
+                        <option value="SEK">SEK</option>
+                        <option value="EUR">EURO</option>
+                    </select>
                 </fieldset>
             </div>
 
