@@ -66,8 +66,12 @@ class Routes extends Component {
             <td>{this.getVehicleList()}</td>
             <td>{this.props.durationHours}</td>
             <td>{this.props.price + " " + this.props.currency}</td>
-            <td className="hidden">{this.props.distance} km</td>
             <td className="hidden">{this.props.segments.length}</td>
+            <td className="google-map-icon"><img alt="google map icon" onClick={()=>{
+                            let map = document.getElementById("map")
+                            map.scrollIntoView({behavior: "smooth", inline: "nearest"});
+
+                        }} src="\images\icons\GoogleMaps.png"></img></td>
         </tr>)
 
         if (this.state.expandMode === false) {

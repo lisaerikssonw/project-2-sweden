@@ -88,14 +88,12 @@ class SearchResults extends Component {
                 <SortArrows name="price" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
               </th>
               <th
-                onClick={() => this.setColumnState('distance')}
-                className="hidden">Distance
-                <SortArrows name="distance" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
-              </th>
-              <th
                 onClick={() => this.setColumnState('transits')}
                 className="hidden">Transits
                 <SortArrows name="transits" sortColumn={this.state.sortColumn} sortAscending={this.state.sortAscending} />
+              </th>
+              <th className="hidden">
+                Map
               </th>
             </tr>
             {routeList}
