@@ -49,6 +49,7 @@ td {
   color: #ffcc00;
   z-index: 1;
   width: 10em;
+  border: none;
 }
 
 .button-style {
@@ -64,7 +65,8 @@ td {
 }
 
 .button-style:focus{
-  border: 0.2em solid #ffcc00;
+  background: #ffcc00;
+  color: #006699;
   font-weight: bold;
 }
 
