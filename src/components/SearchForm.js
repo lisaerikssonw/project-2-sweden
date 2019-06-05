@@ -111,8 +111,5 @@ const SearchForm = (props) => (
                 </form>
             </aside>
         )
-    }
-}
-
 
 export default SearchForm;
