@@ -54,7 +54,8 @@ class MainBody extends Component {
                 filterRailChecked={this.props.filterRailChecked}
                 filterCarChecked={this.props.filterCarChecked}
                 filterFerryChecked={this.props.filterFerryChecked}
-                filterBusChecked={this.props.filterBusChecked}/>
+                filterBusChecked={this.props.filterBusChecked}
+                handleCurrency={this.props.handleCurrency}/>
 
                 {this.props.routes.length ? <SearchResults
                 routes={this.props.routes}

@@ -21,6 +21,7 @@ class App extends Component {
       destination: 'Stockholm',
       departureDate: '',
       returnDate: '',
+      currencyCodeURL: 'USD',
       routes: [],
       places: [],
       filterAirChecked: props.filterAirChecked || true, //boolean for filter buttons if checked or not
@@ -47,9 +48,19 @@ class App extends Component {
     this.handleFilterCar = this.handleFilterCar.bind(this)
     this.handleFilterFerry = this.handleFilterFerry.bind(this)
     this.handleFilterRail = this.handleFilterRail.bind(this)
+    this.handleCurrency = this.handleCurrency.bind(this)
 
     this.minutesToHours = this.minutesToHours.bind(this)
     this.handlePageState = this.handlePageState.bind(this)
+
+  }
+
+  handleCurrency(event) {
+    this.setState({
+
+      currencyCodeURL: event.target.value
+
+    })
 
   }
 
@@ -85,62 +96,62 @@ class App extends Component {
   }
 
   handleFilterAir() {
-    if(this.state.filterAir.valueOf("&noAir")) {
+    if (this.state.filterAir.valueOf("&noAir")) {
       this.setState({ filterAir: "" })
-      this.setState({filterAirChecked: true})
+      this.setState({ filterAirChecked: true })
     } else {
       this.setState({ filterAir: "&noAir" })
-      this.setState({filterAirChecked: false})
+      this.setState({ filterAirChecked: false })
     }
   }
 
   handleFilterRail() {
-    if(this.state.filterRail.valueOf("&noRail")) {
+    if (this.state.filterRail.valueOf("&noRail")) {
       this.setState({ filterRail: "" })
-      this.setState({filterRailChecked: true})
+      this.setState({ filterRailChecked: true })
     } else {
       this.setState({ filterRail: "&noRail" })
-      this.setState({filterRailChecked: false})
+      this.setState({ filterRailChecked: false })
     }
   }
 
   handleFilterCar() {
-    if(this.state.filterCar.valueOf("&noCar")) {
+    if (this.state.filterCar.valueOf("&noCar")) {
       this.setState({ filterCar: "" })
-      this.setState({filterCarChecked: true})
+      this.setState({ filterCarChecked: true })
     } else {
       this.setState({ filterCar: "&noCar" })
-      this.setState({filterCarChecked: false})
+      this.setState({ filterCarChecked: false })
     }
   }
 
   handleFilterFerry() {
-    if(this.state.filterFerry.valueOf("&noFerry")) {
+    if (this.state.filterFerry.valueOf("&noFerry")) {
       this.setState({ filterFerry: "" })
-      this.setState({filterFerryChecked: true})
+      this.setState({ filterFerryChecked: true })
     } else {
       this.setState({ filterFerry: "&noFerry" })
-      this.setState({filterFerryChecked: false})
+      this.setState({ filterFerryChecked: false })
     }
   }
 
   handleFilterBus() {
-    if(this.state.filterBus.valueOf("&noBus")) {
+    if (this.state.filterBus.valueOf("&noBus")) {
       this.setState({ filterBus: "" })
-      this.setState({filterBusChecked: true})
+      this.setState({ filterBusChecked: true })
     } else {
       this.setState({ filterBus: "&noBus" })
-      this.setState({filterBusChecked: false})
+      this.setState({ filterBusChecked: false })
     }
   }
 
-  minutesToHours(timeInMinutes){
+  minutesToHours(timeInMinutes) {
 
-    if(timeInMinutes<60){
+    if (timeInMinutes < 60) {
 
       return timeInMinutes + " Min";
-    }else {
-      let sum = timeInMinutes/60;
+    } else {
+      let sum = timeInMinutes / 60;
       return sum.toFixed(1) + "h";
 
     }
@@ -148,70 +159,71 @@ class App extends Component {
 
   sendRequest() {
     fetch(`${url}key=${apiKey}&oName=${this.state.origin}&dName=${this.state.destination}
-    &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar${this.state.filterAir}${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
+    &noRideshare&noMinorStart&noMinorEnd&noSpecial&noBikeshare&noTowncar&currencyCode=${this.state.currencyCodeURL}${this.state.filterAir}${this.state.filterRail}${this.state.filterBus}${this.state.filterFerry}${this.state.filterCar}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
           routes: data.routes.map((route, index) =>
 
-          route = {
-            id: index,
-            name: route.name,
-            departurePlace: data.places[0],
-            arrivalPlace: data.places[1],
-            distance: route.distance,
-            totalDuration: route.totalDuration,
-            price: route.indicativePrices ? route.indicativePrices[0].price : " ",
-            currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
-            segments: route.segments,
-            vehicles: data.vehicles,
-            places: data.places,
-            currencyCode: data.currencyCode,
-            durationMinutes: route.totalDuration,
-            durationHours: this.minutesToHours(route.totalDuration)
-          })
+            route = {
+              id: index,
+              name: route.name,
+              departurePlace: data.places[0],
+              arrivalPlace: data.places[1],
+              distance: route.distance,
+              totalDuration: route.totalDuration,
+              price: route.indicativePrices ? route.indicativePrices[0].price : " ",
+              currency: route.indicativePrices ? route.indicativePrices[0].currency : "-",
+              segments: route.segments,
+              vehicles: data.vehicles,
+              places: data.places,
+              currencyCode: data.currencyCode,
+              durationMinutes: route.totalDuration,
+              durationHours: this.minutesToHours(route.totalDuration)
+            })
         })
       })
       .catch(error => console.log(error))
   }
 
   handlePageState(editPage) {
-    this.setState({page: editPage})
+    this.setState({ page: editPage })
   }
 
   render() {
 
     return (
-        <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
 
-            <Header page={this.state.page} handlePageState={this.handlePageState} />
+        <Header page={this.state.page} handlePageState={this.handlePageState} />
 
-            <hr />
-            <main>
-            <MainBody
-              page={this.state.page}
-              submitSearch={this.submitSearch}
-              handleFilterAir={this.handleFilterAir}
-              handleFilterRail={this.handleFilterRail}
-              handleFilterCar={this.handleFilterCar}
-              handleFilterFerry={this.handleFilterFerry}
-              handleFilterBus={this.handleFilterBus}
-              handleOrigin={this.handleOrigin}
-              handleDestination={this.handleDestination}
-              handleDeparture={this.handleDeparture}
-              handleReturn={this.handleReturn}
-              routes={this.state.routes}
-              minutesToHours = {this.minutesToHours}
-              filterAirChecked = {this.state.filterAirChecked}
-              filterRailChecked = {this.state.filterRailChecked}
-              filterCarChecked = {this.state.filterCarChecked}
-              filterFerryChecked = {this.state.filterFerryChecked}
-              filterBusChecked = {this.state.filterBusChecked}/>
-              </main>
-            <hr />
-            <Footer />
+        <hr />
+        <main>
+          <MainBody
+            page={this.state.page}
+            submitSearch={this.submitSearch}
+            handleFilterAir={this.handleFilterAir}
+            handleFilterRail={this.handleFilterRail}
+            handleFilterCar={this.handleFilterCar}
+            handleFilterFerry={this.handleFilterFerry}
+            handleFilterBus={this.handleFilterBus}
+            handleOrigin={this.handleOrigin}
+            handleDestination={this.handleDestination}
+            handleDeparture={this.handleDeparture}
+            handleReturn={this.handleReturn}
+            routes={this.state.routes}
+            minutesToHours={this.minutesToHours}
+            filterAirChecked={this.state.filterAirChecked}
+            filterRailChecked={this.state.filterRailChecked}
+            filterCarChecked={this.state.filterCarChecked}
+            filterFerryChecked={this.state.filterFerryChecked}
+            filterBusChecked={this.state.filterBusChecked}
+            handleCurrency={this.handleCurrency} />
+        </main>
+        <hr />
+        <Footer />
 
-        </div>
+      </div>
     );
   }
 }
