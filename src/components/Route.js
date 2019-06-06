@@ -71,7 +71,12 @@ class Routes extends Component {
             <td>{this.props.arrivalPlace.shortName} </td>
             <td className="hidden">{this.getVehicleList()}</td>
             <td><time datetime={`${this.props.durationMinutes}M`}>{this.props.durationHours}</time></td>
-            <td>{this.props.price + " " + this.props.currency}</td>
+            <td>
+              {this.props.price + " "}
+              <span className="hidden">
+                {this.props.currency}
+              </span>
+            </td>
             <td className="hidden">{this.props.segments.length}</td>
             <td className="google-map- hidden"><img
                             alt="Google map icon"
