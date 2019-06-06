@@ -77,6 +77,7 @@ class Routes extends Component {
                 {this.props.currency}
               </span>
             </td>
+
             <td className="hidden">{this.props.segments.length}</td>
             <td className="google-map- hidden"><img
                             alt="Google map icon"
