@@ -13,6 +13,20 @@
 
   }
 
+  /* search results-table */
+  .searchResults {
+  }
+
+  .searchResults th {
+      font-size: 0.7em;
+      padding-right: 0;
+  }
+
+  .searchResults td {
+      font-size: 0.5em;
+  }
+
+
 }
 @media only screen and (max-width: 999px) {
   .icon {
