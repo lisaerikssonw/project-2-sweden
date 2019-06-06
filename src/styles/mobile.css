@@ -14,9 +14,6 @@
   }
 
   /* search results-table */
-  .result-table {
-  }
-
 
   .searchResults th {
       font-size: 0.8em;
@@ -25,11 +22,7 @@
   .searchResults td {
       font-size: 0.8em;
       padding: 0.2em;
-      border: 1px solid grey;
-  }
-
-  .searchResults-border td {
-    border: 1px solid grey;
+      border: 1px solid #d3d3d3;
   }
 
 
