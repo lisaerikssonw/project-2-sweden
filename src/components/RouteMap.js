@@ -25,7 +25,7 @@ constructor(props){
 changeAnimationDep(){
 
   this.state.animationValueDep===1 ? this.setState({animationValueDep:0}) : this.setState({animationValueDep:1})
-  
+
 
 }
 changeAnimationArr(){
@@ -53,8 +53,8 @@ changeAnimationArr(){
           <GoogleMap
             id="example-map"
             mapContainerStyle={{
-              height: "25em",
-              width: "45em"
+              height: "20em",
+              width: "30em"
             }}
             center={stockholm}
             zoom={3}
@@ -98,7 +98,7 @@ function getArrival(route){
   route.segments.map(segment => {
 
       arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng);
-  
+
     })
     return arrival;
 }
@@ -130,6 +130,3 @@ function getPosition(route) {
 
 
 export default RouteMap;
-
-
-

@@ -7,10 +7,11 @@ const SearchForm = (props) => (
     <aside>
         <form onSubmit={props.submitSearch}>
             <div>
-                <fieldset>
-                    <img src="images/icons/search.svg"
-                        alt="Magnifying glass"
-                        title="Search" />
+                <fieldset className="search-field">
+                <legend><img src="images/icons/search.svg"
+                    alt="Magnifying glass"
+                    title="Search" /></legend>
+
                     <input className="cities input-style"
                         list="cities"
                         type="search"
@@ -52,8 +53,8 @@ const SearchForm = (props) => (
                         <option value="Aare">Åre</option>
                         <option value="Falun">Falun</option>
                     </select>
-
                     <select className="select-field" onChange={props.handleCurrency}>
+                        <option value="USD">--Please select a currency--</option>
                         <option value="USD">USD</option>
                         <option value="SEK">SEK</option>
                         <option value="EUR">EURO</option>
@@ -63,19 +64,25 @@ const SearchForm = (props) => (
 
             <div className="departure-home-container">
                 <fieldset className="departure-home">
-                    <legend>Departure date</legend>
+                    <legend>
+                      <img src="images/icons/calendar.svg"
+                          alt="Departure date"
+                          title="Choose date" />
+                          Departure date
+                    </legend>
                     <input type="date" className="input-style" onChange={props.handleDeparture} />
-                    <img src="images/icons/calendar.svg"
-                        alt="Departure date"
-                        title="Choose date" />
+
                 </fieldset>
 
                         <fieldset className="departure-home">
-                            <legend>Return date</legend>
+                            <legend>
+                              <img src="images/icons/calendar.svg"
+                                  alt="Going home date"
+                                  title="Choose date" />
+                                  Return date
+                            </legend>
                             <input type="date" className="input-style" onChange={props.handleReturn} />
-                            <img src="images/icons/calendar.svg"
-                                alt="Going home date"
-                                title="Choose date" />
+
                         </fieldset>
                     </div>
                     <div className="filter-container">

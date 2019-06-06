@@ -69,18 +69,24 @@ class Routes extends Component {
                 {this.props.departurePlace.shortName}
             </td>
             <td>{this.props.arrivalPlace.shortName} </td>
-            <td>{this.getVehicleList()}</td>
+            <td className="hidden">{this.getVehicleList()}</td>
             <td><time datetime={`${this.props.durationMinutes}M`}>{this.props.durationHours}</time></td>
-            <td>{this.props.price + " " + this.props.currency}</td>
+            <td>
+              {this.props.price + " "}
+              <span className="hidden">
+                {this.props.currency}
+              </span>
+            </td>
+
             <td className="hidden">{this.props.segments.length}</td>
-            <td className="google-map-icon"><img
+            <td className="google-map- hidden"><img
                             alt="Google map icon"
-                            title="Map Icon" 
+                            title="Map Icon"
                             onClick={()=>{
                               let map = document.getElementById("map")
                               map.scrollIntoView({behavior: "smooth", inline: "nearest"});
 
-                        }} src="\images\icons\googlemaps.png"></img></td>
+                        }} src="/images/icons/googlemaps.png"></img></td>
         </tr>)
 
         if (this.state.expandMode === false) {
