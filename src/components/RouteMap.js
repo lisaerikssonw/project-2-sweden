@@ -53,8 +53,8 @@ changeAnimationArr(){
           <GoogleMap
             id="example-map"
             mapContainerStyle={{
-              height: "20em",
-              width: "30em"
+              height: "60vh",
+              width: "80vw"
             }}
             center={stockholm}
             zoom={3}
