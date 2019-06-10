@@ -92,17 +92,6 @@ function Coordinates(latitude, longitude) {
   this.lng = longitude;
 }
 
-function getArrival(route){
-
-  let arrival = null;
-  route.segments.map(segment => {
-
-      arrival = new Coordinates(route.places[segment.arrPlace].lat, route.places[segment.arrPlace].lng);
-
-    })
-    return arrival;
-}
-
 function getPosition(route) {
   let departure = null;
   let arrival = null;
@@ -110,7 +99,7 @@ function getPosition(route) {
   let surfaceRoute = [];
 
 
-  route.segments.map(segment => {
+  route.segments.forEach(segment => {
 
     if (segment.segmentKind === "surface") {
       surfaceRoute = decodePolyline(segment.path)
