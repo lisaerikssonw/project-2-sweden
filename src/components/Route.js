@@ -70,7 +70,7 @@ class Routes extends Component {
             </td>
             <td>{this.props.arrivalPlace.shortName} </td>
             <td className="hidden">{this.getVehicleList()}</td>
-            <td><time datetime={`${this.props.durationMinutes}M`}>{this.props.durationHours}</time></td>
+            <td><time dateTime={`${this.props.durationMinutes}M`}>{this.props.durationHours}</time></td>
             <td>
               {this.props.price + " "}
               <span className="hidden">

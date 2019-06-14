@@ -7,7 +7,7 @@ const Segment = (props) => (
 <td>{props.places[props.arrPlace].shortName}</td>
 <td>{props.capitalizeFirstLetter(props.vehicles[props.vehicle].name)}</td>
 <td colSpan="4">
-  <time datetime={`${props.durationMinutes}M`}>
+  <time dateTime={`${props.durationMinutes}M`}>
     {props.minutesToHours(props.transitDuration)}
   </time>
 </td>
