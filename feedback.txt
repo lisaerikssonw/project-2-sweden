@@ -1,0 +1,26 @@
+
+Feedback from Kenneth Österholm
+2019-06-19
+
+= = HTML = =
+Good use of semantic elements
+
+= = CSS = =
+Good use of Flexbox
+Good use of media queries
+Good use of class-names instead of selecting by tagname.
+
+= = React / JS = =
+There is no need to call setState multiple times.
+You can set multiple values at the same time like:
+  setState({
+    filterAir: "",
+    filterAirChecked: true
+  })
+
+Good use of functional components when the component
+only return jsx-elements and has no need for state.
+
+Many complexed features has been created with 
+an advanced usage of JavaScript. 
+Very good job !!
